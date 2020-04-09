@@ -1,0 +1,127 @@
+{% extends 'game/base.html' %}
+
+{% block css %}
+<style>
+    h1{
+        text-align: center;
+        font-size: 80px;
+        color: rgb(204, 166, 240);
+        font-weight: 400;
+         font-family: 'Raleway', sans-serif;
+        margin:20px;
+    }
+    h5{
+        margin:10px;
+        color:chartreuse;
+        text-align: center;
+
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+    
+    <h1>{{product.product_name}}</h1>
+    <h5>{{product.desc}}</h5>
+    
+    
+  
+    <img src="/media/{{product.image}}" alt="">
+
+    <div id="like-section">
+        {% include 'game/like_section.html' %}
+    </div>
+    <div id="fav-section">
+        {% include 'game/fav_section.html' %}
+    </div>
+   <!-- PRODUCT CONTAINER  -->
+
+   <main>
+    <section class="single-product-container">
+
+        <div class="introduction">
+            <div class="introduction productInfo-section">
+                <h2 class="productName">Apple AirPods</h2>
+                <h5 class="text-muted">with Charging Case Bluetooth Headset with Mic  (White, True Wireless)</h5>
+
+
+                <div class="reviewRating">
+                    <a href="#"><i class="fa fa-heart"></i></a>
+                    <div class="favBtn">Bookmark</div>
+                </div>
+
+                <div class="reviewPara">
+                    <p>
+                        AirPods with Charging Case. More magical than ever. The new AirPods combine intelligent design with breakthrough technology and crystal clear sound. Powered by the new Apple H1 headphone chip, AirPods now feature hands-free access to Siri using just your voice. And up to 3 hours of talk time on a single charge.</p>
+                        <p>
+                        <h4>Features</h4>
+                        <li>Model Name : MV7N2HN/A</li>
+                        <li>Color : White or Black</li>
+                        <li>Headphone Type : True Wireless</li>
+                        <li>Inline Remote : No</li>
+                        <li> Sales Package: AirPods, Charging Case, Lightning to USB Cable</li>
+                        <li> Connectivity : Bluetooth</li> 
+                                                                  
+                    </p>
+                  
+                </div>
+
+                <div class="unboxingLink">
+                    <a href="https://www.youtube.com/watch?v=sV_sz8TF7kg">
+                        <img src="../images/uthoob.png" width="100p%" alt="">
+                    </a>
+                </div>
+
+                <div class="productLink">
+                    <span>
+                        <a
+                            href="https://www.amazon.in/FreshTrend-Black-Rainbow-Cotton-Tshirt/dp/B07Y81PXX5/ref=pd_rhf_se_p_img_5?_encoding=UTF8&psc=1&refRID=WNP2DX61SCDVS6T0DF2A">Amazon</a>
+                    </span>
+
+                    <span>
+                        <a
+                            href="https://www.flipkart.com/apple-airpods-charging-case-bluetooth-headset-mic/p/itm0ff1a0e3d5eb4?pid=ACCFF2R85H8YG4WH&lid=LSTACCFF2R85H8YG4WHAXWRYV&marketplace=FLIPKART&spotlightTagId=BestsellerId_0pm%2Ffcn&srno=s_1_1&otracker=AS_QueryStore_OrganicAutoSuggest_2_3_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_2_3_na_na_na&fm=SEARCH&iid=2bf17d64-da19-4ca7-88c6-a88c0dbc6cfc.ACCFF2R85H8YG4WH.SEARCH&ppt=sp&ppn=sp&ssid=nghk5aw9340000001585585853851&qH=b138a01d28163f61">
+                            Flipkart</a>
+                    </span>
+
+                    <span>
+                        <a
+                            href="https://www.myntra.com/casual-shoes/nike/nike-women-black-air-max-infinity-sneakers/10714480/buy">Myntra</a>
+                    </span>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="productImg-section">
+            <img src="../images/bbb.png" alt="matebook" />
+        </div>
+
+    </section>
+
+    <img class="big-circle" src="../images/big-eclipse.svg" alt="" />
+    <img class="medium-circle" src="../images/mid-eclipse.svg" alt="" />
+    <img class="small-circle" src="../images/small-eclipse.svg" alt="" />
+</main>
+
+{% endblock %}
+    
+
+
+    
+    <!-- <i class="fas fa-heart"></i>
+
+
+    <i class="far fa-heart"></i> -->
+
+    <!-- <div id="favourite-section">
+        <a href="#">
+            <i class="far fa-heart fa-lg"></i>
+        </a>
+    </div>
+    <p>Favourites: {{products.favourites.count}}</p> -->
+
+

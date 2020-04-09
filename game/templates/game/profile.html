@@ -1,0 +1,201 @@
+<!doctype html>
+
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'css/profilepage.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <title>Profile/Gamer's Lobby</title>
+
+</head>
+<style>
+    .edit-profile{
+        background: #412408;
+        border-radius: 4px;
+        box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+        color: #ffffff;
+        margin-top: 18px;
+        padding:10px 6px 10px 8px;
+        position: relative;
+        text-decoration: none;
+        float:right;
+    }
+    .edit-profile a{
+        color:rgb(240, 233, 233);
+    }
+    label{
+        margin:5px;
+        position: relative;
+
+    }
+    input{
+        width:100%;
+        height:50%;
+    }
+    span{
+        margin-top:2px;
+        position: relative;
+    }
+    span p{
+        padding-left: 5px;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        position: relative;
+    }
+    .h{
+        margin-top:25px;
+    }
+    .gen{
+        margin-left: 15px;
+        font-size: 20px;
+    }
+    .change_password{
+        background: #412408;
+        border-radius: 4px;
+        box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+        color: #ffffff;
+        margin-top: 18px;
+        padding:8px 10px 8px 10px;
+        position: relative;
+        text-decoration: none;
+        float:right;
+    }
+    .change_password a{
+        color: azure;
+    }
+
+</style>
+<body>
+
+
+
+
+
+    <!-- USER PROFILE -->
+
+    <div class="profile-container">
+
+        <div class="profileSection1">
+
+            <div class="profileIntro">
+                <img src="" height="150px" width="150px" alt="no-img">
+                <h5>Hey,</h5>
+                <span>{{user.username}}</span>
+            </div>
+
+            <div class="profileToggle">
+                <div class="profileNotifications"> <i class="fa fa-bell"></i> All Notifications</div>
+                <div class="profileOrders"> <i class="fa fa-shopping-bag"></i> My Orders</div>
+                <div class="profileCoupons"> <i class="fa fa-gift"></i>My Giftcards/Coupons</div>
+                <div class="profileWishlist"> <a href="#!"> <i class="fa fa-bookmark"></i> My WishList</a> </div>
+                <div class="profileReviews"> <i class="fa fa-edit"></i> My Ratings & Reviews</div>
+                <div class="profileFAQs"> <a href="#!"> <i class="fa fa-book"></i> FAQs</a> </div>
+            </div>
+
+            <div class="usage-section">
+
+                <a href="#!">Terms of Use</a>
+                <a href="#!">Privacy</a>
+                <a href="#!">Security</a>
+    
+            </div>
+
+        </div>
+
+        
+
+            <div class="profileSection2">
+
+
+                <div class="user-info">
+                    <div class="edit-profile">
+                        <a href="{% url 'edit_profile' %}">Edit Your Profile</a>
+                    </div>
+                    <div class="user-headings">
+                        Personal Information
+                    </div>
+
+                    <div class="user-input-names">
+                        <input type="text" disabled placeholder="{{user.first_name}}" name="name" id="first-name">
+                        <input type="text" disabled placeholder="{{user.last_name}}" name="name" id="last-name">
+                    </div>
+
+                    <div class="gender-info">
+                        <div class="mini-user-headings">Your Gender</div>
+                        <p class="gen">{{user.profile.gender}}</p>
+                    </div>
+                </div>
+
+                <div class="change-password">
+
+                    <div class="user-headings">Change Password
+                        <div class="change_password">
+                            <a href="{% url 'password_change' %}">Change Password</a>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+
+                <div class="address-container">
+
+                    <div class="user-headings">Delivery Address
+                    </div>
+                    <div class="address-grid">
+                        <label for="add-line-1"><span><p>StreetAddress -1</p></span> 
+                        <input class="add-box add-box1" disabled type="text" placeholder="{{user.profile.address1}}" name="add-line-1"
+                            id="add-line-1">
+                        </label>
+                        <label for="add line-2"><span><p>StreetAddress -2</p> </span>    
+                        <input class="add-box add-box2" disabled type="text" placeholder="{{user.profile.address2}}" name="add-line-2"
+                            id="add-line-2">
+                        </label>
+                        <label for="city"><span><p>City</p></span>
+                        <input class="add-box add-box3" disabled type="text" placeholder="{{user.profile.city}}" name="city" id="city">
+                        </label>
+                        <label for="state"><span><p>State</p></span>
+                            <input class="add-box add-box4" disabled type="text" placeholder="{{user.profile.state}}" name="state" id="state">
+                        </label>
+                        <label for="pincode"><span><p>Pin</p></span>
+                            <input class="add-box add-box5" disabled type="text" placeholder="{{user.profile.pin}}" name="pincode" id="pincode">
+                        </label>
+                        <label for="country"><span><p>Country</p></span>
+                            <input class="add-box add-box6" disabled type="text" placeholder="{{user.profile.country}}" name="country" id="country">
+                        </label>
+                        <label for="mobile-number"><span><p class="h"> Mobile No.</p></span>
+                            <input class="add-box add-box7" disabled type="tel" placeholder="{{user.profile.mobileno}}" name="mobile-number" id="mobile-number">
+                        </label>
+                        
+                        
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+
+
+  
+
+    <!-- <script src="{%static 'js/profilepage.js' %}"></script> -->
+    
+
+</body>
+
+</html>

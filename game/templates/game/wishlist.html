@@ -1,0 +1,14 @@
+{% extends 'game/base.html' %}
+
+
+{% block body %}
+
+
+{% for i in liked_products %}
+<p>Here is the liked product by you,you may want to buy </p>
+
+<li>Post: {{ i.product_name }}</li>
+<a href="{%url 'detailproduct' i.pk %}">Go to the product details</a>
+{% endfor %}
+
+{% endblock %}

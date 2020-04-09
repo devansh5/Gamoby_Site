@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title %} {% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navigation-bar.css' %}">
+    <link rel="stylesheet" href="{% static '/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static '/css/circular-nav.css' %}">
+    <link rel="stylesheet" href="{% static '/css/loginSignPage.css' %}">
+    <link rel="stylesheet" href="{% static '/css/aboutPage.css' %}">
+    <link rel="stylesheet" href="{% static '/css/contactPage.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+{% block css %}
+
+{% endblock %}
+
+<body>
+
+    
+   
+
+
+    <section>
+        <div class="scroll-button">
+            <a id="return-to-top" title="Back to top" href="#top"><i class="fa fa-arrow-up"></i></a>
+     
+        </div>
+    </section>
+
+    <!-- LOGIN/SIGNUP -->
+    <section class="pop-up modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content login-modal-content">
+            <button type="button" class="close close-modalBtn" data-dismiss="modal"
+                data-target=".bd-example-modal-lg" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+            <div class="modal-body login-modal-body">
+                <div class="signup-box">
+                    <div class="signup1">
+
+                        <img src="../images/welcome.jpg" alt="">
+
+                    </div>
+
+                    
+
+                    <div class="signup2">
+
+                        <h2>
+                            <span>Sign</span>
+                            <span>up</span>
+                        </h2>
+
+                        <form method="POST">
+
+                            {% csrf_token %}
+
+                            <div class="modal-input-section">
+                                <input type="text" id="name" class="form-control" required />
+                                <label for="name">Name</label>
+                            </div>
+
+                            <div class="modal-input-section">
+                                <input type="text" id="signupEmail" class="form-control" required />
+                                <label for="signupEmail">Email</label>
+                            </div> 
+                            
+                            <div class="modal-input-section">
+                            <div class="errorpass" style="color:red">
+                            </div>
+                                <input type="password" id="inputpassword1" class="form-control" required />
+                                <label for="inputpasswod1">Create Password</label>
+                            </div>
+
+                            <div class="modal-input-section">
+                                <input type="password" id="inputpassword2" class="form-control" required />
+                                <label for="inputpassword2">Confirm Password</label>
+                            </div>
+
+                            <button type="button"   onclick="signup()">Signup</button>
+                            
+                            <div>Already have an account?
+                                <a href="javascript:void();" class="sign-in-button">Sign In</a>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                
+                <div class="login-box">
+
+                    <div class="login1">
+
+                        <img src="../images/welcome.jpg" alt="">
+
+                    </div>
+
+                    <div class="login2">
+
+                        <h2>
+                            <span>Log</span>
+                            <span>in</span>
+                        </h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="modal-input-section">
+                                <input type="text" id="username" required />
+                                <label for="username">Username</label>
+                            </div>
+
+                            <div class="modal-input-section">
+                                <input type="password" id="password" required />
+                                <label for="password">Password</label>
+                                <div id="errorlogin" style="color:red"></div>
+
+                            </div>
+
+                            <button type="button" onclick="login()">Login</button>
+                            
+                            <div>No account yet?
+                                <a href="javascript:void();" class="sign-up-button">Sign Up</a>
+                            </div>
+                            
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- CIRCULAR NAV -->
+
+        <section id="circularMenu" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+                <i class="fa fa-plus"></i>
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="{% url 'profile' %}" class="menu-item fa fa-user"></a>
+                <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
+                <a href="javascript:void();" class="menu-item fa fa-truck"></a>
+                <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
+                <a href="javascript:void();" class="menu-item fa fa-user-plus" data-toggle="modal"
+                    data-target="#exampleModal"></a>
+            </menu>
+
+        </section>
+
+
+    <!-- NAVIGATION BAR  -->
+
+    <nav id="navigation-bar" class="nav-menu sticky-top">
+
+        <div class="left-navigation-content">
+
+            <li class="logo"><a href="#" class="three-d">
+                    Gamoby
+                    <div class="three">
+                        <span class="front"><img src="{%static '/images/new 111.png' %}" alt=""></span>
+                        <span class="back">GAMOBY</span>
+                    </div>
+                </a>
+            </li>
+
+
+            <li class="not-logo"><a href="{%url 'home' %}" class="three-d">
+                    Home
+                    <div class="three">
+                        <span class="front">Home</span>
+                        <span class="back">Home</span>
+                    </div>
+                </a>
+            </li>
+
+            <div class="dropdown">
+                <li class="not-logo">
+                    <div class="dropbtn">
+                        <a href="#" class="three-d">
+                            Design Product
+                            <div class="three">
+                                <span class="front">Design Product<i class="fa fa-angle-double-down"></i></span>
+                                <span class="back">Design Product<i class="fa fa-angle-double-up"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <div class="dropdown-content">
+
+                    <li class="not-logo"><a href="#" class="three-d">
+                            Merchandise
+                            <div class="three">
+                                <span class="front">Merchandise</span>
+                                <span class="back">Merchandise</span>
+                            </div>
+                        </a>
+                    </li>
+
+
+                    <li class="not-logo"><a href="#" class="three-d">
+                            Mobile Accessories
+                            <div class="three">
+                                <span class="front">Mobile Accessories</span>
+                                <span class="back">Mobile Accessories</span>
+                            </div>
+                        </a>
+                    </li>
+
+
+                    <li class="not-logo"><a href="#" class="three-d">
+                            Stickers
+                            <div class="three">
+                                <span class="front">Stickers</span>
+                                <span class="back">Stickers</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="center-navigation-content">
+
+        </div>
+
+        <div class="right-navigation-content">
+
+            <li class="not-logo"><a href="{%url 'about' %}" class="three-d">
+                    About Us
+                    <div class="three">
+                        <span class="front">About Us</span>
+                        <span class="back">About Us</span>
+                    </div>
+                </a>
+            </li>
+
+
+            <li class="not-logo"><a href="{%url 'contact' %}" class="three-d">
+                    Contact Us
+                    <div class="three">
+                        <span class="front">Contact Us</span>
+                        <span class="back">Contact Us</span>
+                    </div>
+                </a>
+            </li>
+
+        </div>
+
+
+    </nav>
+
+    <nav class="responsive-nav sticky-top">
+        <div class="responsive-logo">
+            <img src="{% static '/images/new 111.png' %}" alt="">
+        </div>
+        <ul class="responsive-navlinks">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#!">Design Product</a></li>
+            <li><a href="../html/faq.htm">FAQs</a></li>
+            <li><a href="{%url 'about' %}">About Us</a></li>
+            <li><a href="{%url 'contact' %}">Contact Us</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    {% block body %} {% endblock %}
+
+
+
+   <!-- COMMON FOOTER -->
+
+   <footer class="page-footer font-small pt-5 pb-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-md-left">
+
+        <!-- Grid row -->
+        <div class="row pt-4">
+
+            <!-- Grid column -->
+            <div class="col-sm-12 col-md-5 col-lg-4 mr-0 my-0 md-4 my-0 mt-4 mb-1">
+
+                <!-- Content -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Gamoby's Vision</h5>
+                <p>Here you can use rows and columns to organize your footer content.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident
+                    voluptate
+                    esse
+                    quasi, veritatis totam voluptas nostrum.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-sm-6 col-md-3 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1 pl-5">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Our Services</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#!">MOBLILE COVERS</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">LAPTOP STICKERS</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">ACCESSORIES</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">MERCHANDISE</a>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-sm-6 col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1 pl-0 pr-0">
+
+                <!-- Contact details -->
+                <h5 class="font-weight-bold text-uppercase mb-4">REACH US</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <i class="fa fa-home mr-3"></i> AIACTR Jamnapaar, DELHI</p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fa fa-envelope mr-3"></i> laopaisa@gamoby.com</p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fa fa-phone mr-3"></i> 9625466570</p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fa fa-print mr-3"></i> 9353588932</p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-sm-12 col-md-8 col-lg-2 text-center mx-auto my-4">
+
+                <!-- Social buttons -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+                <!-- Facebook -->
+                <div class="footer-social-buttons">
+                    <a href="https://www.facebook.com/" target="_blank" type="button"
+                        class="btn-lg btn-floating btn-fb">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="https://twitter.com/explore" target="_blank" type="button"
+                        class="btn-lg btn-floating btn-tw">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/" target="_blank" type="button"
+                        class=" btn-lg btn-floating btn-ins">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+
+                </div>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-4">© 2020 Copyright:
+        <a href="{% url 'home' %}">GamobyRules@gaming.co.in</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+
+
+    $(document).ready(function(){
+         var zindex = 4;
+         
+         
+         $(".card").click(function(e){
+            // e.preventDefault();
+            
+             $("body").find("#fs").each(function(){
+                 $(this).off("click").click(function(e){
+                    //  e.preventDefault();
+                     window.open(this.href);
+                     return false;
+                 });
+             });
+            // $('#fs').unbind().click(function(){
+            //     window.open($('#fs').attr('href'));
+            // });
+            
+           var isShowing = false;
+           
+            
+           if ($(this).hasClass("show")) {
+             isShowing = true
+              
+           }
+           
+           if ($("#cd").hasClass("showing")) {
+            
+             // a card is already in view
+             $(".card.show")
+               .removeClass("show");
+               
+               
+             if (isShowing) {
+               // this card was showing - reset the grid
+               $("#cd")
+                 .removeClass("showing");
+             } else {
+                 
+               // this card isn't showing - get in with it
+               $(this)
+                 .css({zIndex: zindex})
+                 .addClass("show");
+       
+             }
+       
+             zindex++;
+            
+           
+           
+           }else {
+             // no cards in view
+             $("#cd")
+               .addClass("showing");
+             $(this)
+               .css({zIndex:zindex})
+               .addClass("show");
+       
+             zindex++;
+           }
+           
+         });
+       });
+    
+    
+            
+            
+    
+    
+          
+          
+    </script>
+    
+<script>
+    $(document).ready(function(event){
+        $(document).on('click','#like',function(event){
+            event.preventDefault();
+            var pk=$(this).attr('value');
+            $.ajax({
+                type:'POST',
+                url:'{% url "like" %}',
+                data:{'id':pk,'csrfmiddlewaretoken':'{{ csrf_token }}'},
+                dataType:'json',
+                success:function(response){
+                    $('#like-section').html(response['form'])
+                    console.log($('#like-section').html(response['form']));
+                },
+                error: function(rs,e){
+                    console.log(rs,responseText);
+                },
+            });
+
+        })
+    })
+</script>
+
+<script>
+
+
+function login(){
+    username = document.getElementById("username").value;
+    password = document.getElementById("password").value;
+    csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+    $("#errorlogin").html("");
+    $.ajax({
+        type:"POST",
+        url:"{% url 'login' %}",
+        data:{
+            'username':username,
+            'password':password,
+            'csrfmiddlewaretoken': csrfmiddlewaretoken,
+            action:'post',
+        },
+        success : function(data){
+            console.log(data);
+            if(data['message'] == "Success"){
+                window.location = '/'
+                alert("You have succesfully Logged in")
+            }
+            else{
+                $("#errorlogin").html("the username and password do not match");
+            }
+        }
+    })
+
+}
+
+
+
+function signup(){
+    username = document.getElementById("name").value;
+    email = document.getElementById("signupEmail").value;
+    password1 = document.getElementById("inputpassword1").value;
+    password2 = document.getElementById("inputpassword2").value;
+    csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+    $("#erroremail").html("");
+    $('errorpass').html("");
+    $.ajax({
+        type:"POST",
+        url:"{% url 'register' %}",
+        data:{
+            'csrfmiddlewaretoken': csrfmiddlewaretoken,
+            'username':username,
+            'email':email,
+            'password1':password1,
+            'password2':password2,
+            act:'post',
+        },
+        success : function(data){
+            console.log(data[ 'message' ]);
+            if(data['message'] == "Success"){
+                window.location = '/'
+            }
+            else{
+                if("email" in data['message'])
+                    $("#erroremail").html(data['message']['email'][0]);
+                if("password2" in data['message'])
+                    $("#errorpass").html(data['message']['password2'][0]);
+
+            }
+        }
+    })
+
+}
+
+
+</script>
+
+<script src="{% static '/js/navigation.js' %}"></script>
+<script src="{% static '/js/productSection.js' %}"></script>
+
+<script src="{% static '/js/loginSignPage.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>    
+</body>
+</html>

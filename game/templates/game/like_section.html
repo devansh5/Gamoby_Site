@@ -1,0 +1,17 @@
+{% block body %}
+
+<p>{{total_likes}} Like{{total_likes|pluralize}}</p>
+{% if request.user.is_authenticated %}
+    <form action="{%url 'like' %}" method="POST">
+        {% csrf_token %}
+        {% if is_liked %}
+        <button type="submit" id="like" name="product_id" value="{{ product.id }}" class="btn btn-danger">Dislike</button>
+        {% else %}
+        <button type="submit" id="like" name="product_id" value="{{ product.id }}" class="btn btn-primary">Like</button>
+        {% endif %}
+    </form>
+{% endif %}
+{% endblock %}
+
+
+

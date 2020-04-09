@@ -1,0 +1,68 @@
+{%extends 'game/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COntact Us</title>
+</head>
+
+{% block body %}
+    <!-- CONTACT FORM  -->
+    <section>
+
+        <div class="contact-section mt-5 container-fluid px-5">
+
+            <h4 class="text-center"> Lorem ipsum dolor sit.</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam pariatur quas facere! Rerum quisquam
+                modi ex officiis deserunt eveniet mollitia non architecto voluptas, minima praesentium ea temporibus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa perferendis ut inventore, aut illo iusto? Blanditiis, quae nemo quo recusandae, necessitatibus maiores beatae facere sit voluptatibus accusamus inventore pariatur obcaecati sunt. Quod possimus eum at, vero omnis distinctio sequi et est earum optio qui hic odit ullam atque nesciunt necessitatibus porro culpa blanditiis. Eveniet, minima aliquam commodi expedita ipsam necessitatibus magnam velit consequuntur consequatur fuga adipisci quae obcaecati quis blanditiis similique perferendis. Iste natus laborum omnis tempore dolorem sunt pariatur? Aperiam sapiente dicta numquam asperiores modi eveniet quo dolores sed, nemo facilis alias doloribus. Omnis neque est inventore ut earum.
+                Quas nemo consectetur libero ipsa placeat maiores ducimus. Illo nisi itaque consequuntur dolores
+                aliquam? Dolorum, officia vitae! Voluptatibus quo nesciunt incidunt voluptates quaerat?</p>
+
+
+        </div>
+
+    </section>
+
+    <section class="contactform-container mx-auto">
+        <div>
+            <h1 class='conus'>Contact Us</h1>
+        </div>
+        <img src="{%static '/images/plane.png' %}" width="210px" height="70px" alt="">
+        <div class="row">
+            <h4>Hey Gamer, we'd love to hear from you!</h4>
+        </div>
+
+        <div class="contact-form">
+            <form action="#">
+
+                <div class="contact-input-section">
+                    <input type="text" id="contactName" required />
+                    <label for="contactName">Name</label>
+                </div>
+
+                <div class="contact-input-section">
+                    <input type="text" id="contactEmail" required />
+                    <label for="contactEmail">Email</label>
+                </div>
+
+                <div class="contact-input-section">
+                    <textarea name="contactMessage" id="contactMessage" cols="50" rows="8"></textarea>
+                    <label for="contactMessage">Your message here..</label>
+                </div>
+
+
+                <button type="submit">Send message</button>
+
+            </form>
+        </div>
+
+    </section>
+
+
+
+
+
+
+{%  endblock %}

@@ -1,0 +1,269 @@
+body{
+    background-color: black;
+    }
+    
+    button:focus{
+        outline: none !important;
+    }
+    
+    footer{
+        background-color: #3e272380 ;
+        background-color: rgb(255, 207, 164);
+        color: black;
+        width: 100%;
+        text-align: center;
+        bottom: 0%;
+    }
+    
+    .nav-menu li .active .front,
+    .nav-menu li .active .back,
+    .nav-menu li a:hover .front,
+    .nav-menu li a:hover .back {
+        background-color:  rgb(255, 207, 164) !important;
+        color: black;
+    }
+    
+    
+    .profile-container{
+        display: flex;
+    }
+    
+    .profileSection1 .profileIntro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .profileSection1 .profileIntro h5{
+        font-weight: 600;
+        font-size: 19px;
+        margin-bottom: -2px;
+        margin-top: 10px;
+    }
+    
+    .profileSection1 .profileIntro span{
+        font-weight: 700;
+        font-size: 22.5px;
+    }
+    
+     .profileSection2{
+        background-color: rgb(221, 203, 188);
+        margin: 20px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 10px;
+        margin-left: 0px;
+    }
+    
+     .profileSection1{
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        margin-right: 10px;
+        background-color: rgb(221, 203, 188);
+    }
+    
+    .profileSection1 .profileToggle{
+        font-size: 17px;
+        border-top: 1px solid rgb(199, 181, 167) ;
+        border-bottom: 1px solid rgb(199, 181, 167) ;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    .profileToggle i{
+        margin-right: 12px;
+        margin-left: -2px;
+    }
+    
+    .profileSection1 .profileToggle div{
+        margin-top: 5px;
+        font-size: 17px;
+        padding: 10px;
+        color: black;
+    }
+    
+    .profileSection1 .profileToggle div:hover{
+        cursor: pointer;
+        color: rgb(71, 62, 62);
+    }
+    
+    .profileSection1 a{
+        color: black;
+    }
+    
+    .profileSection1 a:hover{
+        cursor: pointer;
+        color: rgb(71, 62, 62);
+        text-decoration: none;
+    }
+    
+    .profileSection1 .usage-section{
+    padding-top: 15px;
+     padding-bottom: 15px;
+     color: darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 14px;
+    margin-top: 100%;
+    border-top: 1px solid rgb(199, 181, 167);
+    }
+    
+    .profileSection1 .usage-section a:nth-child(1)::after,
+    .profileSection1 .usage-section a:nth-child(2)::after{
+        content: "|";
+        opacity: 0.6;
+        cursor: default;
+        color: maroon;
+        margin: 0px 7px 0px 7px;
+    }
+    
+    .user-info{
+        margin-bottom: 5vh;
+    }
+    
+    .user-info input{
+        border: 1p-x solid gray;
+    padding: 5px 5px 10px 10px;
+    margin-left: 15px;
+    }
+    
+    input:focus{
+        outline: none;
+        background-color: white;
+        border: 0px !important;
+        border-bottom: 2.5px solid red !important;
+    }
+    
+    .user-info input[type="text"]{
+        width: 250px;
+    }
+    
+    .user-headings{
+        margin-left: 15px;
+        font-size: 20px;
+        padding: 20px 0 15px;
+        font-weight: bold;
+    }
+    
+    .mini-user-headings{
+        margin-left: 15px;
+        font-weight: 600;
+        font-size: 18px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .user-headings a{
+        font-size: 16px;
+        padding-left: 10px;
+        font-weight: 600;
+    }
+    
+    .user-headings a:hover{
+        text-decoration: none;
+    }
+    
+    .user-action-buttons{
+        display: flex;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    }
+    
+    .user-action-buttons button{
+        margin-top: 30px;
+        margin-left:50px;
+        width: 7em;
+        padding:5px;
+        font-weight: 500;
+        border-radius: 10px;
+        background-color: rgb(236, 172, 115);
+        border: 2px solid rgb(221, 203, 188);
+    }
+    
+    .user-action-buttons button:hover{
+        background-color: rgb(243, 184, 131);
+    }
+    
+    .input-password{
+        display: none;
+    }
+    
+    /* ADDED THROUGH JS  */
+    .show-change-password{
+        display: block;
+    }
+    
+    
+    /* ADDED THROUGH JS  */
+    .change-name-field{
+        color: black !important;
+        cursor: pointer !important;
+    }
+    
+    .change-password{
+        margin-bottom: 1vh;
+    }
+    
+    .change-password label{
+    padding-right: 10px;
+    margin-left: 15px;
+    }
+     
+    
+    .address-container input{
+        margin-left: 15px;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        border: 1px solid gray;
+    }
+    
+    
+    .address-grid{
+        display: grid;
+        grid-template-columns: minmax(100px,400px) minmax(100px,400px);
+        grid-template-rows: 80px 80px 60px 60px 60px ;
+    }
+    
+    .address-container button{
+        /* display: none; */
+    }
+    
+    /* ADDED THRU JS  */
+    .showAddressBtn{
+        display: block !important;
+    }
+    
+    /* ADDED THRU JS  */
+    .addressInputAdd{
+        cursor: pointer !important;
+        color: black !important;
+        background-color: white !important;
+    }
+    
+    
+    .add-box1{
+        grid-column: 1/3;
+    }
+    
+    .add-box2{
+        grid-column: 1/3;
+    }
+    
+    .add-box3{
+        grid-column: 1/2;
+    }
+    
+    .add-box7{
+        grid-column: 1/2;
+    }
+    
+    
+    
+    

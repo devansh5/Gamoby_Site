@@ -1,0 +1,308 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.aboutImg{
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.61);
+}
+
+.aboutImg img{
+    height: 80vh;
+}
+
+.vision-section{
+    font-size: 16px;
+    box-shadow: 0px 0px 4px 2px rgba(58, 57, 57, 0.71);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 12px;
+    padding: 15px;
+    color: white;
+    background-color: rgb(34, 34, 34);
+    background-color: black;
+}
+
+.vision-section h3{
+    font-size: 35px;
+    margin-bottom: 12px;
+    background: linear-gradient(rgb(255, 255, 255),rgb(167, 165, 165));
+    background-clip:border-box;
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color:  transparent; */
+}
+
+.vision-section .vision-section1{
+    padding: 15px;
+}
+
+
+.vision-section2 img{
+    box-shadow: 0px 0px 8px 2px rgba(53, 52, 52, 0.473);
+}
+
+/* MEDIA QUERY  */
+@media screen and (max-width:1208px) and (min-width:930px){
+    .vision-section{
+        padding: 8px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right:8px;
+    }
+    .vision-section .vision-section1{
+        padding: 4px;
+    }
+    .vision-section2{
+      margin-top: 30px;
+    }
+    .vision-section2 img{
+        height: 260px;
+    }
+}
+
+@media screen and (max-width:930px){
+    .vision-section{
+        flex-direction: column;
+        padding: 8px;
+        padding-bottom: 8px;
+    }
+    .vision-revColumn{
+        flex-direction: column-reverse;
+    }
+    .vision-section .vision-section1{
+        padding: 5px;
+    }
+    .vision-section2{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .vision-section2 img{
+        margin: 5px;
+        margin-left: 10px;
+        height: 230px;
+        width: 320px;
+        display: block !important;
+    }
+}
+
+
+@media screen and (max-width:691px) and (min-width:556px){
+    .vision-section2{
+        justify-content: space-evenly;
+    }
+    .vision-section2 img{
+        margin: 3px;
+        height: 190px;
+        width: 270px;
+        display: block !important;
+    }
+}
+
+
+@media screen and (max-width:555px) and (min-width:0px){
+    .vision-section2{
+        width: 100%;
+        height: auto !important;
+        margin-right: 4px;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .vision-section2 img:nth-child(1){
+        margin: 3px;
+        width: 100%;
+        height: 210px;
+        display: block;
+    }
+    .vision-section2 img:nth-child(2){
+        margin: 3px;
+        width: auto;
+        display: none !important;
+    }
+
+}
+
+
+
+/* Meet team Container  */
+
+.team-container{
+    box-shadow: 0px 0px 4px 2px rgba(58, 57, 57, 0.71);
+    background-color: black;
+    display: flex;
+    margin-top: 12px;
+    /* background: linear-gradient(rgb(63, 62, 62),rgb(32, 32, 32),rgb(78, 77, 77)); */
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.team-container h3{
+    margin-top: 20px;
+    font-size: 35px;
+    margin-bottom: 3px;
+    background: linear-gradient(rgb(212, 164, 164),rgb(167, 165, 165));
+    background-clip:border-box;
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color:  transparent; */
+}
+
+.about-cardspack{
+    padding-bottom: 30px;
+    display: flex;
+justify-content: space-evenly;
+}
+
+
+/* Three Card Views */
+.about-card{
+    margin-top: 30px;
+    height: 280px;
+    width: 275px;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    transition: 0.5s;
+}
+
+.about-card .front-card{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+}
+
+.team-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.about-card:hover .front-card{
+    transform: rotateX(-180deg);
+}
+.about-card .back-card{
+    position: absolute;
+    /* border-radius: 50%; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.742);
+    overflow: hidden;
+    background: linear-gradient(to top left, white 10%, red 10%, red 20%, white 20%);
+    transform: rotateX(180deg);
+    transition: 0.5s;
+}
+
+.about-card:hover .back-card{
+    transform: rotateX(0deg);
+}
+
+.about-card .back-card .details{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.about-card .back-card .details h2{
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+}
+
+.about-card .back-card .details h2 span{
+    /* color: #a7a7a7; */
+    color: rgba(0, 0, 0, 0.788);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.social-icons{
+    padding: 12px 0px;
+}
+
+.social-icons a{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    background: rgb(39, 39, 39);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.social-icons a .fa{
+    line-height: 36px;
+}
+
+.social-icons a:hover{
+    background: red;
+    transition: 0.5s;
+    color: #fff;
+}
+
+@media screen and (max-width:1100px) and (min-width:860px){
+    .about-card{
+        height: 250px;
+        width: 245px;
+    }
+   
+}
+     
+@media screen and (max-width:859px) and (min-width:726px){
+    .about-card{
+        height: 225px;
+        width: 220px;
+    }
+}
+@media screen and (max-width:725px) and (min-width:660px){
+    .about-card{
+        height: 210px;
+        width: 200px;
+    }
+}
+@media screen and (max-width:659px) and (min-width:617px){
+    .about-card{
+        height: 200px;
+        width: 190px;
+    }
+}
+@media screen and (max-width:616px) and (min-width:0px){
+  .about-cardspack{
+      align-items: center;
+      flex-direction: column;
+  }
+  .about-card{
+      height: 245px;
+      width: 240px;
+  }
+  .about-cardspack{
+      overflow-x: hidden !important;
+  }
+}

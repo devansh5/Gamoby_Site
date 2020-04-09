@@ -1,0 +1,293 @@
+{% extends 'game/base.html' %}
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+ <script src="https://kit.fontawesome.com/0c8aa1d654.js"></script>
+ {% block css %}
+ <style>
+
+ .pagination{
+   margin-left:40%;
+
+
+ }
+ body{
+  background: linear-gradient(90deg, rgba(238,183,183,0.4713235636051295) 4%, rgba(208,240,106,0.9951330874146533) 100%);
+ }
+
+ .bt {
+   background: #0096a0;
+   border-radius: 4px;
+   box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+   color: #ffffff;
+   display: inline-block;
+   margin-top: 18px;
+   padding:10 6px 30px 8px;
+   position: relative;
+   text-decoration: none;
+   transition: all 0.1s 0s ease-out;
+ }
+ .no-touch .bt:hover {
+   background: #00a2ad;
+   box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+   transform: translateY(-2px);
+   transition: all 0.25s 0s ease-out;
+ }
+ .no-touch .bt:active,
+ .bt:active {
+   background: #008a93;
+   box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+   transform: translate3d(0, 1px, 0);
+   transition: all 0.025s 0s ease-out;
+ }
+ #cd{
+   margin:80px auto;
+   max-width:960px;
+   text-align:center;
+ }
+ .card{
+   margin:20px;
+   border-bottom: #ff6666;
+ }
+ .card:hover{
+   cursor:pointer;
+   box-shadow: 0 4px 8px 0 rgba(2, 9, 2, 0.2), 0 6px 20px 0 rgba(10, 238, 120, 0.884);
+ }
+ #cd .card{
+   transition: all 0.3s 0s ease-in;
+   z-index: 1;
+   height:60vh;
+  
+ }
+ #cd .card-body{
+   min-height:100px;
+ }
+ #cd .card-img-top{
+   height:40vh;
+   
+ 
+ }
+ .toggle-info{
+   border-radius: 32px;
+   height:32px;
+   padding: 0;
+   position: relative;
+   right: 15px;
+   bottom:50px;
+   width: 32px;
+   /* <!-- bottom:100px; --> */
+ }
+ .toggle-info span {
+   background: #ffffff;
+   display: block;
+   height: 2px;
+   position: absolute;
+   top: 16px;
+   transition: all 0.15s 0s ease-out;
+   width: 12px;
+ }
+ .toggle-info span.left{
+   right:14px;
+   transform:rotate(45deg);
+ }
+ .toggle-info span.right{
+   left:14px;
+   transform:rotate(-45deg);
+ }
+ .card-text{
+   padding:0 15px 10px;
+    position: relative;
+    /* position: absolute;  */
+   font-size:15px;
+ }
+ .card-actions{
+   box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+   padding: 10px 15px 20px;
+   text-align: center;
+ }
+ .card-flap{
+   background: #d9d9d9;
+    /* position: absolute; */
+   position: relative;
+   width: 100%; 
+   transform-origin: top;
+   transform: rotateX(-90deg);
+ }
+ .flap1{
+   transition: all 0.3s 0.3s ease-out;
+   z-index: -1;
+ 
+   position: relative;
+ }
+ .flap2{
+   transition: all 0.3s 0s ease-out;
+   z-index: -2;
+   position: absolute;
+ }
+ #cd.showing .card{
+   cursor:pointer;
+   opacity: 0.6;
+   transform: scale(0.6);
+   position: relative;
+ }
+ .no-touch #cd.showing .card:hover {
+   opacity: 0.94;
+   transform: scale(0.92);
+   position: relative;
+ }
+ .card.show {
+   opacity: 1 !important;
+   transform: scale(1) !important;
+   position: relative;
+ }
+ .card.show .card-title .toggle-info {
+   background: #ff6666 !important;
+ }
+ .card.show .card-title .toggle-info span {
+   top: 15px;
+ }
+ .card.show .card-title .toggle-info span.left {
+   right: 10px;
+ }
+ .card.show .card-title .toggle-info span.right {
+   left: 10px;
+ }
+ .card.show .card-flap {
+   background: #ffffff;
+   transform: rotateX(0deg);
+    position: relative; 
+ }
+ .card.show .flap1 {
+   transition: all 0.3s 0s ease-out;
+    position: relative; 
+ }
+ .card.show .flap2 {
+   transition: all 0.3s 0.2s ease-out;
+    position: relative; 
+ }
+ 
+ </style>
+ 
+ 
+ 
+ {% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+ 
+
+
+
+<div id="cd">
+  <p id="message"></p>
+    <div class="row row-cols-1 row-cols-md-3">
+      {% for i in products %}
+      <div class="col-4">
+       
+        <div class="card" id="demo{{forloop.counter}}">
+         
+          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+          
+          <div class="card-body">
+            <div class="card-title">
+                                
+              <a href="" class="toggle-info bt">
+                  <span class="left"></span>
+                  <span class="right"></span>
+              </a>
+              
+              <h5>{{i.product_name}}</h5>
+              
+              
+              
+             
+          </div>
+              <div class="card-flap flap1">
+                <div class="card-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, mollitia.</p>
+                    
+                </div>
+                <div class="card-flap flap2">
+                    <div class="card-actions">
+                      <a href="{% url 'detailproduct' i.pk %}" class="bt" id="fs" target="_blank">See Details</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+  </div>
+  <ul class="pagination">
+    {% if products.has_previous  %}
+  
+      <li class="page-item ">
+        <a class="page-link" href="?page={{products.previous_page_number}}">Previous</a>
+      </li>
+      
+    {% elif products.has_previous == False %}
+      
+      <li class="page-item disabled">
+        <a class="page-link" href="#">Previous</a>
+      </li>
+  
+    {% endif %}
+    
+    {% for num in products.paginator.page_range %}
+  
+      {% if products.number == num %}
+  
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="?page={{ num }}">{{ num }}<span class="sr-only">(current)</span></a>
+        </li>
+  
+      {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
+  
+      <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+  
+      {% endif %}
+  
+    {% endfor %}
+  
+    
+  
+    {% if products.has_next %}
+  
+      <li class="page-item">
+        <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
+      </li>
+      <li class="page-item">
+        <a href="?page={{ products.paginator.num_pages }}"></a>
+      </li>
+  
+    {% endif %}
+  
+    {% if products.has_next == False  %}
+  
+      <li class="page-item disabled">
+        <a class="page-link" href="#">Next</a>
+      </li>
+  
+    {% endif %}
+  
+  </ul>
+ 
+
+
+{% block js%}
+
+
+
+
+
+
+  {% endblock %}
+
+{% endblock %}
