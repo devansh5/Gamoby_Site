@@ -19,7 +19,8 @@ li{
 }
 
 main{
-	margin-bottom: 50px;
+    margin-bottom: 50px;
+    background-color: aliceblue;
 }
 
 .productInfo-section{
@@ -30,6 +31,7 @@ main{
 font-weight: 600;
 font-size: 30px;
 background: linear-gradient(to right, #494964, #6f6f89);
+background-clip:text ;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }

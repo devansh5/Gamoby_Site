@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title %} {% endblock %}</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    
     <link rel="stylesheet" href="{% static '/css/navigation-bar.css' %}">
     <link rel="stylesheet" href="{% static '/css/footer.css' %}">
     <link rel="stylesheet" href="{% static '/css/circular-nav.css' %}">
     <link rel="stylesheet" href="{% static '/css/loginSignPage.css' %}">
-    <link rel="stylesheet" href="{% static '/css/aboutPage.css' %}">
-    <link rel="stylesheet" href="{% static '/css/contactPage.css' %}">
+    {% block styles %}
+    {% endblock %}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -25,15 +25,9 @@
 <body>
 
     
+
+
    
-
-
-    <section>
-        <div class="scroll-button">
-            <a id="return-to-top" title="Back to top" href="#top"><i class="fa fa-arrow-up"></i></a>
-     
-        </div>
-    </section>
 
     <!-- LOGIN/SIGNUP -->
     <section class="pop-up modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
@@ -608,7 +602,6 @@ function signup(){
 <script src="{% static '/js/productSection.js' %}"></script>
 
 <script src="{% static '/js/loginSignPage.js' %}"></script>
-<script src="{% static '/js/index.js' %}"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

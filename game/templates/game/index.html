@@ -3,17 +3,22 @@
 <html lang="en">
 {% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block styles %}
+        <link rel="stylesheet" href="{%static '/css/index.css/ '%}">
+    {% endblock %}
 
 
-    <title>Gamer's Lobby</title>
-</head>
+    {% block title %} Gamer's Lobby {% endblock %}
 
 
 
    {% block body %}
+   <section>
+    <div class="scroll-button">
+        <a id="return-to-top" title="Back to top" href="#top"><i class="fa fa-arrow-up"></i></a>
+ 
+    </div>
+    </section>
 
     <!-- CAROUSEL  -->
 
@@ -492,6 +497,9 @@
             <a href="#!">View All <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </section>
+
+<script src="{% static '/js/index.js' %}"></script>
+
 
 {% endblock %}
  

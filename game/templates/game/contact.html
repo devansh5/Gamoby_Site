@@ -1,11 +1,13 @@
 {%extends 'game/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COntact Us</title>
-</head>
+
+    {% block styles %}
+    <link rel="stylesheet" href="{%static '/css/contactPage.css' %}">
+    {% endblock %}
+
+
+    {% block title %}Contact Us{% endblock %}
+
 
 {% block body %}
     <!-- CONTACT FORM  -->

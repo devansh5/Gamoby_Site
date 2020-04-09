@@ -1,12 +1,13 @@
 {%extends 'game/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-</head>
+
+
+    {% block styles %}
+        <link rel="stylesheet" href="{%static '/css/aboutPage.css' %}">
+    {% endblock %}
+
+    {% block title %}About Us{% endblock %}
+
 {% block body %}
 
 
@@ -78,7 +79,7 @@
         </div>
     </div>
     <div class="about-card">
-        <div class="front-card"><img src="{% '/images/devansh.jpg' %}" alt=""></div>
+        <div class="front-card"><img src="{%static '/images/devansh.jpg' %}" alt=""></div>
         <div class="back-card">
             <div class="details">
                 <h2>Devansh Chaubey <br> <span>Senior Developer</span></h2>
@@ -96,8 +97,8 @@
 
 <div class="vision-section vision-revColumn">
     <div class="vision-section2">
-        <img src="../images/four.jpg" height="300px" alt="">
-        <img src="../images/journey.jpg" style="display: none;" height="300px" alt="">
+        <img src="{%static '/images/four.jpg' %}" height="300px" alt="">
+        <img src="{%static '/images/journey.jpg' %}" style="display: none;" height="300px" alt="">
     </div>
     
     <div class="vision-section1">

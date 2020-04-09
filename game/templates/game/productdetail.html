@@ -1,40 +1,12 @@
 {% extends 'game/base.html' %}
-
-{% block css %}
-<style>
-    h1{
-        text-align: center;
-        font-size: 80px;
-        color: rgb(204, 166, 240);
-        font-weight: 400;
-         font-family: 'Raleway', sans-serif;
-        margin:20px;
-    }
-    h5{
-        margin:10px;
-        color:chartreuse;
-        text-align: center;
-
-    }
-</style>
-
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{%static '/css/reviewProduct.css' %}">
 {% endblock %}
+
 
 {% block body %}
     
-    <h1>{{product.product_name}}</h1>
-    <h5>{{product.desc}}</h5>
-    
-    
-  
-    <img src="/media/{{product.image}}" alt="">
-
-    <div id="like-section">
-        {% include 'game/like_section.html' %}
-    </div>
-    <div id="fav-section">
-        {% include 'game/fav_section.html' %}
-    </div>
    <!-- PRODUCT CONTAINER  -->
 
    <main>
@@ -42,14 +14,16 @@
 
         <div class="introduction">
             <div class="introduction productInfo-section">
-                <h2 class="productName">Apple AirPods</h2>
-                <h5 class="text-muted">with Charging Case Bluetooth Headset with Mic  (White, True Wireless)</h5>
-
-
-                <div class="reviewRating">
-                    <a href="#"><i class="fa fa-heart"></i></a>
-                    <div class="favBtn">Bookmark</div>
+                <h2 class="productName">{{product.product_name}}</h2>
+                <h5 class="text-muted">{{product.desc}}</h5>
+                <div id="like-section">
+                    {% include 'game/like_section.html' %}
                 </div>
+                <div id="fav-section">
+                    {% include 'game/fav_section.html' %}
+                </div>
+
+                
 
                 <div class="reviewPara">
                     <p>
@@ -97,7 +71,7 @@
         </div>
 
         <div class="productImg-section">
-            <img src="../images/bbb.png" alt="matebook" />
+            <img src="/media/{{product.image}}" alt="matebook" />
         </div>
 
     </section>

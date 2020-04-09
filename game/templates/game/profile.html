@@ -1,22 +1,15 @@
-<!doctype html>
+{% extends 'game/base.html' %}
 
 <html lang="en">
 {% load static %}
-<head>
+    {% block styles %}
+        <link rel="stylesheet" href="{%static '/css/profilepage.css' %}">
+    {% endblock %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{%static 'css/profilepage.css' %}">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% block title %} Profile/Gamer's Lobby {% endblock %}
 
 
-    <title>Profile/Gamer's Lobby</title>
-
-</head>
+{% block css %}    
 <style>
     .edit-profile{
         background: #412408;
@@ -75,11 +68,11 @@
     }
 
 </style>
-<body>
+{% endblock %}
 
 
 
-
+{% block body %}
 
     <!-- USER PROFILE -->
 
@@ -192,10 +185,4 @@
 
 
   
-
-    <!-- <script src="{%static 'js/profilepage.js' %}"></script> -->
-    
-
-</body>
-
-</html>
+{% endblock %}
