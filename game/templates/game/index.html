@@ -8,7 +8,7 @@
     {% endblock %}
 
 
-    {% block title %} Gamer's Lobby {% endblock %}
+    {% block title %}Gamer's Lobby{% endblock %}
 
 
 
@@ -161,7 +161,7 @@
                     </h2>
 
                     <div class="review-card-actions">
-                        <a href="#!" class="btn">READ MORE</a>
+                        <a href="{% url 'shophome' %}" class="btn">READ MORE</a>
                     </div>
                 </div>
 
@@ -187,12 +187,13 @@
         </div>
 
         <div class="view-all-button">
-            <a href="#!">View All <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{% url 'shophome' %}">View All <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </section>
 
 
     <!-- OUR CLIENTS  -->
+
 
     <section class="client-container">
 
@@ -207,10 +208,145 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-5.jpg' %}">
-                                        <img class="pic-2" src="{%static '/images/img-8.jpg' %}">
+                                        <img class="pic-1" src="{%static '/images/img-5.jpg' %}">
+                                        <div class="pic-2">
+                                            <span class="happy-username">Gamerdidi's Review</span>
+                                           
+                                            <p class="happy-userreview text-center pr-2 pl-2"> Lorem ipsum dolor sit
+                                                amet, consectetur
+                                                adipisicing elit. Sunt, architecto.
+                                                Lorem ipsum doloipisicing elit. Similique,
+                                                culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+                                                culpa!
+                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+                                                similique eos eligen
+                                            </p>
+                                        </div>
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
+                                    <ul class="product-social-icons">
+                              
+                                        <li><a href="#!"><i class="fa fa-heart"></i>
+                                                <div class="count-heart">
+                                                    12k
+                                                </div>
+                                            </a>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="pic-1" src="{%static '/images/img-1.jpg' %}">
+                                        <div class="pic-2">
+                                            <span class="happy-username">Normie's Review</span>
+                                           
+                                            <p class="happy-userreview text-center pr-2 pl-2"> Awesome! Loved it.
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                    <ul class="product-social-icons">
+                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i>
+                                                <div class="count-heart">
+                                                    12k
+                                                </div>
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="pic-1" src="{%static '/images/img-3.jpg' %}">
+                                        <div class="pic-2">
+                                            <span class="happy-username">Rkp's Review</span>
+                                           
+                                            <p class="happy-userreview text-center pr-2 pl-2"> Lorem ipsum dolor sit
+                                                amet, consectetur
+                                                adipisicing elit. Sunt, architecto.
+                                                Lorem ipsum do
+                                                similique eos eligen
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                    <ul class="product-social-icons">
+                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i>
+                                                <div class="count-heart">
+                                                    12k
+                                                </div>
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="pic-1" src="{%static '/images/img-8.jpg' %}">
+                                        <div class="pic-2">
+                                            <span class="happy-username">Gajender Singh's Review</span>
+                                           
+                                            <p class="happy-userreview text-center pr-2 pl-2"> No reviews available!
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                    <ul class="product-social-icons">
+                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i>
+                                                <div class="count-heart">
+                                                    12k
+                                                </div>
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="product-title"><a href="#">Women's Button Top</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mySlides">
+                <div class="container">
+                    <div class="row">
+                        <div class="review-item">
+                            <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="pic-1" src="{%static '/images/img-1.jpg' %}">
+
+                                    </a>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -229,10 +365,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-1.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-2.jpg' %}">
+                                        <img class="pic-1" src="{%static '/images/img-3.jpg' %}">
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -251,10 +387,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-3.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-4.jpg' %}">
+                                        <img class="pic-1" src="{%static '/images/img-5.jpg' %}">
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -273,10 +409,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-8.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-5.jpg' %}">
+                                        <img class="pic-1" src="{% static '/images/img-4.jpg' %}">
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -303,106 +439,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-1.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-2.jpg' %}">
-                                    </a>
-                                    <span class="product-trend-label">Trend</span>
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
-                                            <div class="count-heart">
-                                                12k
-                                            </div>
-                                        </li>
-                                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-3.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-4.jpg' %}">
-                                    </a>
-                                    <span class="product-trend-label">Trend</span>
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
-                                            <div class="count-heart">
-                                                12k
-                                            </div>
-                                        </li>
-                                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-5.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-8.jpg' %}">
-                                    </a>
-                                    <span class="product-trend-label">Trend</span>
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
-                                            <div class="count-heart">
-                                                12k
-                                            </div>
-                                        </li>
-                                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-4.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-8.jpg' %}">
-                                    </a>
-                                    <span class="product-trend-label">Trend</span>
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
-                                            <div class="count-heart">
-                                                10k
-                                            </div>
-                                        </li>
+                                        <img class="pic-1" src="{%static '/images/img-3.jpg' %}">
 
-                                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Women's Button Top</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    </a>
 
-            <div class="mySlides">
-                <div class="container">
-                    <div class="row">
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-3.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-4.jpg' %}">
-                                    </a>
-                                    <span class="product-trend-label">Trend</span>
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -421,10 +461,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-1.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-2.jpg' %}">
+                                        <img class="pic-1" src="{%static '/images/img-1.jpg' %}">
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -443,10 +483,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-4.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-8.jpg' %}">
+                                        <img class="pic-1" src="{%static '/images/img-4.jpg' %}">
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">
@@ -465,10 +505,10 @@
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{% static '/images/img-5.jpg' %}">
-                                        <img class="pic-2" src="{% static '/images/img-4.jpg' %}">
+                                        <img class="pic-1" src="{%static '/images/img-5.jpg' %}">
+
                                     </a>
-                                    <span class="product-trend-label">Trend</span>
+
                                     <ul class="product-social-icons">
                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i></a>
                                             <div class="count-heart">

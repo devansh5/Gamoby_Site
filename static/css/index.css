@@ -280,13 +280,12 @@ body{
     
     .product-grid .product-image{
     overflow: hidden;
-    box-shadow: 0px 0px 3px 2px rgba(63, 62, 62, 0.736);
     position: relative;
     }
     
     .product-grid .product-image:before{
     content: "";
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.1);
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -296,11 +295,12 @@ body{
     z-index: 1;
     transition: all .4s ease-out 0s;
     }
+  
     .product-grid:hover .product-image:before{ opacity: 1; }
     .product-grid .product-image a{ display: block; }
     .product-grid .product-image img{
     width: 100%;
-    height: auto;
+    height: 100%;
     }
   
     .product-image .pic-1{
@@ -308,101 +308,117 @@ body{
     backface-visibility: hidden;
     transition: all 0.4s ease-out 0s;
     }
-    .product-grid:hover .product-image .pic-1{ opacity: 0; }
+  
+    .product-grid:hover .product-image .pic-1{ 
+      opacity: 0.25; }
+  
     .product-image .pic-2{
     width: 100%;
     height: 100%;
     opacity: 0;
     backface-visibility: hidden;
-    transform: scale(2.5);
+    transform: scale(1.5);
     position: absolute;
     top: 0;
     left: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     transition: all 0.4s ease-out 0s;
     }
+  
+    .product-grid .product-social-icons {
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 100%;
+      background-color: black;
+      list-style: none;
+      left : 50%;
+      bottom: 0px;
+      transform: translateX(-50%);
+      position: absolute;
+      z-index: 4;
+      transition: all 0.5s ease-out 0s;
+      }
+   
+    .happy-userreview{
+      font-size: 13px;
+      font-weight: 600;
+    }
+  
     .product-grid:hover .product-image .pic-2 {
     opacity: 1;
     transform: scale(1);
     }
-    .product-image .product-trend-label,
-    .product-image .product-discount-label{
-    content: "";
-    color: #fff;
-    background-color: #2ecc71;
-    font-size: 12px;
-    line-height: 28px;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0 7px;
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 3;
+    .product-grid:hover .product-social-icons{
+      opacity: 1 !important;
     }
-    
-    .product-grid .product-social-icons {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    left : 3%;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
-    z-index: 4;
+  
+    .pic-2{
+      opacity: 1;
+      color: white;
+      position: relative;
     }
+  
+  
+    .happy-username{
+      position: absolute;
+      top: 0;
+      width: auto;
+      left: 0;
+      overflow: visible !important;
+      box-shadow: 0 0 6px 2px rgba(17, 17, 17, 0.94);
+      border-radius: 0px 12px 0px 12px;
+      font-size:15px;
+      font-weight: 600;
+      background-color: red;
+      padding: 4px;
+    }
+  
+  
+  
     .product-grid .product-social-icons li {
-    margin: 0 0 .7em;
+    margin-right: 0 .7em 0 0;
     opacity: 0;
-    transform: translateX(-60px);
+    transform: translateY(-50px);
     transition: transform .3s ease-out 0s;
     }
     
+    a,i,li{
+      text-decoration: none !important;
+    }
+  
+    .fa-heart:hover{
+  color: red;
+  transform: scale(1.2);
+  transition: all .3s ease-out 0s;
+    }
+  
     .count-heart{
-    color: white;
-    font-weight: bold;
+    display: inline-block;
+    color: red;
+    font-size: 14px;
+    font-weight: bolder !important;
     }
     
     .product-grid:hover .product-social-icons li {
     opacity: 1;
-    transform: translateX(0);
+    margin-left: 20px;
+    transform: translateY(0);
     }
-    .product-grid:hover .product-social-icons li:nth-child(2){
-        transition-delay: .1s; }
     
     .product-grid .product-social-icons li a {
     color: #fff;
-    font-size: 22px;
+    font-size: 18px;
     transition: all 0.3s;
     }
-    .product-grid .product-social-icons li a:hover { color: var(--main-color); }
-    .product-grid .product-social-icons li a:before,
-    .product-grid .product-social-icons li a:after{
-    content: attr(data-tip);
-    color: #000;
-    background: #fff;
-    font-size: 14px;
-    padding: 5px 10px;
-    white-space: nowrap;
-    display: none;
-    transform: translateY(-50%);
-    position: absolute;
-    left: 33px;
-    top: 50%;
-    transition: all 0.3s;
-    }
-    .product-grid .product-social-icons li a:after{
-    content: '';
-    background: linear-gradient(-45deg, #fff 49%, transparent 50%);
-    width: 10px;
-    height: 10px;
-    top: 40%;
-    left: 20px;
-    }
-    .product-grid .product-social-icons li a:hover:before,
-    .product-grid .product-social-icons li a:hover:after{
-     display: block;
-    }
+  
     .product-grid .product-content{ padding: 12px 0; }
     .product-grid .product-title{
     font-size: 15px;
@@ -410,6 +426,7 @@ body{
     text-transform: capitalize;
     margin: 0 0 5px;
     }
+  
     .product-grid .product-title a{ color: white; font-weight: bold; }
     .product-grid .product-title a:hover{ color: var(--main-color);}
     .product-grid{
@@ -421,13 +438,11 @@ body{
     @media only screen and (max-width:990px){
     .product-grid{ margin-bottom: 20px; }
     }
-    
   
   
     button:focus{
     outline: none;
     }
-  
   
   /* REVIEW PRODUCT CONTAINER  */
   
@@ -537,8 +552,7 @@ body{
     text-transform: none;
   }
   
-  
-  /* SLIDER FOR HAPPY CUSTOMERS  */
+  * SLIDER FOR HAPPY CUSTOMERS  */
   /* Slideshow container */
   .slideshow-container {
     max-width: 100%;
@@ -548,7 +562,7 @@ body{
   
   /* Next & previous buttons */
   .prev, .next {
-    box-shadow: 2px 2px 2px 1px rgba(44, 43, 43, 0.377);
+    box-shadow: 0px 0px 8px 1px rgba(17, 17, 17, 0.521);
     cursor: pointer;
     position: absolute;
     top: 40%;
@@ -574,6 +588,7 @@ body{
   .prev:hover, .next:hover {
     background-color: rgba(231, 20, 20, 0.8);
   }
+  
   
   /* Fading animation */
   
