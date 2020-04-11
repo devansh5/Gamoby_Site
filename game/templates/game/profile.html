@@ -81,7 +81,11 @@
         <div class="profileSection1">
 
             <div class="profileIntro">
-                <img src="" height="150px" width="150px" alt="no-img">
+                {% if user.profile.gender == 'Male' %}
+                <img src="{% static '/images/male.png' %}" height="150px" width="150px" alt="no-img">
+                {% elif user.profile.gender == 'Female' %}
+                <img src="{% static '/images/female.png' %}" height="150px" width="150px" alt="no-img">
+                {% endif %}
                 <h5>Hey,</h5>
                 <span>{{user.username}}</span>
             </div>

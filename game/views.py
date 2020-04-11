@@ -69,7 +69,7 @@ def logoutuser(request):
   
 
 def index(request):
-    product=Product.objects.values_list('pub_date',flat=True)
+    product=Product.objects.order_by('pub_time')
     params={'product':product}
     return render(request,'game/index.html',params) 
 

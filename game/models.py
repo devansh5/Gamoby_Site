@@ -12,6 +12,7 @@ class Product(models.Model):
     sub_category=models.CharField(max_length=50,default="")
     price=models.IntegerField(default=0)
     pub_date=models.DateField()
+    pub_time=models.TimeField(auto_now=False)
     image=models.ImageField(upload_to="game/images",default="")
     likes = models.ManyToManyField(User,related_name='likes',blank=True)
     favs =  models.ManyToManyField(User,related_name='favs',blank=True)
