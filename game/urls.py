@@ -17,4 +17,10 @@ urlpatterns=[
     path('wishlist/',views.wishlist,name='wishlist'),
     path("productreview/",views.productreview,name="shophome"),
     path('productreview/<int:pk>/',views.detail,name="detailproduct"),
+    path('list/',views.previousorders,name='design_changelist'),
+    path('add/',views.upload,name="design_add"),
+    path('ajax/load-colors/',views.load_colors,name='ajax_load_colors'),
+    path('ajax/load-sizes/',views.load_sizes,name='ajax_load_sizes'),
+    path('add/<int:pk>/',views.show,name='show'),
+    path('handlerequest',views.handlerequest,name='HndleRequest'),
 ]

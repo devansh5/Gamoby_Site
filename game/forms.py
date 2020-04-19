@@ -2,9 +2,9 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.contrib.auth.models import User
-from .models import Profile
-from django.forms.widgets import RadioSelect
-
+from .models import *
+from django.forms.widgets import RadioSelect,TextInput
+from cloudinary.forms import CloudinaryFileField
 #custom form where we can add our own field
 
 
@@ -54,3 +54,36 @@ class ProfileUpdate(forms.ModelForm):
         widgets = {
             'gender':forms.RadioSelect()
         }
+
+class DesignForm(forms.ModelForm):
+    class Meta:
+        model = Design
+        exclude = ('owner','price',)
+
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.fields['color'].queryset = Color.objects.none()
+
+        if 'item' in self.data:
+            try:
+                item_id = int(self.data.get('item'))
+                self.fields['color'].queryset = Color.objects.filter(item_id=item_id).order_by('name')
+            except (ValueError, TypeError):
+                pass
+        elif self.instance.pk:
+            self.fields['color'].queryset = self.instance.item.color_set.order_by('name') 
+    
+
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.fields['size'].queryset = Size.objects.none()
+
+
+        if 'color' in self.data:
+            try:
+                color_id = int(self.data.get('color'))
+                self.fields['size'].queryset = Size.objects.filter(color_id=color_id).order_by('name')
+            except (ValueError,TypeError):
+                pass
+        elif self.instance.pk:
+            self.fields['size'].queryset = self.instance.color.size_set.order_by('name')

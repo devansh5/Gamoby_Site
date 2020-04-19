@@ -6,16 +6,22 @@ from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
-from .forms import CreateUserForm,EditProfileForm,ProfileUpdate
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from .models import *
 import json
-
+from PayTm import Checksum
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import ListView, CreateView
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-
+from cloudinary import api
+from cloudinary.forms import cl_init_js_callbacks
+MERCHANT_KEY = ''
 
 
 
@@ -180,7 +186,7 @@ def fav(request):
         return JsonResponse({'form':html})
 
 
-
+@login_required
 def wishlist(request):
     user=request.user
     liked_products=user.favs.all()
@@ -188,3 +194,106 @@ def wishlist(request):
         'liked_products':liked_products
     }
     return render(request,'game/wishlist.html',context)
+
+def previousorders(request):
+    designs=Design.objects.filter(owner=request.user)
+    context={'designs':designs}
+    return render(request,'game/design_list.html',context)
+
+@login_required
+def upload(request):
+    try:
+        user_profile=Profile.objects.get(user=request.user)
+    except:
+        return HttpResponse("need to login")
+    context=dict(form=DesignForm())
+    if request.method == 'POST':
+        design=Design(owner=request.user)
+        
+        form=DesignForm(request.POST,request.FILES,instance=design)
+        if form.is_valid():
+            design.save()
+            myorder=form.save()
+            return redirect('show',pk=myorder.pk)
+
+    else:
+        form=DesignForm()
+    return render(request,'game/design_form.html',context)
+
+@login_required
+def show(request,pk):
+    designs=Design.objects.get(pk=pk)
+    user=request.user
+    order_id=designs.pk
+    print(order_id)
+    
+    amount=1000
+    print(amount)
+    ICON_EFFECTS=dict(
+        format="jpg",
+        transformation = [
+            dict(height=55,width=50,crop="scale"),
+            dict(underlay="shirts",width=200,height=250,crop='crop'),
+            dict(crop='scale',gravity="center",y=20,x=-20),
+        ]
+    )
+    if request.method == 'POST':
+        param_dict = {
+            'MID':'TrFKjj53488482516882',
+            'ORDER_ID':str(order_id),
+            'TXN_AMOUNT':str(amount),
+            'CUST_ID':user.email,
+            'INDUSTRY_TYPE_ID':'Retail',
+            'WEBSITE':'WEBSTAGING',
+            'CHANNEL_ID':'WEB',
+            'CALLBACK_URL':'http://127.0.0.8000/handlerequest/',
+    }
+        param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict,MERCHANT_KEY)
+        return render(request,'game/paytm.html',{'param_dict':param_dict})
+     
+    context={'designs':designs,'ICON_EFFECTS':ICON_EFFECTS,'user':user}
+    return render(request,'game/show.html',context)
+
+@csrf_exempt       
+def handlerequest(request):
+    return HttpResonse("It's working")
+    pass
+
+
+
+
+
+
+def load_colors(request):
+    item_id = request.GET.get('item')
+    colors = Color.objects.filter(item_id=item_id).order_by('name')
+    return render(request,'game/color_dropdown_list_options.html',{'colors':colors})
+
+
+def load_sizes(request):
+    color_id = request.GET.get('color')
+    sizes = Size.objects.filter(color_id=color_id).order_by('name')
+    return render(request,'game/size_dropdown_list_options.html',{'sizes':sizes})
+
+
+
+
+
+
+
+
+
+# def upload(request):
+
+#     context=dict(backend_form=PhotoForm())
+
+#     if request.method == 'POST':
+#         form=PhotoForm(request.POST, request.FILES)
+#         context['posted']=form.instance
+#         if form.is_valid():
+           
+#             form.save()
+
+#     return render(request,'game/upload.html',context)
+
+

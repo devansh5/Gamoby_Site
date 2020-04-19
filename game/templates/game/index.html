@@ -112,7 +112,6 @@
     <section class="review-container">
         <h3 class="firstpage-miniheadings">Gaming Product Reviews</h3>
         <div class="container-fluid row review-cards">
-            {% for i in product %}
             <div class="review-card">
                 <img class="review-card-image" src="{% static '/images/download.jpg' %}" height="190px" alt="">
                 <div class="review-card-title text-center">
@@ -129,10 +128,7 @@
                         <a href="{% url 'shophome' %}" class="btn">READ MORE</a>
                     </div>
                 </div>
-                {% if forloop.counter == 2%}
             </div>
-            {% endif %}
-
 
         </div>
 
