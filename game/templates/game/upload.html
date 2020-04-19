@@ -1,0 +1,27 @@
+{% load cloudinary %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IImage Upload</title>
+</head>
+<body>
+    <div id="backend_upload">
+        <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ backend_form }}
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+    {% if posted %}
+    <div class="show">
+        <a href="{% url 'show' posted.pk %}">Here
+            
+        </a>
+        {% cloudinary posted.image ICON_EFFECTS %}
+    </div>
+    {% endif %}
+</body>
+</html>

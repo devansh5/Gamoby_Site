@@ -1,0 +1,65 @@
+{% extends 'game/base.html' %}
+{% load cloudinary %}
+
+
+    {%block title %}Place Order ND preview order {% endblock %}
+
+    {% block css %}
+    <style>
+        body{
+            background: linear-gradient(to right,rgb(136, 220, 243),rgb(248, 102, 102));
+        }
+
+
+    .detai{
+        color:white;
+
+    }
+    strong{
+        color:rgb(186, 20, 20);
+    }
+    button{
+        background-color:rgb(162, 248, 214);
+        padding:20px;
+    }
+     button a{
+         color:red;
+
+    }
+    button :hover{
+        background-color:greenyellow ;
+        padding:20px;
+    }
+    
+    </style>
+
+    {% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center; color:brown; margin-top: 30px; ">Your Preview order With Logo</h1>
+    <center><div class="show">
+    {% cloudinary designs.image ICON_EFFECTS %}
+    </div></center>
+
+    <center><div class="detai">
+    <h4>Total Price:  <strong>{{ designs.price }} </strong>  </h4>
+    <h1>Check Your Address </h1>
+    <p><strong>Your Email Id : </strong>{{user.email}}</p>
+    <p><strong>Street Adress 1: </strong>{{user.profile.address1}} </p>
+    <p><strong>Street Address 2: </strong>{{user.profile.address2}}</p>
+    <p><strong>Pin : </strong>{{user.profile.pin}}</p>
+    <p>If you want To update Your Details Then </p>
+   <button><a href="{% url 'edit_profile' %}">Edit Profile Details</a></button>
+   </div></center>
+   <br>
+   <div>
+    <a href="{% url 'design_changelist' %}">previous orders</a>
+    </div>
+
+    <form action="{% url 'show' designs.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Proceed to Checkout</button>
+    </form>
+
+    
+{% endblock %}

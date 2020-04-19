@@ -1,0 +1,108 @@
+{% extends 'game/base.html' %}
+{% load cloudinary %}
+    {% block title %}Design Order{% endblock %}
+
+
+    <h2>design order placing</h2>
+    {% block css %}
+
+    <style>
+        body{
+            background-color: black;
+        }
+        table{
+            margin:80px auto;
+            width:80%;
+            height:10px;
+            border-width: 2px;
+            border-color: forestgreen;
+        }
+        h1{
+            font-size: 40px;
+            color:darkorchid;
+            text-align: center;
+            margin:30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            letter-spacing: 3px;
+            font-weight: 800;
+        }
+        thead{
+            font-size: 30px;
+            color: rgb(160, 46, 46);
+            background-color: honeydew;
+        }
+        tr th{
+            text-align: center;
+            padding:20px;  
+        }
+        tr td{
+            text-align: center;
+            background-color: ivory;
+            color:lightcoral;
+            font-size: 20px;
+        }
+
+        .to-order {
+            text-align: center;
+        }
+        .to-order p{
+            font-size: 18px;
+            color: lightsalmon;
+        }
+        .to-order span{
+            color:yellow;
+        }
+
+    </style>
+
+
+
+    {% endblock %}
+
+{% block body %}
+    <h1>Your Previous Orders</h1>
+    <div class="to-order">
+        <p>Want to Place New Order ..Here</p>
+                    <span>||</span>
+                        <br>
+                    <span>\/</span>
+                        <br>
+        <a href="{% url 'design_add' %}">Place Order </a>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Item</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Image Logo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for design in designs  %}
+              <tr>
+                  <td>{{ design }}</td>
+
+                  <td>{{design.item.name}}</td>
+
+                  <td>{{design.color.name}}</td>
+
+                  <td>{{design.size.name}}</td>
+
+                  <td>{{design.price}}</td>
+
+                  <td>{% cloudinary design.image width=300 height=200 %}</td>
+                  
+              </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No design in db. <a href="{% url 'design_add' %}">Add the first person</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
