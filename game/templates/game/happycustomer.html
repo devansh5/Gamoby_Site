@@ -143,44 +143,7 @@
 
 
 
-  {% block js %}
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
-<script>
-    $(document).ready(function(event){
-        $(document).on('click','.like',function(event){
-            event.preventDefault();
-            var id=$(this).attr('id');
-            var action=$(this).attr('action');
-            $.ajax({
-                type:'POST',
-                url:'{% url "happy_like" %}',
-                data:{'id':id,'action':action,'csrfmiddlewaretoken':'{{ csrf_token }}'},
-                dataType:'json',
-                success:function(response){
-                if (data['message'] == 'Success' )
-                {
-                    var previous_action=$('a.like').data('action');
-
-                    //toggle data-action
-                    $('a.like').data('action',previous_action == 'like' ?
-                    'unlike':'like');
-                    //toggle link text
-                    $('a.like').text(previous_action == 'like' ? 'Unlike':
-                    'Like');
-                }
-            },
-        })
-        
-    })
-</script>
-
-
-
-  {% endblock %}
-
+ 
 
 
 

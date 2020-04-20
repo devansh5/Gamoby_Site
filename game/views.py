@@ -22,7 +22,7 @@ from django.utils.http import urlsafe_base64_encode
 from cloudinary import api
 from cloudinary.forms import cl_init_js_callbacks
 from django.views.decorators.http import require_POST
-
+from .filters import ProductFilter
 
 
 def register(request):
@@ -135,10 +135,11 @@ def password_change(request):
 
 def productreview(request):
     products=Product.objects.all()
+    product_filter=ProductFilter(request.GET,queryset=products)
     paginator=Paginator(products,9)
     page=request.GET.get('page')
     products=paginator.get_page(page)
-    params={'products':products}
+    params={'products':products,'product_filter':product_filter}
     return render(request,'game/productreview.html',params)
 
 

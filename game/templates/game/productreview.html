@@ -117,6 +117,28 @@
     line-height: 1.2;
     padding: 0 3px 0 3px;
  }
+  .filter label{
+    color:White;
+    font-size: 30px;
+    
+ }
+ .filter input{
+   width:30%;
+ }
+ .filter{
+   margin-top: 25px;
+ }
+ .filterbt{
+   width:100px;
+ }
+ .filter h1 span{
+   color: yellowgreen;
+   font-size: 20px;
+ }
+ .filter h1{
+   font-size:15px;
+   color: red;
+ }
  
  </style>
  
@@ -124,6 +146,20 @@
 
 {% block body %}
 
+
+<form  method="get">
+  <center><div class="filter">
+
+    <h1><span>
+      Available Categories are:
+      </span>
+      Electronics , Books , Automobiles ,Clothing
+    </h1>
+    <p class="cat"></p>
+  {{ product_filter.form.as_p }}
+  </div></center>
+  <center><button type="submit" class="filterbt">Search</button></center>
+</form>
 
 
 
@@ -135,7 +171,7 @@
 
 <div id="cd" class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3">
-      {% for i in products %}
+      {% for i in product_filter.qs %}
       <div class="col-4"> 
         <div class="card" id="demo{{forloop.counter}}">
           <img src='/media/{{i.image}}' class="card-img-top" alt="...">
