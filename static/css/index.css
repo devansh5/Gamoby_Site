@@ -1,3 +1,6 @@
+*{
+  font-family: 'Rajdhani', sans-serif;
+}
 
 body{
     width: 100%;
@@ -23,11 +26,21 @@ body{
     padding: 4px;
   
   }
-  
-  #carouselExampleIndicators{
-    width: 100%;
+
+  .carousel-indicators li{
+border-radius: 50%;
+margin: 0 4px 0 4px !important;
+width: 12px !important;
+height: 12px !important;
+background-color: red !important;
   }
   
+  
+/* SLIDER FOR HAPPY CUSTOMERS  */
+/* Slideshow container */
+
+
+
   .view-all-button{
   display: flex;
   justify-content:center;
@@ -35,9 +48,9 @@ body{
   }
   
   .view-all-button a{
-  color: white;
-  font-weight: 400;
-  font-size: 16px;
+  color: rgb(223, 222, 222);
+    font-weight: 700;
+  font-size: 17px;
   }
   
   .view-all-button a:hover{
@@ -45,11 +58,13 @@ body{
   }
   
   .firstpage-miniheadings{
-    font-size: 27.5px;
-    background: linear-gradient(to right, #c6c6d1, #a1a1ad);
-    background-clip: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+      font-size: 32px;
+      margin-bottom: 12px;
+      background: linear-gradient(rgb(204, 201, 201),rgb(160, 158, 158));
+      background-clip:border-box;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color:  transparent;
+      font-weight: 600;
   }
   
   
@@ -65,14 +80,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(56, 54, 54);
-    background-color: rgba(0, 0, 0, 0.956);
-  }
-  
-  .product-container h3{
-    text-align: center;
-    font-size: 27.5px;
-    margin-bottom: 20px;
+    background: linear-gradient(rgb(7, 7, 7),rgb(15, 15, 15),rgb(25, 25, 25));
   }
   
   .image1{
@@ -146,7 +154,6 @@ body{
     border-radius: 8px;
     box-shadow: 2px 2px 2px 1px rgba(44, 43, 43, 0.777);
     border: 2px solid rgba(7, 7, 7, 0.12);
-    font-size: 16px;
     transition: all 0.3s ease;
     position: relative;
     display: flex;
@@ -184,18 +191,19 @@ body{
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    font-size: 14px;
+    font-size: 15px;
   }
   
   .product-card .product-text {
     width: 90%;
     margin: 0 auto;
-    font-size: 13px;
+    font-size: 12.5px;
     text-align: center;
     margin-top: 5px;
     color: rgb(218, 216, 216);
     opacity: 0;
     max-height: 0;
+    letter-spacing: 0.3px;
     transition: all 0.3s ease;
   }
   
@@ -229,7 +237,7 @@ body{
   
   .mySlides{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
   }
   
@@ -239,8 +247,8 @@ body{
   }
   
   .client-container img{
-    height: 300px !important;
-    width: 240px !important;
+    height: 320px !important;
+    width: 250px !important;
   }
   
   .client-container{
@@ -251,17 +259,13 @@ body{
   padding-bottom: 5px;
   padding-left: 0;
   padding-right: 0;
-  background-color: rgb(56, 54, 54);
-  background-color: rgba(0, 0, 0, 0.956);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: linear-gradient(rgb(7, 7, 7),rgb(15, 15, 15),rgb(25, 25, 25));
   }
   
-  .client-container h3{
-  text-align: center;
-  font-size: 27.5px;
-  margin-bottom: 20px;
-  }
-  
-  .container{
+  .mySlides .container-fluid{
     padding: 10px;
     display: flex;
     flex-direction:row;
@@ -444,19 +448,18 @@ body{
     outline: none;
     }
   
+    
   /* REVIEW PRODUCT CONTAINER  */
   
   
   .review-container{
-  
     box-shadow: 0px 0px 4px 2px rgba(58, 57, 57, 0.71);
     margin-top: 8px;
     padding: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-left: 0;
     padding-right: 0;
-    background-color:black;
-    background-color: rgba(0, 0, 0, 0.956);
+    background: linear-gradient(rgb(7, 7, 7),rgb(15, 15, 15),rgb(25, 25, 25));
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -489,23 +492,25 @@ body{
   }
   
   div.review-cards {
-    margin-top: 25px;
-    margin-bottom: 20px;
-    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    justify-content: center;
     display: flex;
   }
   
   div.review-card {
-    box-shadow: 0px 0px 3px 2px rgba(63, 62, 62, 0.736);
+    border-bottom: 0;
    box-sizing: border-box;
-    background: #ffffff;
+    background:whitesmoke;
    display: inline-block;
     margin-left: 0;
     margin-right: 0;
     max-width: 255px;
     perspective: 1000;
-    position: relative;
+    margin-left: 10px;
+    margin-right:10px;
     text-align: left;
+    height: 360px !important;
     transition: all 0.3s 0s ease-in;
     z-index: 1;
   }
@@ -516,9 +521,8 @@ body{
   }
   
   div.review-card div.review-card-title {
-    background: whitesmoke;
-    margin-top: 4px;
-    position: relative;
+    background: transparent;
+    padding-top: 4px;
     z-index: 0;
   }
   
@@ -538,8 +542,8 @@ body{
   }
   
   div.review-card div.review-card-actions {
-    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
     padding: 8px;
+    padding-top: 0px;
     margin-bottom: 5px;
     text-align: center;
   }
@@ -550,43 +554,6 @@ body{
   
   .review-card-title small{
     text-transform: none;
-  }
-  
-  * SLIDER FOR HAPPY CUSTOMERS  */
-  /* Slideshow container */
-  .slideshow-container {
-    max-width: 100%;
-    position: relative;
-    margin: auto;
-  }
-  
-  /* Next & previous buttons */
-  .prev, .next {
-    box-shadow: 0px 0px 8px 1px rgba(17, 17, 17, 0.521);
-    cursor: pointer;
-    position: absolute;
-    top: 40%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 3px;
-    user-select: none;
-    background-color: white;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(231, 20, 20, 0.8);
   }
   
   
@@ -613,10 +580,9 @@ body{
   }
   .product-card-container {
    width: 95% !important;
-  
   }
+
   }
-  
   @media screen and (max-width:954px) and (min-width:736px){
     .product-card {
       max-width: 155px;
@@ -640,7 +606,6 @@ body{
    width: 100% !important;
   }
   }
-  
   @media screen and (max-width:735px) and (min-width:529px){
     .product-card {
       max-width: 135px;
@@ -664,7 +629,6 @@ body{
    width: 100% !important;
   }
   }
-  
   @media screen and (max-width:528px) and (min-width:433px){
     .product-card {
       margin-bottom: 10px;
@@ -690,7 +654,6 @@ body{
    width: 100% !important;
   }
   }
-  
   @media screen and (max-width:432px) and (min-width:0px){
     .product-card {
       margin-bottom: 10px;
@@ -716,7 +679,6 @@ body{
    width: 100% !important;
   }
   }
-  
   @media screen and (max-width:711px) and (min-width:0px){
     .product-card {
       margin-left: 6px;
@@ -743,7 +705,6 @@ body{
    width: 80% !important;
   }
   }
-  
   /* On smaller screens, decrease text size */
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
@@ -754,12 +715,20 @@ body{
       max-width: 225px;
     }
   }
-  @media screen and (max-width:1008px) and (min-width:899px){
+  @media screen and (max-width:1008px){
     div.review-card {
       margin-top: -15px;
       transform: scaleY(0.90);
       max-width: 205px;
     }
+    div.review-cards {
+      justify-content: space-around;
+    }
+    div.review-card {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  
   }
   @media screen and (max-width:898px) and (min-width:784px){
     div.review-card:nth-child(4) {
@@ -788,6 +757,16 @@ body{
     div.review-card:nth-child(3) {
   display: none;
     }
+    div.review-card {
+      max-width: 235px;
+    }
+    div.review-cards {
+      justify-content: center;
+    }
+    div.review-card {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
   }
   @media screen and (max-width:571px) and (min-width:486px){
     .client-container img{
@@ -795,8 +774,8 @@ body{
       width: 205px !important;
     }
     .mySlides .review-item{
-      margin-left:5px;
-      margin-right: 5px;
+      margin-left:10px;
+      margin-right: 10px;
       }
       .client-container{
         padding-top:15px;
@@ -815,9 +794,12 @@ body{
     div.review-card{
       max-width: 215px;
     }
-    div.review-container{
-      padding: 0px !important;
-      justify-content: space-between !important;
+    div.review-cards {
+      justify-content: center;
+    }
+    div.review-card {
+      margin-left: 8px;
+      margin-right: 8px;
     }
   }
   @media screen and (max-width:485px) and (min-width:0px){
@@ -853,6 +835,9 @@ body{
       margin-bottom: 10px;
       max-width: 230px;
     }
+    div.review-card:nth-child(2){
+      margin-top: 20px !important;
+    }
     div.review-container{
       padding: 0px;
       padding-top: 15px;
@@ -863,27 +848,22 @@ body{
       align-items: center;
       flex-direction: column;
     }
-    .review-card-title h2 small{
-    display: none !important;
-    }
-    /* *{
-      overflow-x: hidden;
-    } */
+   
   }
   @media screen and (max-width:1210px) and (min-width:1009px){
     .client-container img{
-      height: 270px !important;
-      width: 220px !important;
+      height: 260px !important;
+      width: 210px !important;
     }
   }
-  @media screen and (max-width:1008px) and (min-width:770px){
+  @media screen and (max-width:1008px) and (min-width:888px){
     .client-container img{
-      height: 270px !important;
-      width: 220px !important;
+      height: 260px !important;
+      width: 210px !important;
     }
     .mySlides .review-item{
-      margin-left:5px;
-      margin-right: 5px;
+      margin-left:6px;
+      margin-right: 6px;
       }
       .client-container{
         padding-top:15px;
@@ -891,18 +871,36 @@ body{
         .container{
      padding: 0;
         }
-  .mySlides .review-item:nth-child(4){
-    display: none;
+ 
   }
+  @media screen and (max-width:887px) and (min-width:705px){
+    .client-container img{
+      height: 260px !important;
+      width: 210px !important;
+    }
+    .mySlides .review-item{
+      margin-left:6px;
+      margin-right: 6px;
+      }
+      .client-container{
+        padding-top:15px;
+        }
+        .container{
+     padding: 0;
+        }
+        .mySlides .review-item:nth-child(4){
+          display: none;
+        }
+ 
   }
-  @media screen and (max-width:769px) and (min-width:572px){
+  @media screen and (max-width:704px) and (min-width:572px){
     .client-container img{
       height: 280px !important;
       width: 235px !important;
     }
     .mySlides .review-item{
-      margin-left:7px;
-      margin-right: 7px;
+      margin-left:20px;
+      margin-right: 20px;
       }
       .client-container{
         padding-top:15px;

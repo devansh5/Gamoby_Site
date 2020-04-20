@@ -1,48 +1,55 @@
 {% extends 'game/base.html' %}
 
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/reviewProduct.css' %}">
+{% endblock %}
+
  {% block css %}
  <style>
 
  .pagination{
-   margin-left:40%;
-
-
+   display: flex;
+   justify-content: center;
+   margin: 30px 0 30px 0;
  }
  body{
-     background: linear-gradient(to right,rgb(238, 53, 53),#000000);
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box !important;
+   background: linear-gradient(rgb(12,12,12),rgb(20,22,22),rgb(32,32,32));
  }
 
- .bt {
-    margin-top: 2px;
-    background: #fa2626;
-    font-size: 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
-    color: #ffffff;
-    display: inline-block;
-    padding: 6px 18px 8px;
-    margin-left: 50px;
-    position: absolute;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    
+#cd img{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border-radius: 0px;
+  height:190px;
+}
 
- }
- .bt:hover{
-    background: #f73131;
-    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
-    transform: translateY(-1px);
-    transition: all 0.25s 0s ease-out;
- }
- 
+.card-actions{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 
  #cd{
-    margin:80px auto;
-    max-width:960px;
+   position: relative;
+   margin:80px auto;
     text-align:center;
  }
 
+.card{
+  margin-bottom: 20px;
+  max-width: 255px;
+}
+ 
+
  #cd .card{
+   border-radius: 0;
     box-shadow: 0px 0px 3px 2px rgba(63, 62, 62, 0.736);
     box-sizing: border-box;
     background: #ffffff;
@@ -51,46 +58,64 @@
     margin-right: 0;
     max-width: 255px;
     perspective: 1000;
-    position: relative;
     text-align: left;
     transition: all 0.3s 0s ease-in;
     z-index: 1;
-    margin-bottom: 38px;
  }
  
  #cd .card-img-top{
-    min-height:30vh;
-    max-height:30vh;
+   width: 100%;
     filter: drop-shadow(0px 2px 2px rgba(102, 101, 101, 0.63));
  }
- #cd .card-body{
-    background: whitesmoke;
-    margin-top: 4px;
+
+ #cd .cardbody{
+    margin-top: 0px;
     position: relative;
     z-index: 0;
-    min-height:25vh;
+   display: inline-block;
+   height:160px;
  }
+
+ .bt {
+   margin-bottom: 15px;
+       background: #fa2626;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 18px 8px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+ }
+ .bt:hover{
+   color: white;
+    background: #f73131;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    transform: translateY(-1px);
+    transition: all 0.25s 0s ease-out;
+ }
+
  #cd .card-title{
-    background: whitesmoke;
-    margin-top: 4px;
-    position: relative;
+    margin-top: 0px;
     z-index: 0;
  }
  #cd .card-title h2{
+   margin-top: 10px;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
-    margin: 0;
-    padding: 4px;
     text-transform: uppercase;
  }
  #cd .card-text p{
     display: block;
-    padding-top: 5px;
     font-size: 14.5px;
     font-weight: 500;
     letter-spacing: 0em;
     text-align: center;
+    margin-top: -5px;
+    line-height: 1.2;
+    padding: 0 3px 0 3px;
  }
  
  </style>
@@ -108,15 +133,14 @@
 
 
 
-<div id="cd">
-    <div class="row row-cols-1 row-cols-md-3 ">
+<div id="cd" class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3">
       {% for i in products %}
-      <div class="col-4">
-       
+      <div class="col-4"> 
         <div class="card" id="demo{{forloop.counter}}">
           <img src='/media/{{i.image}}' class="card-img-top" alt="...">
           
-          <div class="card-body">
+          <div class="cardbody">
             <div class="card-title">
               <h2>{{i.product_name}}</h2>
             </div>

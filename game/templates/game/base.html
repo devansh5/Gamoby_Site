@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title %} {% endblock %}</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{% static '/css/navigation-bar.css' %}">
     <link rel="stylesheet" href="{% static '/css/footer.css' %}">
     <link rel="stylesheet" href="{% static '/css/circular-nav.css' %}">
     <link rel="stylesheet" href="{% static '/css/loginSignPage.css' %}">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/preloader.css' %}">
     {% block styles %}
     {% endblock %}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -275,7 +278,7 @@
         <ul class="responsive-navlinks">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#!">Design Product</a></li>
-            <li><a href="../html/faq.htm">FAQs</a></li>
+            <li><a href="{% url 'faq' %}">FAQs</a></li>
             <li><a href="{%url 'about' %}">About Us</a></li>
             <li><a href="{%url 'contact' %}">Contact Us</a></li>
         </ul>
@@ -427,81 +430,7 @@ integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<script>
 
-
-    $(document).ready(function(){
-         var zindex = 4;
-         
-         
-         $(".card").click(function(e){
-            // e.preventDefault();
-            
-             $("body").find("#fs").each(function(){
-                 $(this).off("click").click(function(e){
-                    //  e.preventDefault();
-                     window.open(this.href);
-                     return false;
-                 });
-             });
-            // $('#fs').unbind().click(function(){
-            //     window.open($('#fs').attr('href'));
-            // });
-            
-           var isShowing = false;
-           
-            
-           if ($(this).hasClass("show")) {
-             isShowing = true
-              
-           }
-           
-           if ($("#cd").hasClass("showing")) {
-            
-             // a card is already in view
-             $(".card.show")
-               .removeClass("show");
-               
-               
-             if (isShowing) {
-               // this card was showing - reset the grid
-               $("#cd")
-                 .removeClass("showing");
-             } else {
-                 
-               // this card isn't showing - get in with it
-               $(this)
-                 .css({zIndex: zindex})
-                 .addClass("show");
-       
-             }
-       
-             zindex++;
-            
-           
-           
-           }else {
-             // no cards in view
-             $("#cd")
-               .addClass("showing");
-             $(this)
-               .css({zIndex:zindex})
-               .addClass("show");
-       
-             zindex++;
-           }
-           
-         });
-       });
-    
-    
-            
-            
-    
-    
-          
-          
-    </script>
     
 <script>
     $(document).ready(function(event){

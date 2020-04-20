@@ -9,43 +9,135 @@
 
 {% block css %}
 <style>
-    .test{
-        margin:20px;
-        
+
+.profile-container{
+    position:relative;
     }
+
+.form-wrapp{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+  form{
+      width:100%;
+  }
+
+  .user-input-names{
+  display:flex;
+  }
+
+  .user-input-names input{
+   margin-top:10px;
+   border-radius:0px;
+   background-color: white;
+   color: black;
+   font-weight: 700px;
+  }
+  .user-input-names input:focus{
+ outline: none;
+  }
+  .gender-info{
+     color: rgba(255, 255, 255, 0.925);
+  }
+  .gender-info input{
+      background-color: white;
+  }
+
+   .address-container input{
+       border-radius: 0px;
+      background-color: white;
+      padding: 23px 0px 23px 5px;
+    }
+
+    .add-box7{
+        margin-top: 5px;
+    }
+    .add-box1{
+        grid-column: 1/3 !important;
+    }
+    .add-box2{
+       grid-column: 1/3;
+    }
+
+      .address-grid{
+        display: grid;
+        grid-template-columns: minmax(200px,570px) minmax(200px,570px);
+        grid-template-rows: 70px 70px 65px 60px 60px ;
+        grid-column-gap:10px;
+    }
+
+    
+    
+    input{
+        color: black !important;
+        background-color: white !important;
+        cursor: pointer !important;
+    }
+
+   @media screen and (max-width:660px){
+        .add-box3,
+        .add-box4,
+        .add-box5,
+        .add-box6,
+        .add-box7{
+            grid-column: 1/3 !important;
+        }
+        
+        .profileSection2{
+            margin:5px;
+            margin-left:0px
+        }
+
+    .add-box{
+        padding: 10px;
+    }
+
+     .profileSection2 .user-headings{
+         margin-top: 20px;
+     }
+   
+    .profileSection2{
+        padding: 5px;
+        overflow-x: hidden;
+        padding-top: 10px;
+        margin-left: 0px;
+    }
+  .user-input-names input{
+        width: 95% !important;
+    }
+    .user-info input{
+    padding: 5px;
+    margin-left: 5px;
+    }
+       .address-grid{
+        grid-column-gap: 2px;
+    }
+   }
+
+   @media screen and (max-width:560px){
+            .address-grid{
+        display: grid;
+        grid-template-columns: minmax(200px,470px);
+        grid-template-rows: 60px 60px 60px 60px 60px ;
+    }
+    .address-grid input{
+        width:100% !important;
+    }
+
+   }
+  
 </style>
 {% endblock %}
 
 
 {% block body %}
+
     <div class="profile-container">
-
-        <div class="profileSection1">
-
-            <div class="profileIntro">
-                <img src="../images/user-icon.png" height="150px" width="150px" alt="no-img">
-                <h5>Hey,</h5>
-                <span>{{user.username}}</span>
-            </div>
-
-            <div class="profileToggle">
-                <div class="profileNotifications"> <i class="fa fa-bell"></i> All Notifications</div>
-                <div class="profileOrders"> <i class="fa fa-shopping-bag"></i> My Orders</div>
-                <div class="profileCoupons"> <i class="fa fa-gift"></i>My Giftcards/Coupons</div>
-                <div class="profileWishlist"> <a href="#!"> <i class="fa fa-bookmark"></i> My WishList</a> </div>
-                <div class="profileReviews"> <i class="fa fa-edit"></i> My Ratings & Reviews</div>
-                <div class="profileFAQs"> <a href="#!"> <i class="fa fa-book"></i> FAQs</a> </div>
-            </div>
-
-            <div class="usage-section">
-
-                <a href="#!">Terms of Use</a>
-                <a href="#!">Privacy</a>
-                <a href="#!">Security</a>
-    
-            </div>
-
-        </div>
+    <div class="form-wrapp">
         <form action="" method="POST">
 
             {% csrf_token %}
@@ -101,7 +193,8 @@
             </div>
 
         </form>
-
     </div>
+    </div>
+
 
 {% endblock %}

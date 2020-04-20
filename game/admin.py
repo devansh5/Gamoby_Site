@@ -16,3 +16,5 @@ admin.site.register(Color)
 admin.site.register(Item)
 
 admin.site.register(Size)
+
+admin.site.register(Happy)

@@ -21,8 +21,7 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from cloudinary import api
 from cloudinary.forms import cl_init_js_callbacks
-MERCHANT_KEY = ''
-
+from django.views.decorators.http import require_POST
 
 
 
@@ -84,6 +83,8 @@ def about(request):
 
 def contact(request):
     return render(request,'game/contact.html')
+def faq(request):
+    return render(request,'game/faq.html')
 
 @login_required(login_url='login')
 def view_profile(request):
@@ -151,6 +152,32 @@ def detail(request,pk):
         is_fav=True
     context={'product':product,'is_liked':is_liked,'is_fav':is_fav,'total_likes':product.total_likes()}
     return render(request,'game/productdetail.html',context)
+
+
+def happy(request):
+    happys=Happy.objects.all()
+    paginator=Paginator(happys,9)
+    page=request.GET.get('page')
+    happys=paginator.get_page(page)
+    is_happylike=False
+    params={'happys':happys}
+    return render(request,'game/happycustomer.html',params)
+
+def happy_like(request):
+    happy_id=request.POST.get('id')
+    action=request.POST.get('action')
+    if happy_id and action:
+        try:
+            happy=Happy.objects.get(id=happy_id)
+            if action == 'like':
+                happy.happylikes.add(request.user)
+            else:
+                happy.happylikes.remove(request.user)
+            return HttpResponse(json.dumps({"message":"Success"}),content_type="application/json")
+        except:
+            pass
+    return HttpResponse(json.dums({"message":"Error"}),content_type="application/json")
+
 
 
 def like(request):
@@ -275,25 +302,5 @@ def load_sizes(request):
     sizes = Size.objects.filter(color_id=color_id).order_by('name')
     return render(request,'game/size_dropdown_list_options.html',{'sizes':sizes})
 
-
-
-
-
-
-
-
-
-# def upload(request):
-
-#     context=dict(backend_form=PhotoForm())
-
-#     if request.method == 'POST':
-#         form=PhotoForm(request.POST, request.FILES)
-#         context['posted']=form.instance
-#         if form.is_valid():
-           
-#             form.save()
-
-#     return render(request,'game/upload.html',context)
 
 

@@ -1,0 +1,64 @@
+{% extends 'game/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/faq.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="faq-container container my-5">
+
+
+    <!--Section: Content-->
+    <section>
+
+        <h6 class="font-weight-normal font-small grey-text mb-4 text-center">FAQs</h6>
+        <!-- Section heading -->
+        <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Frequently Asked Questions</h3>
+        <hr class="w-header">
+        <!-- Section description -->
+        <p class="lead text-muted mx-auto mt-4 pt-2 mb-5 text-center">Got a question? We've got answers. For further queries mail us at gamerhears@gamoby.com or drop a message <a href="../html/contactPage.htm">here!</a></p>
+
+        <div class="row text-center text-md-left">
+            <div class="col-md-6 mb-4">
+                <h5 class="font-weight-normal mb-3">What payment services do you support?</h5>
+                <p class="text-muted">We currently accept online payments via net banking.</p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h5 class="font-weight-normal mb-3">Is there an option for COD?</h5>
+                <p class="text-muted">No, currently we do not provide COD services.</p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h5 class="font-weight-normal mb-3">Can I return my order?</h5>
+                <p class="text-muted">Sorry, we do not take returns as the product has your logo printed on it. However, we do provide replacement if the product you received is damaged. (You can check replacement policy <a href="#!">here!</a>)
+                </p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h5 class="font-weight-normal mb-3">How much time will it take to deliver my order?</h5>
+                <p class="text-muted">You can track your order <a href="#!">here!</a></p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h5 class="font-weight-normal mb-3">What if I dont receive my order?</h5>
+                <p class="text-muted">If you don't receive you order we would give a 100% refund.</p>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h5 class="font-weight-normal mb-3">Can I request refund?</h5>
+                <p class="text-muted">No you cannot! However, if the product is damaged or misprinted we would provide a replacement for the same.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <img class="big-circle" src="../images/big-eclipse.svg" alt="" />
+    <img class="medium-circle" src="../images/mid-eclipse.svg" alt="" />
+    <img class="small-circle" src="../images/small-eclipse.svg" alt="" />
+
+</div>
+
+{% endblock %}

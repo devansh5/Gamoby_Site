@@ -3,7 +3,7 @@
 <html lang="en">
 {% load static %}
     {% block styles %}
-        <link rel="stylesheet" href="{%static '/css/profilepage.css' %}">
+        <link rel="stylesheet" href="{%static '/css/profilePage.css' %}">
     {% endblock %}
 
     {% block title %} Profile/Gamer's Lobby {% endblock %}
@@ -11,61 +11,59 @@
 
 {% block css %}    
 <style>
+
+.profileSection2{
+    position: relative;
+}
     .edit-profile{
-        background: #412408;
-        border-radius: 4px;
-        box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
-        color: #ffffff;
-        margin-top: 18px;
-        padding:10px 6px 10px 8px;
-        position: relative;
+        font-size:20px;
+        padding:6px 8px 6px 8px;
+        position: absolute;
+        right: 10px;
         text-decoration: none;
         float:right;
     }
     .edit-profile a{
+        color: white;
+        text-decoration:none;
         color:rgb(240, 233, 233);
     }
+
+    
     label{
         margin:5px;
         position: relative;
+    }
 
-    }
-    input{
-        width:100%;
-        height:50%;
-    }
-    span{
-        margin-top:2px;
-        position: relative;
-    }
-    span p{
-        padding-left: 5px;
-        font-size: 20px;
-        font-weight: 400;
-        text-align: center;
-        position: relative;
-    }
+
     .h{
         margin-top:25px;
     }
     .gen{
+        color: rgb(155, 155, 155);
+        display: inline;
         margin-left: 15px;
-        font-size: 20px;
+        font-weight: 500;
+        cursor: not-allowed;
+        font-size: 16px;
+    }
+    .change-password{
+        position: relative;
+        display: flex;
+        flex-direction: row;
     }
     .change_password{
-        background: #412408;
-        border-radius: 4px;
-        box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
-        color: #ffffff;
-        margin-top: 18px;
-        padding:8px 10px 8px 10px;
-        position: relative;
-        text-decoration: none;
-        float:right;
+        position: absolute;
+        top: 13px;
+        left: 130px;
+
     }
-    .change_password a{
-        color: azure;
-    }
+  .change_password a{
+      color: red;
+  }
+  .change_password a:hover{
+      color: rgba(255,0,0,0.8);
+  }
 
 </style>
 {% endblock %}
@@ -81,11 +79,11 @@
         <div class="profileSection1">
 
             <div class="profileIntro">
-                {% if user.profile.gender == 'Male' %}
+            {% if user.profile.gender == 'Male' %}
                 <img src="{% static '/images/male.png' %}" height="150px" width="150px" alt="no-img">
-                {% elif user.profile.gender == 'Female' %}
+            {% elif user.profile.gender == 'Female' %}
                 <img src="{% static '/images/female.png' %}" height="150px" width="150px" alt="no-img">
-                {% endif %}
+            {% endif %}
                 <h5>Hey,</h5>
                 <span>{{user.username}}</span>
             </div>
@@ -108,15 +106,13 @@
             </div>
 
         </div>
-
-        
+   
 
             <div class="profileSection2">
 
-
                 <div class="user-info">
                     <div class="edit-profile">
-                        <a href="{% url 'edit_profile' %}">Edit Your Profile</a>
+                        <a href="{% url 'edit_profile' %}">Edit Profile</a>
                     </div>
                     <div class="user-headings">
                         Personal Information
@@ -135,11 +131,10 @@
 
                 <div class="change-password">
 
-                    <div class="user-headings">Change Password
+                    <div class="user-headings">Password</div>
                         <div class="change_password">
                             <a href="{% url 'password_change' %}">Change Password</a>
                         </div>
-                    </div>
 
                     
                 </div>
@@ -150,29 +145,28 @@
                     <div class="user-headings">Delivery Address
                     </div>
                     <div class="address-grid">
-                        <label for="add-line-1"><span><p>StreetAddress -1</p></span> 
+                      
                         <input class="add-box add-box1" disabled type="text" placeholder="{{user.profile.address1}}" name="add-line-1"
                             id="add-line-1">
-                        </label>
-                        <label for="add line-2"><span><p>StreetAddress -2</p> </span>    
+                       
+                          
                         <input class="add-box add-box2" disabled type="text" placeholder="{{user.profile.address2}}" name="add-line-2"
                             id="add-line-2">
-                        </label>
-                        <label for="city"><span><p>City</p></span>
+                        
+                     
                         <input class="add-box add-box3" disabled type="text" placeholder="{{user.profile.city}}" name="city" id="city">
-                        </label>
-                        <label for="state"><span><p>State</p></span>
+                        
+                        
                             <input class="add-box add-box4" disabled type="text" placeholder="{{user.profile.state}}" name="state" id="state">
-                        </label>
-                        <label for="pincode"><span><p>Pin</p></span>
+                   
+                       
                             <input class="add-box add-box5" disabled type="text" placeholder="{{user.profile.pin}}" name="pincode" id="pincode">
-                        </label>
-                        <label for="country"><span><p>Country</p></span>
+                        
+                        
                             <input class="add-box add-box6" disabled type="text" placeholder="{{user.profile.country}}" name="country" id="country">
-                        </label>
-                        <label for="mobile-number"><span><p class="h"> Mobile No.</p></span>
+                        
                             <input class="add-box add-box7" disabled type="tel" placeholder="{{user.profile.mobileno}}" name="mobile-number" id="mobile-number">
-                        </label>
+                      
                         
                         
                     </div>

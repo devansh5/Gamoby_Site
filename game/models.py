@@ -48,10 +48,6 @@ class Profile(models.Model):
     country=models.CharField(max_length=50,default="")
     mobileno=models.CharField(max_length=12,default=0)
 
-
-
-
-
     def __str__(self):
         return self.user.username
 
@@ -60,6 +56,22 @@ def create_profile(sender, **kwargs):
         user_profile = Profile.objects.create(user=kwargs['instance'])
 
 post_save.connect(create_profile,sender=User)
+
+
+class Happy(models.Model):
+    happy_id=models.AutoField
+    happy_name=models.CharField(max_length=50)
+    review=models.CharField(max_length=300)
+    pub_date=models.DateField()
+    image=models.ImageField(upload_to="game/images",default="")
+    happylikes = models.ManyToManyField(User,related_name='happylikes',blank=True)
+     
+    def __str__(self):
+        return self.happy_name
+
+    
+    def total_happylikes(self):
+        return self.happylikes.count()
 
 
 
