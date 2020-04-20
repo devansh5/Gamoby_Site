@@ -16,5 +16,10 @@
           
           ajax used for chained selection for color,size and items in design page 
           
+          django filter added for filtering the product 
+          
+          pip install django-filter
+          
+          Like on the happy customer is not working 
           
 
