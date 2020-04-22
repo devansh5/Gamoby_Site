@@ -73,9 +73,12 @@ def logoutuser(request):
     return render(request,'game/index.html')
   
 
+  
+
 def index(request):
-    product=Product.objects.order_by('pub_time')
-    params={'product':product}
+    product=Product.objects.order_by('pub_date')[:4]
+    banner=Banner.objects.all()
+    params={'product':product,'banner':banner}
     return render(request,'game/index.html',params) 
 
 def about(request):
@@ -139,7 +142,8 @@ def productreview(request):
     paginator=Paginator(products,9)
     page=request.GET.get('page')
     products=paginator.get_page(page)
-    params={'products':products,'product_filter':product_filter}
+    category=Category.objects.all()
+    params={'products':products,'product_filter':product_filter,'category':category}
     return render(request,'game/productreview.html',params)
 
 
@@ -160,24 +164,49 @@ def happy(request):
     paginator=Paginator(happys,9)
     page=request.GET.get('page')
     happys=paginator.get_page(page)
-    is_happylike=False
     params={'happys':happys}
     return render(request,'game/happycustomer.html',params)
 
-def happy_like(request):
-    happy_id=request.POST.get('id')
-    action=request.POST.get('action')
-    if happy_id and action:
-        try:
-            happy=Happy.objects.get(id=happy_id)
-            if action == 'like':
-                happy.happylikes.add(request.user)
-            else:
-                happy.happylikes.remove(request.user)
-            return HttpResponse(json.dumps({"message":"Success"}),content_type="application/json")
-        except:
-            pass
-    return HttpResponse(json.dums({"message":"Error"}),content_type="application/json")
+# def happy_like(request):
+#     happy_id=request.POST.get('id')
+#     action=request.POST.get('action')
+#     if happy_id and action:
+#         try:
+#             happy=Happy.objects.get(id=happy_id)
+#             if action == 'like':
+#                 happy.happylikes.add(request.user)
+#             else:
+#                 happy.happylikes.remove(request.user)
+#             return HttpResponse(json.dumps({"message":"Success"}),content_type="application/json")
+#         except:
+#             pass
+#     return HttpResponse(json.dums({"message":"Error"}),content_type="application/json")
+
+def happy_like(request,id):
+    get_happy=get_object_or_404(Happy,id=id)
+    like_status={}
+    if request.is_ajax and request.method == 'POST':
+        if request.user in get_happy.happylikes.all():
+            get_happy.like_count -=1
+            get_happy.happylikes.remove(request.user)
+            get_happy.save()
+            like_status['Removed'] = "True"
+            like_status['count'] = get_happy.like_count
+            print(like_status)
+            return HttpResponse(JsonResponse(like_status))
+        else:
+            get_happy.like_count +=1
+            get_happy.happylikes.add(request.user)
+            get_happy.save()
+            like_status['Success'] = "True"
+            like_status['count'] = get_happy.like_count
+            return HttpResponse(JsonResponse(like_status))
+    else:
+        like_status['Success']=  False
+        return HttpResponse("need login first")
+    return request
+    
+
 
 
 
@@ -260,8 +289,8 @@ def show(request,pk):
     ICON_EFFECTS=dict(
         format="jpg",
         transformation = [
-            dict(height=55,width=50,crop="scale"),
-            dict(underlay="shirts",width=200,height=250,crop='crop'),
+            dict(height=150,width=90,crop="scale"),
+            dict(underlay="v1b9fiv9lvktzm7w6iu1",width=350,height=250,crop='crop'),
             dict(crop='scale',gravity="center",y=20,x=-20),
         ]
     )

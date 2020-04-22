@@ -130,3 +130,21 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+
+
+
+#Cloudinary COnfiguration
+CLOUDINARY = {
+  'cloud_name': 'gam1e4by',  
+  'api_key': '758894869515971',  
+  'api_secret': 'fqqHNbXb-ydqFGb4wONcbt2i4X4',  
+}
+
+#SMTP Configuration
+
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS='TRUE'
+EMAIL_HOST_USER='gamobyindia@gmail.com'
+EMAIL_HOST_PASSWORD='flygamoby'

@@ -18,3 +18,5 @@ admin.site.register(Item)
 admin.site.register(Size)
 
 admin.site.register(Happy)
+
+admin.site.register(Category)

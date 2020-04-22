@@ -5,11 +5,20 @@ from django.forms.widgets import RadioSelect
 from cloudinary.models import CloudinaryField
 
 
+class Category(models.Model):
+    name=models.CharField(max_length=30)
+
+
+    def __str__(self):
+        return self.name
+
+
+
 class Product(models.Model):
     product_id=models.AutoField
     product_name=models.CharField(max_length=50,default="")
     desc=models.CharField(max_length=300,default="")
-    catrgory=models.CharField(max_length=50,default="")
+    category=models.ForeignKey(Category,on_delete=models.CASCADE,default="")
     sub_category=models.CharField(max_length=50,default="")
     price=models.IntegerField(default=0)
     pub_date=models.DateField(auto_now_add=True)
@@ -29,7 +38,8 @@ class Product(models.Model):
 
 
 
-
+class Banner(models.Model):
+    image=models.ImageField(upload_to='game/images',default="")
 
 class Profile(models.Model):
     CHOICES=[('Male','Male'),
@@ -65,13 +75,10 @@ class Happy(models.Model):
     pub_date=models.DateField()
     image=models.ImageField(upload_to="game/images",default="")
     happylikes = models.ManyToManyField(User,related_name='happylikes',blank=True)
+    like_count=models.IntegerField(default=0)
      
     def __str__(self):
         return self.happy_name
-
-    
-    def total_happylikes(self):
-        return self.happylikes.count()
 
 
 
@@ -94,14 +101,14 @@ class Color(models.Model):
 class Size(models.Model):
     color = models.ForeignKey(Color,on_delete=models.CASCADE)
     name=models.CharField(max_length=30)
+    price=models.PositiveIntegerField(null=True)
 
     def __str__(self):
         return self.name
 
 
 class Design(models.Model):
-    owner=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    price=models.PositiveIntegerField(null=True)
+    owner=models.ForeignKey(User,on_delete=models.CASCADE,null=True) 
     item=models.ForeignKey(Item,on_delete=models.SET_NULL,null=True)
     color = models.ForeignKey(Color, on_delete=models.SET_NULL,null=True)
     size = models.ForeignKey(Size, on_delete=models.SET_NULL,null=True)

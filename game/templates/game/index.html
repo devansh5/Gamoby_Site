@@ -105,77 +105,32 @@
     <section class="review-container">
         <h3 class="text-center firstpage-miniheadings">Gaming Product Reviews</h3>
         <div class="container-fluid row review-cards">
-
+            {% for i in product %}
             <div class="review-card">
-                <img class="review-card-image" src="{% static '/images/download.jpg' %}" height="190px" alt="">
+                <img class="review-card-image" src="/media/{{i.image}}" height="190px" alt="">
                 <div class="review-card-title text-center">
 
                     <h2>
-                        Apple airpods
+                       {{i.product_name}}
                         <small>
-                         Includes charging case, bluetooth headset with mic.
-                            Powered by the new Apple H1 headphone chip, AirPods now feature hands-free access to Siri using just your voice. 
+                         {{i.desc}}
+                         
                         </small>
                     </h2>
 
                     <div class="review-card-actions">
-                        <a href="{% url 'shophome' %}" class="btn">READ MORE</a>
+                        <a href="{% url 'detailproduct' i.id %}" class="btn">READ MORE</a>
                     </div>
                 </div>
 
             </div>
+            {% endfor %}
 
-            <div class="review-card">
-                <img class="review-card-image" src="{% static '/images/four.jpg' %}" height="190px" alt="">
-                <div class="review-card-title text-center">
+          
 
-                    <h2>
-                        HOVER EFFECT
-                        <small> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aperiam veritatis
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aperiam ver cupiditate exercitationem! </small>
-                    </h2>
+           
 
-                    <div class="review-card-actions">
-                        <a href="#!" class="btn">READ MORE</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="review-card">
-                <img class="review-card-image" src="{% static '/images/two.jpg' %}" height="190px" alt="">
-                <div class="review-card-title text-center">
-
-                    <h2>
-                        HOVER EFFECT
-                        <small>
-                            lorem20 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aperiam veritatis
-                            consequatur corrupti cupiditate exercitationem! </small>
-                    </h2>
-
-                    <div class="review-card-actions">
-                        <a href="{% url 'shophome' %}" class="btn">READ MORE</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="review-card">
-                <img class="review-card-image" src="{% static '/images/four.jpg' %}" height="190px" alt="">
-                <div class="review-card-title text-center">
-
-                    <h2>
-                        HOVER EFFECT
-                        <small> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aperiam veritatis
-                            consequatur corrupti cupiditate exercitationem! </small>
-                    </h2>
-
-                    <div class="review-card-actions">
-                        <a href="#!" class="btn">READ MORE</a>
-                    </div>
-                </div>
-
-            </div>
+   
 
         </div>
 

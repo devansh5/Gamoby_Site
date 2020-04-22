@@ -150,13 +150,16 @@
 <form  method="get">
   <center><div class="filter">
 
-    <h1><span>
-      Available Categories are:
-      </span>
-      Electronics , Books , Automobiles ,Clothing
-    </h1>
+    
     <p class="cat"></p>
-  {{ product_filter.form.as_p }}
+    <label for="id_category">Category:</label>
+    <select name="category" id="id_category">
+      <option ></option>
+      {% for i in category %}
+      
+      <option value="{{ i.id }}">{{ i.name }}</option>
+      {% endfor %}
+    </select>
   </div></center>
   <center><button type="submit" class="filterbt">Search</button></center>
 </form>

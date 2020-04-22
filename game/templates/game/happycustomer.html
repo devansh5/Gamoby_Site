@@ -2,6 +2,8 @@
 {% load static %}
 {% block styles %}
   <link rel="stylesheet" href="{%static '/css/index.css/ '%}">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 {% endblock %}
 
 
@@ -52,22 +54,20 @@
                                 <div class="product-content">
                                     <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
                                 </div>
-                                <div class="like-content">
-                                    {{ total_likes }} like{{ total_likes|pluralize }}
-                                </div>
-                                <div class="customer-likes">
-                                    <a href="#" data-id="{{ i.id }}" 
-                                    data-action="{% if request.user in i.happylikes %}un{% endif %}like"
-                                    class="like button">
-                                        {% if request.user not in i.happylikes %}
-                                            Like
-                                        {% else %}
-                                            Unlike
+
+                                <!-- <div class="customer-likes">
+                                  {% if request.user.is_authenticated %}
+                                    {% if request.user in i.happylikes.all %}
+                                      <a href="#" id="itemLike{{ i.id }}" data-rating=""><i class="fa fa-heart fa-2x text-liked" id="heart-icon{{ i.id }}"></i></a>
+                                      {% else %}
+                                        <a href="#" id="itemLike{{ i.id }}" data-rating=""><i class="fa fa-heart-o fa-2x text-not-liked" id="heart-icon{{ i.id }}"></i></a>
+                                      {% endif %}
+                                      
                                         {% endif %}
-                                    </a>
-                                </div>
+                              </div> -->
                             </div>
                         </div>
+                        
                     </div>
                     {% endfor  %}
                 </div>
@@ -141,6 +141,47 @@
 
 
 
+<!-- 
+
+  <script>
+    function likeProduct(){
+      $('#itemLike').on("click",function(e)
+      {
+            e.preventDefault();
+        var aId=$(this).attr('id');
+        var itemID=aId.substring(8);
+                $.ajax({
+                  url: '/happy/'+itemID+'/',       
+
+                  success:function(data){
+                    var like_status=jquery.parseJSON(data);
+                      if (like_status.Success == "True" ){
+                        $('a').find('#heart-icon' + itemID).removeClass('fa-heart-o text-not-liked').addclass('fa-heart text-liked');
+                        $('#like-count'+itemID).html(like_status.count);
+                            }else if (like_status.Removed == "True" ){
+                              $('a').find('#heart-icon'+itemID).removeClass('fa-heart text-liked').addClass('fa-heart-o text-not-liked');
+                               $('#like-count'+itemID).html(like_status.count);
+                            }
+
+                                    },
+                                    error:function(data){ 
+                                    }
+                });
+              });
+                      
+                  
+            
+    };
+
+
+
+
+
+
+
+
+
+  </script>  -->
 
 
  
