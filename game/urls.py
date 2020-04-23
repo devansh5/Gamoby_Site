@@ -30,5 +30,5 @@ urlpatterns=[
     path('ajax/load-sizes/',views.load_sizes,name='ajax_load_sizes'),
     path('add/<int:pk>/',views.show,name='show'),
     path('happy/<int:id>',views.happy_like,name='happylike'),
-    path('handlerequest',views.handlerequest,name='HndleRequest'),
+    
 ]

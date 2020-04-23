@@ -9,7 +9,6 @@ from cloudinary.forms import CloudinaryFileField
 
 
 class CreateUserForm(UserCreationForm):
-    email = forms.EmailField(max_length=200)
 
     class meta:
         model = User

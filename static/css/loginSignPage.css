@@ -19,6 +19,11 @@
 
 .pop-up h2 span:nth-child(1){
     color: red;
+    margin-right: 2px;
+}
+
+.pop-up .signup-box h2 span:nth-child(1){
+    color: blue;
 }
 
 .pop-up h2 span:nth-child(2){
@@ -47,8 +52,12 @@ caret-color: rgba(255, 0, 0, 0.849);
     color: white;
     padding: 18px;
     border-radius: 3px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.925);
     border: 0;
+}
+
+.signup-box input{
+    caret-color: rgba(4, 0, 255, 0.925);
 }
  
 .login-modal-body label{
@@ -64,10 +73,30 @@ caret-color: rgba(255, 0, 0, 0.849);
 .login-modal-body input:valid ~ label {
     font-size: 0.9em;
     color: red;
-    font-weight: 500;
+    font-weight: 700;
     transform: translate(0,-19px);
     -webkit-transition: all 0.225s ease;
-    transition: all 0.225s ease;
+    transition: 
+    all 0.225s ease;
+}
+.signup-box input:focus ~ label,
+.signup-box input:valid ~ label {
+    color: blue !important;
+}
+
+.signup-box a{
+    color: blue;
+    font-weight:700;
+}
+.signup-box a:hover{
+    color: rgba(0, 0, 255, 0.906);
+}
+.login-box a{
+    color: red;
+    font-weight:700;
+}
+.login-box a:hover{
+    color: rgba(255, 0, 0, 0.906);
 }
 
 .login-modal-body input:focus { outline: 0; }
@@ -103,6 +132,10 @@ button:focus{
     border: 0px;
 }
 
+.signup-box button{
+    background-color: blue;
+}
+
 .login-modal-body button:hover{
     transform: scale(1.04);
 }
@@ -132,18 +165,18 @@ button:focus{
 }
 
 .login-modal-body img{
-    width: 100%;
-    height: 100%;
+height: 400px;
+margin-top: -80px;
 }
 
 .login-modal-body .signup1,
 .login-modal-body .login1{
-    margin-left: -150px;
+    margin-left: -220px;
 }
 
 .login-modal-body .signup2,
 .login-modal-body .login2{
-margin-left: 50px;
+margin-left: -70px;
 }
 
 
@@ -157,7 +190,7 @@ margin-left: 50px;
 }
 .login-modal-body .signup1,
 .login-modal-body .login1{
-    margin-left: -105px;
+    margin-left: -5px;
 }
 
 .pop-up .close-modalBtn{
@@ -166,6 +199,8 @@ margin-left: 50px;
     margin-right: -95px;
 }
 }
+
+
 @media screen and (max-width:630px){
     .pop-up .modal-content{
         width: 80%;
@@ -175,7 +210,6 @@ margin-left: 50px;
         transform: translate(0,0,0,-10%);
     }
     .login-modal-body input{
-        caret-color: rgba(255, 0, 0, 0.849);
             width: 120%;
             margin-top: 10px;
         }

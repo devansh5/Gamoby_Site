@@ -77,15 +77,26 @@ def logoutuser(request):
 
 def index(request):
     product=Product.objects.order_by('pub_date')[:4]
+    happy=Happy.objects.order_by('pub_date')[:4]
     banner=Banner.objects.all()
-    params={'product':product,'banner':banner}
+    params={'product':product,'banner':banner,'happy':happy}
     return render(request,'game/index.html',params) 
 
 def about(request):
     return render(request,'game/about.html')
 
 def contact(request):
+    if request.method=='POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        content = request.POST.get('content')
+        contact=Contact(name=name,email=email,content=content)
+        contact.save()
+        return redirect('home')
+      
     return render(request,'game/contact.html')
+
+
 def faq(request):
     return render(request,'game/faq.html')
 
@@ -139,7 +150,7 @@ def password_change(request):
 def productreview(request):
     products=Product.objects.all()
     product_filter=ProductFilter(request.GET,queryset=products)
-    paginator=Paginator(products,9)
+    paginator=Paginator(products,12)
     page=request.GET.get('page')
     products=paginator.get_page(page)
     category=Category.objects.all()
@@ -167,20 +178,6 @@ def happy(request):
     params={'happys':happys}
     return render(request,'game/happycustomer.html',params)
 
-# def happy_like(request):
-#     happy_id=request.POST.get('id')
-#     action=request.POST.get('action')
-#     if happy_id and action:
-#         try:
-#             happy=Happy.objects.get(id=happy_id)
-#             if action == 'like':
-#                 happy.happylikes.add(request.user)
-#             else:
-#                 happy.happylikes.remove(request.user)
-#             return HttpResponse(json.dumps({"message":"Success"}),content_type="application/json")
-#         except:
-#             pass
-#     return HttpResponse(json.dums({"message":"Error"}),content_type="application/json")
 
 def happy_like(request,id):
     get_happy=get_object_or_404(Happy,id=id)
@@ -280,13 +277,9 @@ def upload(request):
 @login_required
 def show(request,pk):
     designs=Design.objects.get(pk=pk)
-    user=request.user
-    order_id=designs.pk
-    print(order_id)
-    
-    amount=1000
-    print(amount)
-    ICON_EFFECTS=dict(
+    user=designs.owner
+    if user==request.user:
+        ICON_EFFECTS=dict(
         format="jpg",
         transformation = [
             dict(height=150,width=90,crop="scale"),
@@ -294,27 +287,14 @@ def show(request,pk):
             dict(crop='scale',gravity="center",y=20,x=-20),
         ]
     )
-    if request.method == 'POST':
-        param_dict = {
-            'MID':'TrFKjj53488482516882',
-            'ORDER_ID':str(order_id),
-            'TXN_AMOUNT':str(amount),
-            'CUST_ID':user.email,
-            'INDUSTRY_TYPE_ID':'Retail',
-            'WEBSITE':'WEBSTAGING',
-            'CHANNEL_ID':'WEB',
-            'CALLBACK_URL':'http://127.0.0.8000/handlerequest/',
-    }
-        param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict,MERCHANT_KEY)
-        return render(request,'game/paytm.html',{'param_dict':param_dict})
+        if request.method == 'POST':
+            return render(request,'game/paytm.html')
+    else:
+        return HttpResponse("You are not authorized to see this you need to login first")
      
     context={'designs':designs,'ICON_EFFECTS':ICON_EFFECTS,'user':user}
     return render(request,'game/show.html',context)
 
-@csrf_exempt       
-def handlerequest(request):
-    return HttpResonse("It's working")
-    pass
 
 
 

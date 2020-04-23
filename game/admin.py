@@ -20,3 +20,7 @@ admin.site.register(Size)
 admin.site.register(Happy)
 
 admin.site.register(Category)
+
+admin.site.register(Contact)
+
+admin.site.register(Banner)

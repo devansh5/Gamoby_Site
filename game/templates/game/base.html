@@ -16,12 +16,39 @@
     <link rel="stylesheet" href="{% static '/css/preloader.css' %}">
     {% block styles %}
     {% endblock %}
+     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 {% block css %}
+<style>
+    .alertify .ajs-header{
+        color:red;
+        text-align: center;
+        background-color: black;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .alertify .ajs-body .ajs-content {
+        padding: 16px 24px 16px 16px;
+        text-align: center;
+        font-size: 25px;
+        color: rgb(50, 88, 12);
+    
+    }   
+    .alertify-notifier{
+        display: none;
+    }
+    .alertify .ajs-footer .ajs-buttons.ajs-primary {
+    text-align: center;
+    color:greenyellow ;
+    }
+
+
+</style>
 
 {% endblock %}
 
@@ -46,7 +73,7 @@
                 <div class="signup-box">
                     <div class="signup1">
 
-                        <img src="{% static '/images/welcome.jpg' %}" alt="">
+                        <img src="{% static '/images/pol.png' %}" alt="">
 
                     </div>
 
@@ -64,8 +91,8 @@
                             {% csrf_token %}
 
                             <div class="modal-input-section">
-                                <input type="text" id="name" class="form-control" required />
-                                <label for="name">Name</label>
+                                <input type="text" id="name"  required />
+                                <label for="name">Username</label>
                             </div>
 
                             <div class="modal-input-section">
@@ -76,12 +103,12 @@
                             <div class="modal-input-section">
                             <div class="errorpass" style="color:red">
                             </div>
-                                <input type="password" id="inputpassword1" class="form-control" required />
+                                <input type="password" id="inputpassword1"  required />
                                 <label for="inputpasswod1">Create Password</label>
                             </div>
 
                             <div class="modal-input-section">
-                                <input type="password" id="inputpassword2" class="form-control" required />
+                                <input type="password" id="inputpassword2"  required />
                                 <label for="inputpassword2">Confirm Password</label>
                             </div>
 
@@ -100,7 +127,7 @@
 
                     <div class="login1">
 
-                        <img src="{%static '/images/welcome.jpg' %}" alt="">
+                        <img src="{%static '/images/lop.png' %}" alt="">
 
                     </div>
 
@@ -128,6 +155,9 @@
                             
                             <div>No account yet?
                                 <a href="javascript:void();" class="sign-up-button">Sign Up</a>
+                            </div>
+                            <div>
+                                <a href="{% url 'reset_password'  %}" >Forgot Password</a>
                             </div>
                             
                         </form>
@@ -158,8 +188,12 @@
                 <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
                 <a href="javascript:void();" class="menu-item fa fa-truck"></a>
                 <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
+                {% if request.user.is_authenticated %}
+                <a href="#" onclick="red()" class="menu-item fa fa-user-plus" ></a>
+                {% else %}
                 <a href="javascript:void();" class="menu-item fa fa-user-plus" data-toggle="modal"
                     data-target="#exampleModal"></a>
+                {% endif %}
             </menu>
 
         </section>
@@ -196,8 +230,8 @@
                         <a href="#" class="three-d">
                             Design Product
                             <div class="three">
-                                <span class="front">Design Product<i class="fa fa-angle-double-down"></i></span>
-                                <span class="back">Design Product<i class="fa fa-angle-double-up"></i></span>
+                                <span class="front">Features<i class="fa fa-angle-double-down"></i></span>
+                                <span class="back">Features<i class="fa fa-angle-double-up"></i></span>
                             </div>
                         </a>
                     </div>
@@ -205,34 +239,26 @@
 
                 <div class="dropdown-content">
 
-                    <li class="not-logo"><a href="#" class="three-d">
-                            Merchandise
+                    <li class="not-logo"><a href="{% url 'design_add' %}" class="three-d">
+                            Design Prodcut
                             <div class="three">
-                                <span class="front">Merchandise</span>
-                                <span class="back">Merchandise</span>
+                                <span class="front">Design Product</span>
+                                <span class="back">Design Product</span>
                             </div>
                         </a>
                     </li>
 
 
-                    <li class="not-logo"><a href="#" class="three-d">
-                            Mobile Accessories
+                    <li class="not-logo"><a href="{% url 'shophome' %}" class="three-d">
+                            Gaming Product
                             <div class="three">
-                                <span class="front">Mobile Accessories</span>
-                                <span class="back">Mobile Accessories</span>
+                                <span class="front">Gaming Product</span>
+                                <span class="back">Gaming Product</span>
                             </div>
                         </a>
                     </li>
 
 
-                    <li class="not-logo"><a href="#" class="three-d">
-                            Stickers
-                            <div class="three">
-                                <span class="front">Stickers</span>
-                                <span class="back">Stickers</span>
-                            </div>
-                        </a>
-                    </li>
 
                 </div>
 
@@ -277,7 +303,7 @@
         </div>
         <ul class="responsive-navlinks">
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="#!">Design Product</a></li>
+            <li><a href="{% url 'design_add' %}">Design Product</a></li>
             <li><a href="{% url 'faq' %}">FAQs</a></li>
             <li><a href="{%url 'about' %}">About Us</a></li>
             <li><a href="{%url 'contact' %}">Contact Us</a></li>
@@ -424,6 +450,7 @@
 
 </footer>
 <!-- Footer -->
+{% block js %} {% endblock %}
 <script
 src="https://code.jquery.com/jquery-3.4.1.min.js"
 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -454,6 +481,12 @@ crossorigin="anonymous"></script>
         })
     })
 </script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script>
+    function red(){
+        alertify.alert('Gamoby India', 'You are already logged in', function(){ alertify.success('Ok'); });  
+    }
+</script>
 
 <script>
 
@@ -476,7 +509,7 @@ function login(){
             console.log(data);
             if(data['message'] == "Success"){
                 window.location = '/'
-                alert("You have succesfully Logged in")
+                alertify.alert('Gamoby India', 'Successfully Logged In', function(){ alertify.success('Ok'); });  
             }
             else{
                 $("#errorlogin").html("the username and password do not match");
@@ -510,8 +543,8 @@ function signup(){
         success : function(data){
             console.log(data[ 'message' ]);
             if(data['message'] == "Success"){
-                window.location = '/'
-                alert("You have successfully signed up")
+                alertify.alert('Gamoby India', 'Successfully Signed Up', function(){ alertify.success('Ok'); });
+                window.location = '/'  
             }
             else{
                 if("email" in data['message'])

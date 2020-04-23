@@ -8,37 +8,44 @@
 
     <style>
         body{
-            background-color: black;
+            background-color: white;
         }
         table{
-            margin:80px auto;
-            width:80%;
-            height:10px;
-            border-width: 2px;
-            border-color: forestgreen;
+            margin:50px auto;
+            width:95%;
+            border-width: 0px;
+            border:1px solid black;
         }
-        h1{
-            font-size: 40px;
-            color:darkorchid;
+        .design-list h1{
+              pointer-events: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 11;
+            background: linear-gradient(rgb(252, 252, 252) , rgb(243, 243, 243));
+            background-clip:border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:  transparent;
             text-align: center;
-            margin:30px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            letter-spacing: 3px;
-            font-weight: 800;
+            font-size: 33px;
+            font-weight: 700;
+            margin-top:10px;
         }
         thead{
-            font-size: 30px;
-            color: rgb(160, 46, 46);
-            background-color: honeydew;
+            text-transform: uppercase;
+            font-size: 23px;
+            color: black;
+            background-color: rgba(255,255,255,0.975);
         }
         tr th{
             text-align: center;
-            padding:20px;  
+            padding:15px;  
         }
         tr td{
+            padding: 15px;
             text-align: center;
-            background-color: ivory;
-            color:lightcoral;
+            background-color: rgba(255,255,255,0.94);
+            color:rgba(0,0,0,0.83);
+            font-weight: 600;
             font-size: 20px;
         }
 
@@ -46,12 +53,95 @@
             text-align: center;
         }
         .to-order p{
+            margin-top: 20px;
+            font-size: 21px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .to-order a{
+            font-weight: 600;
+            font-size: 20px;
+            color: red;
+        }
+
+        .to-order a:hover{
+            color: rgba(255,0,0,0.8);
+        }
+        
+        .design-list{
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            background: linear-gradient(rgb(7, 7, 7),rgb(17, 17, 17),rgb(32, 32, 32));  
+            padding: 15px;
+            height: auto;
+            width:100%;
+        }
+
+        @media screen and (max-width:942px){
+                tr td{
+            padding: 10px;
+           }
+         table{
+            width:100%;
+           }
+          .design-list{
+            margin: 8px; 
+            padding: 10px;
+           }
+        }
+
+    @media screen and (max-width:660px){
+         thead{
+            font-size: 20px;
+
+          }
+        .design-list{
+            margin: 10px 0px; 
+            padding: 5px;
+        }
+          tr th{
+            padding:15px 5px;  
+        }
+           td img{
+               height: 100px;
+               width:100px;
+           }
+            tr td{
+            padding: 10px;
+        }
+    }
+
+    @media screen and (max-width:515px){
+         thead{
+            font-size: 19px;
+          }
+        .design-list{
+            margin: 10px 0px; 
+            padding: 0px;
+        }
+          tr th{
+            padding:15px 0px;  
+        }
+           td img{
+               height: 60px;
+               width:60px;
+           }
+                tr td{
+            padding: 5px 2px;
             font-size: 18px;
-            color: lightsalmon;
         }
-        .to-order span{
-            color:yellow;
+    }
+
+    @media screen and (max-width:352px){
+        td img{
+            width: 50px;
+            height:50px;
         }
+        *{
+            overflow-x: visible;
+        }
+    }
 
     </style>
 
@@ -60,15 +150,10 @@
     {% endblock %}
 
 {% block body %}
-    <h1>Your Previous Orders</h1>
-    <div class="to-order">
-        <p>Want to Place New Order ..Here</p>
-                    <span>||</span>
-                        <br>
-                    <span>\/</span>
-                        <br>
-        <a href="{% url 'design_add' %}">Place Order </a>
-    </div>
+<div class="design-list">
+
+    <h1>Your Previous Order(s)</h1>
+    
     <table border="1">
         <thead>
             <tr>
@@ -92,9 +177,9 @@
 
                   <td>{{design.size.name}}</td>
 
-                  <td>{{design.size.price}}</td>
+                  <td>{{design.price}}</td>
 
-                  <td>{% cloudinary design.image width=300 height=200 %}</td>
+                  <td>{% cloudinary design.image width=150 height=150 %}</td>
                   
               </tr>
             {% empty %}
@@ -104,5 +189,10 @@
             {% endfor %}
         </tbody>
     </table>
+     
+     <div class="to-order">
+     <p>Want to design a new product? <a href="{% url 'design_add' %}"> Let's go!</a></p>
+    </div>
 
+</div>
 {% endblock %}

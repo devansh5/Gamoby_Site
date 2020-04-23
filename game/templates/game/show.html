@@ -1,4 +1,8 @@
+<!--/* //THIS IS LOGO TRANFORMATON PAGE AFTER UPLOADING IMAGE */-->
+
+
 {% extends 'game/base.html' %}
+
 {% load cloudinary %}
 
 
@@ -7,28 +11,200 @@
     {% block css %}
     <style>
         body{
-            background: linear-gradient(to right,rgb(136, 220, 243),rgb(248, 102, 102));
+            background-color: rgba(215,215,215,0.9);
+        }
+
+        img{
+            height:350px;
         }
 
 
     .detai{
-        color:white;
-
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:100%;
+        margin-top:25px;
+        display: flex;
+        color:black;
+        background-color: white;
+        flex-direction: column;
     }
+
     strong{
-        color:rgb(186, 20, 20);
+        color:white;
     }
     button{
-        background-color:rgb(162, 248, 214);
-        padding:20px;
+           color: white;
+           display: inline;
+            margin: auto;
+            width: 300px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            background-color: red;
+            padding:  .85em 2.1em;
+            border-radius: 5px;
+            border: 0px;
     }
+
      button a{
-         color:red;
+      color: white;
+     }
+
+    button a:hover{
+        color: white;
+    }
+    button:hover{
+    transform: scale(1.03);
+    }
+
+    .show-design{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding:20px;
+        margin:10px;
+      background: linear-gradient(rgb(7, 7, 7),rgb(17, 17, 17),rgb(32, 32, 32));  
+    }
+
+    .show-design h1{
+            pointer-events: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 11;
+            background: linear-gradient(rgb(252, 252, 252) , rgb(243, 243, 243));
+            background-clip:border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:  transparent;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+    }
+    .show-design h4{
+        cursor: default;
+        border-radius: 2px;
+        padding: 7px 25px;
+        display: inline;
+        background-color: red;
+         font-size: 20px;
+    }
+    .show-design h3{
+        font-size: 23px;
+        font-weight: 600;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .show{
+        display:flex;
+        flex-direction: column;
+        margin-top: 25px;
+    }
+    
+    .show h4{
+        text-align: center;
+        color: white;
+        margin-top: 25px;
+    }
+
+    p{
+        font-size:17.5px;
+    }
+
+    p strong{
+        color: black;
+        padding-right: 10px;
+        text-transform: uppercase;
+        font-weight:600;
+        font-size: 18px;
+    }
+
+    .update{
+        margin-top: 20px;
+        border-radius: 3px;
+        padding: 4px 16px;
+        border: 2px solid red;
+    }
+
+    .show-end{
+        display:flex;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 60px;
+    }
+
+    .show-end a{
+            display: inline;
+            margin: auto;
+            width: 250px;
+            margin: 1em;
+            font-size: 0.9em;
+            font-weight: bolder;
+            color: red;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            background-color: white;
+            padding:  .85em 2.1em;
+            border-radius: 5px;
+            border: 0px;
+    }
+
+    .show-end button{
+         width: 250px;
+          margin: 1em;
+    }
+
+    .show-end a:hover{
+        transform: scale(1.02);
+    }
+
+    @media screen and (max-width:625px){
+         .show-end{
+        flex-direction: column;
+        margin-top: 30px;
+    }
+     
+     .show-design button,
+     .show-end a,
+     .show-end button{
+         width: 300px;
+     }
+
+     .show-design{
+         padding: 5px;
+     }
+     
+    }
+
+    @media screen and (max-width:352px){
+     .show-design button,
+     .show-end a,
+     .show-end button{
+         width: 80%;
+         align-self: center;
+     }
+
+     .detai{
+         padding: 0;
+     }
+
+     .show-design{
+         margin:3px;
+         padding: 5px;
+     }
 
     }
-    button :hover{
-        background-color:greenyellow ;
-        padding:20px;
+
+    @media screen and (max-width: 290px){
+        *{
+         overflow-x: hidden;
+     }
     }
     
     </style>
@@ -36,30 +212,38 @@
     {% endblock %}
 
 {% block body %}
-    <h1 style="text-align: center; color:brown; margin-top: 30px; ">Your Preview order With Logo</h1>
-    <center><div class="show">
-    {% cloudinary designs.image ICON_EFFECTS %}
-    </div></center>
+<div class="show-design">
 
-    <center><div class="detai">
-    <h4>Total Price:  <strong>{{ designs.size.price }} </strong>  </h4>
-    <h1>Check Your Address </h1>
-    <p><strong>Your Email Id : </strong>{{user.email}}</p>
-    <p><strong>Street Adress 1: </strong>{{user.profile.address1}} </p>
-    <p><strong>Street Address 2: </strong>{{user.profile.address2}}</p>
-    <p><strong>Pin : </strong>{{user.profile.pin}}</p>
-    <p>If you want To update Your Details Then </p>
-   <button><a href="{% url 'edit_profile' %}">Edit Profile Details</a></button>
-   </div></center>
-   <br>
-   <div>
-    <a href="{% url 'design_changelist' %}">previous orders</a>
+    <h1>Your finished product</h1>
+    <div class="show">
+      {% cloudinary designs.image ICON_EFFECTS %}
+        <h4>Total Price :  <strong>{{ designs.price }} </strong>  </h4>
     </div>
 
-    <form action="{% url 'show' designs.pk %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Proceed to Checkout</button>
-    </form>
 
+      <div class="detai">
+        <h3>Check your details! </h3>
+        <div>
+         <p><strong>Email Id : </strong>{{user.email}}</p>
+         <p><strong>Street Adress 1 : </strong>{{user.profile.address1}} </p>
+         <p><strong>Street Address 2 : </strong>{{user.profile.address2}}</p>
+         <p><strong>Pin : </strong>{{user.profile.pin}}</p>
+        </div>
+        <span style="font-weight: 600; font-size:17px;">Haven't added your address details yet? </span>
+        <button><a href="{% url 'edit_profile' %}">Edit Profile Details</a></button>
+      </div>
+
+      
+      <div class="show-end">
+         <a href="{% url 'design_changelist' %}">Go to previous order</a> 
+         <div style="color: white; font-size: 18px;">OR</div> 
+         <form action="{% url 'show' designs.pk %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Proceed to Checkout</button>
+         </form> 
+      </div>
+
+
+</div>    
     
 {% endblock %}

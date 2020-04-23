@@ -10,10 +10,8 @@
     <h1>Redirecting you to merchant.....</h1>
     
     <h2>Please Do not Refresh Your Page</h2>
-    <form action="https://securegw-stage.paytm.in/order/process" method="post" name="paytm">
-        {% for key,value in param_dict.items %}
-        <input type="hidden" name="{key}" value="{{value}}">
-        {% endfor %}
+    <form action="{% url 'home' %}" method="post" name="paytm">
+       {% csrf_token %}
     </form>
 
 </body>

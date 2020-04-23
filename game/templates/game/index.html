@@ -25,21 +25,21 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    {% for i in banner %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="{{i.id}}"></li>
+    {% endfor %}
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{%static '/images/test1.jpg' %}" height="500px" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-     <img src="{%static '/images/journey.jpg' %}" height="500px" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-     <img src="{%static '/images/sher.jpg' %}" height="500px" class="d-block w-100" alt="...">
-    </div>
+        <div class="carousel-item active">
+            <img src="{% static '/images/gamoby (2) n.jpg' %}" height="500px" class="d-block w-100" alt="...">
+        </div>
+        {% for i in banner %}
+        <div class="carousel-item">
+            <img src="/media/{{i.image}}" height="500px" class="d-block w-100" alt="...">
+        </div>
+        {% endfor %}
   </div>
-</div>
+ </div>
 
 
     <!-- OUR PRODUCTS  -->
@@ -151,11 +151,12 @@
             <div class="mySlides">
                 <div class="container-fluid">
                     <div class="row">
+                        {% for i in happy %}
                         <div class="review-item">
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class="pic-1" src="{%static '/images/img-5.jpg' %}">
+                                        <img class="pic-1" src="/media/{{i.image}}">
                                         <div class="pic-2">
                                             <span class="happy-username">Gamerdidi's Review</span>
                                            
@@ -172,113 +173,17 @@
 
                                     </a>
 
-                                    <ul class="product-social-icons">
-                              
-                                        <li><a href="#!"><i class="fa fa-heart"></i>
-                                                <div class="count-heart">
-                                                    12k
-                                                </div>
-                                            </a>
-
-                                        </li>
-                                    </ul>
+                                    
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
+                                    <h3 class="product-title"><a href="#">{{i.pub_date}}</a></h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{%static '/images/img-1.jpg' %}">
-                                        <div class="pic-2">
-                                            <span class="happy-username">Normie's Review</span>
-                                           
-                                            <p class="happy-userreview text-center pr-2 pl-2"> Awesome! Loved it.
-                                            </p>
-                                        </div>
-                                    </a>
-
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i>
-                                                <div class="count-heart">
-                                                    12k
-                                                </div>
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{%static '/images/img-3.jpg' %}">
-                                        <div class="pic-2">
-                                            <span class="happy-username">Rkp's Review</span>
-                                           
-                                            <p class="happy-userreview text-center pr-2 pl-2"> Lorem ipsum dolor sit
-                                                amet, consectetur
-                                                adipisicing elit. Sunt, architecto.
-                                                Lorem ipsum do
-                                                similique eos eligen
-                                            </p>
-                                        </div>
-                                    </a>
-
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i>
-                                                <div class="count-heart">
-                                                    12k
-                                                </div>
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="product-grid">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img class="pic-1" src="{%static '/images/img-8.jpg' %}">
-                                        <div class="pic-2">
-                                            <span class="happy-username">Gajender Singh's Review</span>
-                                           
-                                            <p class="happy-userreview text-center pr-2 pl-2"> No reviews available!
-                                            </p>
-                                        </div>
-                                    </a>
-
-                                    <ul class="product-social-icons">
-                                        <li><a href="#" data-tip="Wishlist"><i class="fa fa-heart"></i>
-                                                <div class="count-heart">
-                                                    12k
-                                                </div>
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-title"><a href="#">Women's Button Top</a></h3>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+                        
+                        
+                        
                     </div>
                 </div>
             </div>

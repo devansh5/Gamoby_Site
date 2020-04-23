@@ -55,16 +55,7 @@
                                     <h3 class="product-title"><a href="#">Men's Blazer</a></h3>
                                 </div>
 
-                                <!-- <div class="customer-likes">
-                                  {% if request.user.is_authenticated %}
-                                    {% if request.user in i.happylikes.all %}
-                                      <a href="#" id="itemLike{{ i.id }}" data-rating=""><i class="fa fa-heart fa-2x text-liked" id="heart-icon{{ i.id }}"></i></a>
-                                      {% else %}
-                                        <a href="#" id="itemLike{{ i.id }}" data-rating=""><i class="fa fa-heart-o fa-2x text-not-liked" id="heart-icon{{ i.id }}"></i></a>
-                                      {% endif %}
-                                      
-                                        {% endif %}
-                              </div> -->
+                                
                             </div>
                         </div>
                         
@@ -141,37 +132,6 @@
 
 
 
-<!-- 
-
-  <script>
-    function likeProduct(){
-      $('#itemLike').on("click",function(e)
-      {
-            e.preventDefault();
-        var aId=$(this).attr('id');
-        var itemID=aId.substring(8);
-                $.ajax({
-                  url: '/happy/'+itemID+'/',       
-
-                  success:function(data){
-                    var like_status=jquery.parseJSON(data);
-                      if (like_status.Success == "True" ){
-                        $('a').find('#heart-icon' + itemID).removeClass('fa-heart-o text-not-liked').addclass('fa-heart text-liked');
-                        $('#like-count'+itemID).html(like_status.count);
-                            }else if (like_status.Removed == "True" ){
-                              $('a').find('#heart-icon'+itemID).removeClass('fa-heart text-liked').addClass('fa-heart-o text-not-liked');
-                               $('#like-count'+itemID).html(like_status.count);
-                            }
-
-                                    },
-                                    error:function(data){ 
-                                    }
-                });
-              });
-                      
-                  
-            
-    };
 
 
 

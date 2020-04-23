@@ -127,3 +127,13 @@ class Design(models.Model):
             public_id = ''
         return "Photo name <%s:%s>" %(self.title,public_id)
 
+
+class Contact(models.Model):
+    name=models.CharField( max_length=50,default="",null=True)
+    email=models.CharField(max_length=50,default="",null=True)
+    content=models.TextField(default="")
+
+    def __str__(self):
+        return 'Message from ' + self.name 
+
+

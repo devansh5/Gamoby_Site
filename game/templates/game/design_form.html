@@ -1,81 +1,218 @@
+<!--/* tHIS IS THE DESIGN GORM PAGE  */-->
 {% extends 'game/base.html' %}
 {% load cloudinary %}
+{% load static %}
 
     {% block title %} Design Form {% endblock %}
     {% block css %}
     <style>
         body{
-            background-color: black;
+            background-color: white;
         }
-        .design-form{
-            margin:60px auto;
-            padding:100px;
-            background:linear-gradient(to bottom,rgba(34, 25, 34, 0.979),rgba(255, 131, 131, 0.932));
-            padding-left: 20px;
-            padding-right:20px;
-            border: 1px red solid;
-            margin:90px;       
-        }
+    
         h1{
+            pointer-events: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 11;
+            background: linear-gradient(rgb(252, 252, 252) , rgb(243, 243, 243));
+            background-clip:border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:  transparent;
             text-align: center;
-            margin-top: 30px;
-            font-size: 70px;
-            font-weight: 400;
-            color: chocolate;
-            margin-bottom: 0px;
-        }
-        label{
-            font-size: 30px;
-            margin-right:30px;
-            color:rgb(253, 251, 251);
+            font-size: 33px;
             font-weight: 700;
         }
-        select{
-            width:70%;
+        label{
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 1.2px;
+            font-weight: 600;
+            color: white;
+            margin-right: 20px;
+            padding: 10px 10px 0 0;
         }
-        button{
-            margin-top: 10px;
-            background: #fa2626;
-            font-size: 12px;
-            border-radius: 4px;
-            box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
-            color: #ffffff;
-            display: inline-block;
-            padding: 16px 28px 18px;
-            margin-left: 40px;
-            text-decoration: none;
-            transition: all 0.25s ease;
+        #id_image{
+            color: white;
         }
-        button:hover{
-            background: #f73131;
-            box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
-            transform: translateY(-1px);
-            transition: all 0.25s 0s ease-out;
+        select,
+        #id_title{
+            border: 0px;
+            border-left: 3px solid red;
+            border-radius: 2px;
+            padding: 5px 8px 5px 8px;
+            width:100%;
+        }
+        .design-wrapper button{
+            display: block;
+            margin: auto;
+            width: 90%;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            letter-spacing: 1.8px;
+            background-color: red;
+            padding:  .85em 2.1em;
+            border-radius: 5px;
+            border: 0px;
+        }
+        .design-wrapper button:hover{
+           transform: scale(1.02);
         }
         .change{
+            text-align: center;
             margin-top: 15px;
-            font-size: 20px;
+            font-size: 16px;
         }
         .change a{
-            color:darkgreen;
+            color: whitesmoke;
+        }
+        .change a:hover{
+            color: red;
+        }
+        .design-wrapper i{
+            margin-right: 10px;
+        }
+
+        .design-wrapper{
+            margin: 0;
+            margin-bottom: 0px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .design-form,
+        .design-about{
+            color: white;
+             flex-direction: column;
+            display: flex;
+            align-items: center;
+            margin:10px;
+            padding:15px;
+            background: linear-gradient(rgb(7, 7, 7),rgb(17, 17, 17),rgb(32, 32, 32));  
+        }
+        .design-form{
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            margin-right: 4px;
+        }
+        .design-about{
+            position: relative;
+            width: 40%;
+            margin-left: 4px;
+        }
+
+        .design-about h4{
+            font-size: 30px;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+
+        .design-about h5{
+            font-size: 22px;
+            font-weight: 600;
+            margin: 10px 0;
+            color: rgba(255,255,255,0.925);
+        }
+        
+        ul{
+            margin-top: 20px;
+            font-size: 17px;
+            color:rgba(255,255,255,0.895);
+        }
+
+        .img-li div{
+         margin-top: 20px;
+         display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (max-width:1008px){
+               .design-form,
+        .design-about{
+            padding: 5px;
+            margin:0px;
+            margin: 10px 0;
+        }
+           .design-form{
+            margin-right: 4px;
+        }
+        .design-about{
+            margin-left: 4px;
+        }
+        }
+
+        @media screen and (max-width: 780px){
+        .design-form{
+            margin: 8px 0;
+            width: 100%;
+            margin-right: 4px;
+        }
+        .design-about{
+            margin-top: 0;
+            width: 100%;
+            margin-left: 4px;
+        } 
+
+          .design-wrapper{
+            width: 100%;
+            flex-direction: column;
+        }
+        }
+
+        @media screen and (max-width:328px){
+          *{overflow-x: hidden;}
+            
         }
 
     </style>
     {% endblock %}
 {% block body %}
-    <h1>Design Form</h1>
-    <center><div class="design-form">
-    <form id="designForm" method="post" data-colors-url="{% url 'ajax_load_colors' %}"  data-sizes-url="{% url 'ajax_load_sizes' %}"  enctype="multipart/form-data">
+   <section class="design-wrapper container-fluid">
+
+     <div class="design-form">
+       <h1>Design Form</h1>
+       <form id="designForm" method="post" data-colors-url="{% url 'ajax_load_colors' %}"  data-sizes-url="{% url 'ajax_load_sizes' %}"  enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{ form.as_p }}
         </table>
-        <button value="upload" type="submit">Upload Details</button>
+        <button value="upload" type="submit">Upload and view product</button>
         <div class="change">
-        <a href="{% url 'home' %}">Back To Home</a>
+        <a href="{% url 'home' %}"><i class="fa fa-arrow-left"></i>Back To Home</a>
         </div>
-    </form>
-    </div></center>
+      </form>
+     </div>
+
+     <div class="design-about">
+       <h4>Guide me!</h4>
+       <div class="guide-me">
+       <h5>Follow the steps below while uploading your logo..</h5>
+       <ul>
+       <li>1. The logo should be strictly without any background and preferably in SVG/PNG format. </li>
+       <li>2. The image should be clear and not too big. </li>
+       <li>3. Donot include the image in parts! Only one complete logo image is required. </li>
+       <li>4. You can view your final product one the design form is completed!</li>
+       <li class="img-li">Below is a dummy example image :-
+       <div>
+        <img src="{%static '/images/soul.png' %}" height="180px" width="180px" alt="">
+        <div>
+       </li>
+         
+       </ul>
+       </div>
+       <h5 class="happy-gaming mx-auto ">Happy Gaming!</h5>
+     </div>
+
+  </section>
+
+
 
 
    {% block js %} 
