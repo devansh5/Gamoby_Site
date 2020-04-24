@@ -1,3 +1,4 @@
+  
 body{
     width: 100vw;
     overflow-x: hidden !important;
@@ -11,20 +12,19 @@ body{
     h3{
         font-size: 35px;
         margin-bottom: 12px;
-        color: #dadada;
+        color: white;
         font-weight: 600 !important;
-    
 }
 
 .contact-section p{
     font-size: 17.5px;
-    color: rgba(255,255,255,0.67);
+    color: rgba(255, 255, 255, 0.945);
 
 }
 .contact-section h5{
         font-size: 25px;
         margin-bottom: 12px;
-        color: #dadada;
+        color: whitesmoke;
         font-weight: 600;
 }
 
@@ -38,9 +38,9 @@ body{
 
 .contactform-container{
     overflow: hidden !important;
-    background-color: #dadada;
+    background-color: transparent;
     border-radius: 5px;
-    box-shadow: 0 0 4px 1px rgba(126, 126, 126, 0.6);
+     border: 2px solid red;
     width: 500px !important;
     color: black;
     display: flex;
@@ -58,7 +58,7 @@ body{
     font-weight: 600;
     text-transform: uppercase;
     z-index: 11;
-    background: linear-gradient(rgb(15, 15, 15),rgb(27, 27, 27));
+    background: linear-gradient(rgb(252, 252, 252) , rgb(243, 243, 243));
         background-clip:border-box;
         -webkit-background-clip: text;
         -webkit-text-fill-color:  transparent;
@@ -70,7 +70,7 @@ body{
 
 .contactform-container h4 {
     margin-top: -5px;
-    background: linear-gradient(rgb(43, 42, 42),rgb(54, 54, 54));
+    background: linear-gradient(rgb(237, 237, 237),rgb(230, 230, 230));
     background-clip:border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color:  transparent;
@@ -127,8 +127,8 @@ body{
         padding-bottom: 15px;
         border-radius: 3px;
         border: 0;
-        background:rgba(0, 0, 0, 0.945);
-        color: #dadada;
+        background:rgba(255, 255, 255, 1);
+        color: rgba(0, 0, 0, 0.966);
         
     }
 
@@ -140,10 +140,10 @@ body{
     position: absolute;
     left: 10px;
     top: 17px;
-    color: #dadada;
+    color: black;
     font-weight: 600;
     pointer-events: none;
-    -webkit-transition: all 0.25s ease/;
+    -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
 
