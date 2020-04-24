@@ -45,6 +45,13 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("detailproduct",args=[self.id])
 
+class Notify(models.Model):
+    heading=models.CharField(max_length=60,default="")
+    detail=models.CharField(max_length=500,default="")
+    pub_date=models.DateField()
+
+    def __str__(self):
+        return self.heading
 
 
 class Banner(models.Model):

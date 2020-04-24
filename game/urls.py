@@ -14,6 +14,7 @@ urlpatterns=[
     path('reset_password_complete/',auth_views.PasswordResetCompleteView.as_view(template_name="game/password_reset_done.html"),name="password_reset_complete"),
     path('contact/',views.contact,name='contact'),
     path('faq/',views.faq,name='faq'),
+    path('notification/',views.notification,name='notify'),
     path('logout/',views.logoutuser,name='logout'),
     path('profile/',views.view_profile,name='profile'),
     path('profile/edit/',views.edit_profile,name='edit_profile'),

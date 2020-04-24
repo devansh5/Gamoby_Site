@@ -10,8 +10,8 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from .models import *
 import json
-from PayTm import Checksum
-from django.views.decorators.csrf import csrf_exempt
+# from PayTm import Checksum
+# from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
@@ -91,9 +91,6 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         context = request.POST.get('content')
-        print(name)
-        print(email)
-        print(context)
         data={'name':name,'email':email,'context':context}
         form =ContactForm(data=data)
         if form.is_valid():
@@ -102,6 +99,16 @@ def contact(request):
     else:
         form=ContactForm()
     return render(request,'game/contact.html')
+
+def notification(request):
+    notifys=Notify.objects.all()
+    params={'notifys':notifys}
+    return render(request,'game/notification.html',params)
+
+
+
+
+
 
 
 def faq(request):

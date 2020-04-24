@@ -2,16 +2,49 @@
   font-family: 'Rajdhani', sans-serif;
 }
 
+#canvas{
+  width: 100%;
+}
+
+.canvas-wrapper h3{
+font-size: 27px;
+padding:10px;
+text-align: center;
+color: white;
+font-weight: 600;
+margin: 15px 0 5px 0;
+background: rgb(209, 1, 1);
+}
+
+
+@media screen and (max-width:968px){
+  #canvas{
+    width: 100%;
+    height: 270px !important;
+  }
+  .canvas-wrapper h3{
+    font-size: 23px;
+    }
+}
+
+@media screen and (max-width:490px){
+  #canvas{
+    width: 100%;
+    height: 200px !important;}
+ 
+  .canvas-wrapper h3{
+    font-size: 20px;
+    }
+}
+
 body{
     width: 100%;
       margin: 0;
       padding: 0;
       box-sizing: border-box !important;
   }
+
   
-  html{
-    scroll-behavior: smooth;
-  }
   
   .scroll-button i{
     z-index: 99;
@@ -59,9 +92,9 @@ background-color: red !important;
   
   .firstpage-miniheadings{
       font-size: 48px;
+      margin-bottom: 32px;
+      margin-top: 30px;
       text-transform: uppercase;
-      margin-bottom: 25px;
-      margin-top: 25px;
       background: linear-gradient(rgb(204, 201, 201),rgb(160, 158, 158));
       background-clip:border-box;
       -webkit-background-clip: text;
@@ -474,20 +507,20 @@ background-color: red !important;
   
   .review-container a.btn {
     margin-top: 2px;
-    background: #fa2626;
+    background: red;
     font-size: 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    letter-spacing: .6px;
+    border-radius: 3px;
     color: #ffffff;
     display: inline-block;
-    padding: 6px 18px 8px;
+    padding: 6px 20px 6px;
     position: relative;
     text-decoration: none;
     transition: all 0.25s ease;
   }
   
   .review-container a.btn:hover {
-    background: #f73131;
     box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
     transform: translateY(-1px);
     transition: all 0.25s 0s ease-out;
@@ -915,5 +948,3 @@ background-color: red !important;
     display: none;
   }
   }
-  
-  

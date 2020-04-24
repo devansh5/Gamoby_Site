@@ -1,0 +1,53 @@
+{% extends 'game/base.html' %}
+
+{% block css %}
+
+<style>
+    h1{
+        pointer-events: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        z-index: 11;
+        margin-top:40px ;
+        background: linear-gradient(rgb(252, 252, 252) , rgb(243, 243, 243));
+        background-clip:border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color:  transparent;
+        text-align: center;
+        font-size: 33px;
+        font-weight: 700;
+    }
+    body{
+        background-color: rgb(247, 173, 173);
+    }
+    h3{
+        text-transform:uppercase;
+    }
+    .noti{
+        margin: 80px;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 40px;
+    }
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+<h1>Notifications</h1>
+    <div class="noti">
+    {% for i in notifys %}
+
+        <h3><span><i class="fa fa-bell"></i></span> {{i.heading}}</h3>
+
+        <p> {{i.detail}}</p>
+
+        <p>Date : {{i.pub_date}}</p>
+    {% endfor %}
+
+</div>
+
+
+{% endblock %}

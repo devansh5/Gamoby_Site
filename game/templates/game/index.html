@@ -5,7 +5,6 @@
 
     {% block styles %}
         <link rel="stylesheet" href="{%static '/css/index.css/ '%}">
-        <link rel="stylesheet" href="{% static '/css/circular-nav.css' %}">
     {% endblock %}
 
 
@@ -41,6 +40,34 @@
         {% endfor %}
   </div>
  </div>
+         <!-- CIRCULAR NAV -->
+
+         <section id="circularMenu" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+                <i class="fa fa-plus"></i>
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="{% url 'profile' %}" class="menu-item fa fa-user"></a>
+                <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
+                <a href="{% url 'notify' %}" class="menu-item fa fa-bell"></a>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
+                {% else %}
+                <a href="/" class="menu-item fa fa-sign-out"></a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <a href="#" onclick="red()" class="menu-item fa fa-user-plus" ></a>
+                {% else %}
+                <a href="javascript:void();" class="menu-item fa fa-user-plus" data-toggle="modal"
+                    data-target="#exampleModal"></a>
+                {% endif %}
+            </menu>
+
+        </section>
+
+
 
 
     <!-- OUR PRODUCTS  -->
@@ -100,32 +127,6 @@
 
     </section>
 
-        <!-- CIRCULAR NAV -->
-
-        <section id="circularMenu" class="circular-menu">
-
-            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
-                <i class="fa fa-plus"></i>
-            </a>
-
-            <menu class="items-wrapper">
-                <a href="{% url 'profile' %}" class="menu-item fa fa-user"></a>
-                <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
-                <a href="javascript:void();" class="menu-item fa fa-truck"></a>
-                {% if request.user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
-                {% else %}
-                <a href="/" class="menu-item fa fa-sign-out"></a>
-                {% endif %}
-                {% if request.user.is_authenticated %}
-                <a href="#" onclick="red()" class="menu-item fa fa-user-plus" ></a>
-                {% else %}
-                <a href="javascript:void();" class="menu-item fa fa-user-plus" data-toggle="modal"
-                    data-target="#exampleModal"></a>
-                {% endif %}
-            </menu>
-
-        </section>
 
 
     <!-- GAMING PRODUCT REVIEWS  -->
@@ -168,7 +169,7 @@
     </section>
 
 
-    <!-- OUR CLIENTS  -->
+    <!-- OUR CLIENTS 
 
     <section class="client-container">
 
@@ -220,10 +221,22 @@
 
         <div class="view-all-button">
             <a href="{% url 'happy' %}">View All <i class="fa fa-arrow-circle-right"></i></a>
+        </div> 
+    </section>  -->
+    <div class="canvas-wrapper">
+        <h3>Hey Gamer, are you bored? Let's play a game!</h3>
+        <canvas id="canvas" class="text-align: center;"></canvas>
         </div>
-    </section>
+        <audio preload="true" id="collide">
+            <source src="https://dl.dropbox.com/u/26141789/canvas/pingpong/Metal%20Cling%20-%20Hit.mp3" />
+            <source src="https://dl.dropbox.com/u/26141789/canvas/pingpong/Metal%20Cling%20-%20Hit.wav" />
+        </audio>
+        </div>
+    <script src="{% static '/js/index.js' %}"></script>
+    <script src="{% static '/js/game.js' %}"></script>
+        
 
-<script src="{% static '/js/index.js' %}"></script>
+
 
 
 {% endblock %}

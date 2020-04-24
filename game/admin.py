@@ -24,3 +24,5 @@ admin.site.register(Category)
 admin.site.register(Contac)
 
 admin.site.register(Banner)
+
+admin.site.register(Notify)

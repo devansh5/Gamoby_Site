@@ -54,7 +54,7 @@
                 </div>
 
 
-                <button type="submit" >Send message</button>
+                <button type="submit" onclick="ril()">Send message</button>
 
             </form>
         </div>
@@ -63,7 +63,13 @@
 
 
 {% block js %}
+<script>
+    function ril(){
+        alertify.alert('Gamoby India', 'Successfully Sent To Gamoby Team', function(){ alertify.success('Ok'); });
 
+    }
+
+</script>
 
 
  
