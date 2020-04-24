@@ -39,12 +39,12 @@
             <form  method="POST">
                 {% csrf_token %}
                 <div class="contact-input-section">
-                    <input type="text" id="name" required />
+                    <input type="text" id="name" name="name" required />
                     <label for="name">Name</label>
                 </div>
 
                 <div class="contact-input-section">
-                    <input type="text" id="email" required />
+                    <input type="email" id="email" name="email" required />
                     <label for="email">Email</label>
                 </div>
 

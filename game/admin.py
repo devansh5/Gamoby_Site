@@ -21,6 +21,6 @@ admin.site.register(Happy)
 
 admin.site.register(Category)
 
-admin.site.register(Contact)
+admin.site.register(Contac)
 
 admin.site.register(Banner)

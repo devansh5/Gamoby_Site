@@ -58,8 +58,10 @@ background-color: red !important;
   }
   
   .firstpage-miniheadings{
-      font-size: 32px;
-      margin-bottom: 12px;
+      font-size: 48px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      margin-top: 25px;
       background: linear-gradient(rgb(204, 201, 201),rgb(160, 158, 158));
       background-clip:border-box;
       -webkit-background-clip: text;

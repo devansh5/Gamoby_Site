@@ -19,15 +19,24 @@ class Product(models.Model):
     product_name=models.CharField(max_length=50,default="")
     desc=models.CharField(max_length=300,default="")
     category=models.ForeignKey(Category,on_delete=models.CASCADE,default="")
-    sub_category=models.CharField(max_length=50,default="")
-    price=models.IntegerField(default=0)
     pub_date=models.DateField(auto_now_add=True)
     image=models.ImageField(upload_to="game/images",default="")
     likes = models.ManyToManyField(User,related_name='likes',blank=True)
     favs =  models.ManyToManyField(User,related_name='favs',blank=True)
-    
+    feat=models.CharField(max_length=500,default="")
+    unboxing=models.URLField(max_length=250,default="")
+    ecom1=models.URLField(max_length=250,default="")
+    ecom1name=models.CharField(max_length=50,default="")
+    ecom2=models.URLField(max_length=250,default="")
+    ecom2name=models.CharField(max_length=50,default="")
+    ecom3=models.URLField(max_length=250,default="")
+    ecom3name=models.CharField(max_length=250,default="")
+
+
     def __str__(self):
         return self.product_name
+
+
 
     
     def total_likes(self):
@@ -128,12 +137,10 @@ class Design(models.Model):
         return "Photo name <%s:%s>" %(self.title,public_id)
 
 
-class Contact(models.Model):
-    name=models.CharField( max_length=50,default="",null=True)
-    email=models.CharField(max_length=50,default="",null=True)
-    content=models.TextField(default="")
+class Contac(models.Model):
+    name=models.CharField(max_length=15)
+    email=models.EmailField(max_length=30)
+    context=models.TextField(max_length=1000)
 
     def __str__(self):
-        return 'Message from ' + self.name 
-
-
+        return self.email

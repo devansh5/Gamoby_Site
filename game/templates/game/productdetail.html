@@ -15,7 +15,7 @@
         <div class="introduction">
             <div class="introduction productInfo-section">
                 <h2 class="productName">{{product.product_name}}</h2>
-                <h5 class="text-muted">{{product.desc}}</h5>
+                <h5 class="text-muted">{{product.category}}</h5>
                 <div id="like-section">
                     {% include 'game/like_section.html' %}
                 </div>
@@ -27,41 +27,38 @@
 
                 <div class="reviewPara">
                     <p>
-                        AirPods with Charging Case. More magical than ever. The new AirPods combine intelligent design with breakthrough technology and crystal clear sound. Powered by the new Apple H1 headphone chip, AirPods now feature hands-free access to Siri using just your voice. And up to 3 hours of talk time on a single charge.</p>
+                        {{product.desc}}</p>
                         <p>
-                        <h4>Features</h4>
-                        <li>Model Name : MV7N2HN/A</li>
-                        <li>Color : White or Black</li>
-                        <li>Headphone Type : True Wireless</li>
-                        <li>Inline Remote : No</li>
-                        <li> Sales Package: AirPods, Charging Case, Lightning to USB Cable</li>
-                        <li> Connectivity : Bluetooth</li> 
+                        <h4>Features :</h4>
+                        <p>
+                            {{product.feat}}
+                        </p>
                                                                   
                     </p>
                   
                 </div>
 
                 <div class="unboxingLink">
-                    <a href="https://www.youtube.com/watch?v=sV_sz8TF7kg">
-                        <img src="../images/uthoob.png" width="100p%" alt="">
+                    <a href="{{ product.unboxing }}">
+                        <img src="{% static '/images/uthoob.png' %}" width="100p%" alt="">
                     </a>
                 </div>
 
                 <div class="productLink">
                     <span>
                         <a
-                            href="https://www.amazon.in/FreshTrend-Black-Rainbow-Cotton-Tshirt/dp/B07Y81PXX5/ref=pd_rhf_se_p_img_5?_encoding=UTF8&psc=1&refRID=WNP2DX61SCDVS6T0DF2A">Amazon</a>
+                            href="{{ product.ecom1 }}">{{ product.ecom1name }}</a>
                     </span>
 
                     <span>
                         <a
-                            href="https://www.flipkart.com/apple-airpods-charging-case-bluetooth-headset-mic/p/itm0ff1a0e3d5eb4?pid=ACCFF2R85H8YG4WH&lid=LSTACCFF2R85H8YG4WHAXWRYV&marketplace=FLIPKART&spotlightTagId=BestsellerId_0pm%2Ffcn&srno=s_1_1&otracker=AS_QueryStore_OrganicAutoSuggest_2_3_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_2_3_na_na_na&fm=SEARCH&iid=2bf17d64-da19-4ca7-88c6-a88c0dbc6cfc.ACCFF2R85H8YG4WH.SEARCH&ppt=sp&ppn=sp&ssid=nghk5aw9340000001585585853851&qH=b138a01d28163f61">
-                            Flipkart</a>
+                            href="{{ product.ecom2 }}">
+                            {{ product.ecom2name }}</a>
                     </span>
 
                     <span>
                         <a
-                            href="https://www.myntra.com/casual-shoes/nike/nike-women-black-air-max-infinity-sneakers/10714480/buy">Myntra</a>
+                            href="{{ product.ecom3 }}">{{ product.ecom3name }}</a>
                     </span>
 
                 </div>
@@ -76,9 +73,9 @@
 
     </section>
 
-    <img class="big-circle" src="../images/big-eclipse.svg" alt="" />
-    <img class="medium-circle" src="../images/mid-eclipse.svg" alt="" />
-    <img class="small-circle" src="../images/small-eclipse.svg" alt="" />
+    <img class="big-circle" src="{% static '/images/big-eclipse.svg' %}" alt="" />
+    <img class="medium-circle" src="{%static '/images/mid-eclipse.svg' %}" alt="" />
+    <img class="small-circle" src="{%static  '/images/small-eclipse.svg' %}" alt="" />
 </main>
 
 {% endblock %}

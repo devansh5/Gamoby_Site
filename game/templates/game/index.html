@@ -5,6 +5,7 @@
 
     {% block styles %}
         <link rel="stylesheet" href="{%static '/css/index.css/ '%}">
+        <link rel="stylesheet" href="{% static '/css/circular-nav.css' %}">
     {% endblock %}
 
 
@@ -53,7 +54,7 @@
 
                 <div class="product-icon"><img src="{% static '/images/output-onlinepngtools (4).png' %}" class="image3" alt=""><img
                         src="{% static '/images/shirtG.png' %}" class="image4" alt=""></div>
-                <p class="product-title">Clothing</p>
+                <a href="{% url 'design_add' %}" class="product-title">Clothing</a>
                 <p class="product-text">Customize, create your clothing!</p>
 
             </div>
@@ -64,7 +65,7 @@
                 <div class="product-icon">
                     <img src="{% static '/images/output-onlinepngtools (9).png' %}" class="image5" alt=""><img
                         src="{% static '/images/coverg.png' %}" class="image6" alt=""></div>
-                <p class="product-title">Mobile accessories</p>
+                <a href="{% url 'design_add' %}" class="product-title">Mobile accessories</a>
                 <p class="product-text">A mobile that looks good, behaves good!</p>
 
 
@@ -77,7 +78,7 @@
                 <div class="product-icon"><img src="{% static '/images/output-onlinepngtools (6).png' %}" class="image1" alt=""><img
                         src="{% static '/images/mugG.png' %}" class="image2" alt=""></div>
 
-                <p class="product-title">Mugs</p>
+                <a href="{% url 'design_add' %}" class="product-title">Mugs</a>
                 <p class="product-text">Sip sip!, in a mug customized by you.
                 </p>
 
@@ -89,7 +90,7 @@
                 <div class="product-icon">
                     <img src="{% static  '/images/transplogo.png' %}" class="image7" alt=""><img src="{% static '/images/logoG.png' %}"
                         class="image8" alt=""></div>
-                <p class="product-title">Stickers</p>
+                <a href="{% url 'design_add' %}" class="product-title">Stickers</a>
                 <p class="product-text">Paste your creation! Make a sticker</p>
 
             </div>
@@ -98,6 +99,33 @@
         </div>
 
     </section>
+
+        <!-- CIRCULAR NAV -->
+
+        <section id="circularMenu" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+                <i class="fa fa-plus"></i>
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="{% url 'profile' %}" class="menu-item fa fa-user"></a>
+                <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
+                <a href="javascript:void();" class="menu-item fa fa-truck"></a>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
+                {% else %}
+                <a href="/" class="menu-item fa fa-sign-out"></a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <a href="#" onclick="red()" class="menu-item fa fa-user-plus" ></a>
+                {% else %}
+                <a href="javascript:void();" class="menu-item fa fa-user-plus" data-toggle="modal"
+                    data-target="#exampleModal"></a>
+                {% endif %}
+            </menu>
+
+        </section>
 
 
     <!-- GAMING PRODUCT REVIEWS  -->
@@ -191,7 +219,7 @@
 
 
         <div class="view-all-button">
-            <a href="#!">View All <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{% url 'happy' %}">View All <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </section>
 

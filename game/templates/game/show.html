@@ -224,7 +224,7 @@
       <div class="detai">
         <h3>Check your details! </h3>
         <div>
-         <p><strong>Email Id : </strong>{{user.email}}</p>
+         <p><strong>Hello Gamer :</strong>{{ user.username }}</p>
          <p><strong>Street Adress 1 : </strong>{{user.profile.address1}} </p>
          <p><strong>Street Address 2 : </strong>{{user.profile.address2}}</p>
          <p><strong>Pin : </strong>{{user.profile.pin}}</p>
@@ -235,7 +235,7 @@
 
       
       <div class="show-end">
-         <a href="{% url 'design_changelist' %}">Go to previous order</a> 
+         <a href="{% url 'design_changelist' %}">Cart</a> 
          <div style="color: white; font-size: 18px;">OR</div> 
          <form action="{% url 'show' designs.pk %}" method="post">
           {% csrf_token %}

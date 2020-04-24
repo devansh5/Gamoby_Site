@@ -3,20 +3,21 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.contrib.auth.models import User
 from .models import *
+from django.db import models    
 from django.forms.widgets import RadioSelect,TextInput
 from cloudinary.forms import CloudinaryFileField
 #custom form where we can add our own field
 
 
-class CreateUserForm(UserCreationForm):
-
+class UserCreationForm(UserCreationForm):
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     class meta:
         model = User
         fields = (
-            'email',
             'username',
+            'email',
             'password1',
-            'password2')
+            'password2',)
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,6 +25,12 @@ class CreateUserForm(UserCreationForm):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
             })
+    def save(self, commit=True):
+        user = super(UserCreationForm, self).save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+        return user
             
     
         
@@ -34,6 +41,16 @@ class EditProfileForm(forms.ModelForm):
             'email',
             'first_name',
             'last_name',
+        )
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contac
+        fields = (
+            'name',
+            'email',
+            'context',
         )
 
 

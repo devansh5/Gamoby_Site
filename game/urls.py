@@ -8,10 +8,10 @@ urlpatterns=[
     path('register/',views.register,name='register'),
     path('login/',views.login,name='login'),
     path('about/',views.about,name='about'),
-    path('reset_password/',auth_views.PasswordResetView.as_view(),name="reset_password"),
-    path('reset_password_sent/',auth_views.PasswordResetDoneView.as_view(),name="password_reset_done"),
-    path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(),name="password_reset_confirm"),
-    path('reset_password_complete/',auth_views.PasswordResetCompleteView.as_view(),name="password_reset_complete"),
+    path('reset_password/',auth_views.PasswordResetView.as_view(template_name="game/password_reset.html"),name="reset_password"),
+    path('reset_password_sent/',auth_views.PasswordResetDoneView.as_view(template_name="game/password_reset_sent.html"),name="password_reset_done"),
+    path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(template_name="game/password_reset_form.html"),name="password_reset_confirm"),
+    path('reset_password_complete/',auth_views.PasswordResetCompleteView.as_view(template_name="game/password_reset_done.html"),name="password_reset_complete"),
     path('contact/',views.contact,name='contact'),
     path('faq/',views.faq,name='faq'),
     path('logout/',views.logoutuser,name='logout'),
@@ -30,5 +30,6 @@ urlpatterns=[
     path('ajax/load-sizes/',views.load_sizes,name='ajax_load_sizes'),
     path('add/<int:pk>/',views.show,name='show'),
     path('happy/<int:id>',views.happy_like,name='happylike'),
+    path('paytm/',views.paytm,name='paytm')
     
 ]

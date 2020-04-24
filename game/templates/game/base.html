@@ -10,7 +10,6 @@
     
     <link rel="stylesheet" href="{% static '/css/navigation-bar.css' %}">
     <link rel="stylesheet" href="{% static '/css/footer.css' %}">
-    <link rel="stylesheet" href="{% static '/css/circular-nav.css' %}">
     <link rel="stylesheet" href="{% static '/css/loginSignPage.css' %}">
     <link rel="stylesheet" href="{% static '/css/index.css' %}">
     <link rel="stylesheet" href="{% static '/css/preloader.css' %}">
@@ -96,7 +95,7 @@
                             </div>
 
                             <div class="modal-input-section">
-                                <input type="text" id="signupEmail" class="form-control" required />
+                                <input type="email" id="signupEmail"  required />
                                 <label for="signupEmail">Email</label>
                             </div> 
                             
@@ -175,28 +174,7 @@
 </section>
 
 
-    <!-- CIRCULAR NAV -->
 
-        <section id="circularMenu" class="circular-menu">
-
-            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
-                <i class="fa fa-plus"></i>
-            </a>
-
-            <menu class="items-wrapper">
-                <a href="{% url 'profile' %}" class="menu-item fa fa-user"></a>
-                <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
-                <a href="javascript:void();" class="menu-item fa fa-truck"></a>
-                <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
-                {% if request.user.is_authenticated %}
-                <a href="#" onclick="red()" class="menu-item fa fa-user-plus" ></a>
-                {% else %}
-                <a href="javascript:void();" class="menu-item fa fa-user-plus" data-toggle="modal"
-                    data-target="#exampleModal"></a>
-                {% endif %}
-            </menu>
-
-        </section>
 
 
     <!-- NAVIGATION BAR  -->

@@ -3,31 +3,90 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static '/css/reviewProduct.css' %}">
+    <link rel="stylesheet" href="{%static '/css/reviewProduct.css' %}">
 {% endblock %}
 
  {% block css %}
+
+
  <style>
+
+  body{
+    margin:0px;
+    padding:0px;
+  }  
+
+
+
+
+  .filter label{
+    color:white;
+    text-transform: uppercase;
+    margin-right:10px;
+    font-weight: 600;
+    font-size: 18px;
+    margin:auto 10px;  
+ }
+
+ .filter{
+   margin-top:12px;
+   z-index:99;
+   padding:7px;
+   display: flex;
+   width:100%;
+   justify-content:center;
+   align-items: center;
+   background: rgba(255,0,0,0.935);
+ }
+
+ .filterbt{
+   border-radius: 3px;
+   background: white;
+   color: red;
+   font-weight: 700;
+   text-transform: uppercase;
+   padding: 3px 10px;
+   width:80px;
+   font-size:14.5px;
+   margin: 0px 10px;
+   letter-spacing:1.1px;
+ }
+
+ .filterbt:hover{
+   transform:scale(1.04);
+ }
+ 
+ .filter select{
+   cursor: pointer;
+   width:230px;
+   padding: 2px;
+ }
 
  .pagination{
    display: flex;
    justify-content: center;
-   margin: 30px 0 30px 0;
  }
+
+ .pagination .page-link{
+   color: red !important;
+   text-transform:uppercase;
+   font-weight: 700;
+ }
+ .pagination .num{
+   color: white !important;
+   text-transform:uppercase;
+   background-color: red !important;
+   border: red;
+   height:100%;
+   font-weight: 700;
+ }
+
  body{
    margin: 0;
    padding: 0;
    box-sizing: border-box !important;
-   background: linear-gradient(rgb(12,12,12),rgb(20,22,22),rgb(32,32,32));
+   background: white;
  }
-
-#cd img{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  border-radius: 0px;
-  height:190px;
-}
 
 .card-actions{
   display:flex;
@@ -37,34 +96,35 @@
 }
 
  #cd{
-   position: relative;
-   margin:80px auto;
+    position: relative;
+    margin:50px auto;
     text-align:center;
  }
 
+
 .card{
-  margin-bottom: 20px;
-  max-width: 255px;
+    margin-bottom: 20px;
 }
  
 
  #cd .card{
-   border-radius: 0;
-    box-shadow: 0px 0px 3px 2px rgba(63, 62, 62, 0.736);
+    border-radius: 0;
     box-sizing: border-box;
     background: #ffffff;
     display: inline-block;
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 255px;
-    perspective: 1000;
+    width: 270px;
     text-align: left;
     transition: all 0.3s 0s ease-in;
     z-index: 1;
  }
  
+
  #cd .card-img-top{
-   width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0px;
+    height:220px;
+    width: 100%;
     filter: drop-shadow(0px 2px 2px rgba(102, 101, 101, 0.63));
  }
 
@@ -72,16 +132,20 @@
     margin-top: 0px;
     position: relative;
     z-index: 0;
-   display: inline-block;
-   height:160px;
+    display: inline-block;
+    height:150px;
+    width:100%;
  }
 
  .bt {
-   margin-bottom: 15px;
-       background: #fa2626;
+    margin-bottom: 15px;
+    background: red;
+    text-transform: uppercase;
     font-size: 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+    font-weight:600;
+    border-radius: 3px;
+    letter-spacing:0.5px;
+    box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.25);
     color: #ffffff;
     display: inline-block;
     padding: 6px 18px 8px;
@@ -89,19 +153,21 @@
     transition: all 0.25s ease;
  }
  .bt:hover{
-   color: white;
-    background: #f73131;
+    color: white;
     box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
     transform: translateY(-1px);
     transition: all 0.25s 0s ease-out;
  }
 
+
  #cd .card-title{
+    width:100%;
     margin-top: 0px;
     z-index: 0;
  }
  #cd .card-title h2{
-   margin-top: 10px;
+    margin-top: 10px;
+    width:100%;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
@@ -109,38 +175,46 @@
  }
  #cd .card-text p{
     display: block;
-    font-size: 14.5px;
-    font-weight: 500;
+    font-size: 15.5px;
+    width:100%;
+    font-weight: 600;
     letter-spacing: 0em;
     text-align: center;
     margin-top: -5px;
-    line-height: 1.2;
     padding: 0 3px 0 3px;
  }
-  .filter label{
-    color:White;
-    font-size: 30px;
-    
+ .wrappit{
+    background: linear-gradient(rgb(12,12,12),rgb(20,22,22),rgb(32,32,32));
+    padding:20px 0;
  }
- .filter input{
-   width:30%;
+ .col-4{
+   max-width: inherit;
  }
- .filter{
-   margin-top: 25px;
+
+ .row{ 
+   margin: auto;
+   width:100%;
  }
- .filterbt{
-   width:100px;
+
+ @media screen and (max-width:590px){
+  .filter select{
+    width:180px;
+    padding: 3px;
+   }
+   label{
+    display:none;
+   }
+  .filterbt{
+    padding: 3px 7px;
+    width:60px;
+    font-size:14.5px;
+    margin: 0px 7px;
+    letter-spacing:0px;
+   }
  }
- .filter h1 span{
-   color: yellowgreen;
-   font-size: 20px;
- }
- .filter h1{
-   font-size:15px;
-   color: red;
- }
- 
+
  </style>
+
  
  {% endblock %}
 
@@ -160,8 +234,9 @@
       <option value="{{ i.id }}">{{ i.name }}</option>
       {% endfor %}
     </select>
+    <button type="submit" class="filterbt">Search</button>
   </div></center>
-  <center><button type="submit" class="filterbt">Search</button></center>
+
 </form>
 
 
@@ -172,10 +247,10 @@
 
 
 
-<div id="cd" class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3">
-      {% for i in product_filter.qs %}
-      <div class="col-3"> 
+<div id="cd" >
+    <div class="row row-cols-1 row-cols-md-3 ">
+      {% for i in products %}
+      <div class="col-4"> 
         <div class="card" id="demo{{forloop.counter}}">
           <img src='/media/{{i.image}}' class="card-img-top" alt="...">
           
@@ -195,59 +270,36 @@
       {% endfor %}
       </div>
   </div>
+
+
   <ul class="pagination">
-    {% if products.has_previous  %}
-  
-      <li class="page-item ">
-        <a class="page-link" href="?page={{products.previous_page_number}}">Previous</a>
-      </li>
-      
-    {% elif products.has_previous == False %}
-      
-      <li class="page-item disabled">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-  
+
+  {% if products.has_previous %}
+  <li class="page-item">
+    <a class="page-link" href="?{% if products.category %}category={{products.category}}&{% endif %}page={{ products.previous_page_number }}">&laquo; Previous</a>
+  </li>
+  {% endif %}
+
+  {% for i in products.paginator.page_range %}
+    {% if products.number == i %}
+          <li class="page-item active"><a class="page-link">{{ i }}</a></li>
+    {% else %}
+          <li class="page-item" ><a class="page-link" href="?{% if products.category %}category={{products.category}}&{% endif %}page={{ i }}">{{ i }}</a></li>
     {% endif %}
-    
-    {% for num in products.paginator.page_range %}
-  
-      {% if products.number == num %}
-  
-        <li class="page-item active" aria-current="page">
-          <a class="page-link" href="?page={{ num }}">{{ num }}<span class="sr-only">(current)</span></a>
-        </li>
-  
-      {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
-  
-      <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-  
-      {% endif %}
-  
     {% endfor %}
-  
-    
-  
+
     {% if products.has_next %}
-  
-      <li class="page-item">
-        <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
-      </li>
-      <li class="page-item">
-        <a href="?page={{ products.paginator.num_pages }}"></a>
-      </li>
-  
+          <li class="page-item">
+          <a class="page-link" href="?{% if products.category %}category={{products.category}}&{% endif %}page={{ products.next_page_number }}">Next</a>
+          </li>
+          <li class="page-item">
+              <a class="page-link"  href="?{% if products.category %}category={{products.category}}&{% endif %}page={{ products.paginator.num_pages }}">Last &raquo;</a>
+          </li>
     {% endif %}
-  
-    {% if products.has_next == False  %}
-  
-      <li class="page-item disabled">
-        <a class="page-link" href="#">Next</a>
-      </li>
-  
-    {% endif %}
-  
-  </ul>
+
+    </ul>
+
+
  
 
 

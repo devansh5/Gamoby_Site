@@ -5,10 +5,14 @@
     <form action="{%url 'like' %}" method="POST">
         {% csrf_token %}
         {% if is_liked %}
-        <button type="submit" id="like" name="product_id" value="{{ product.id }}" class="btn btn-danger">Dislike</button>
+
+        <button type="submit" id="like" name="product_id" value="{{ product.id }}" class="btnn"><i class="fa fa-thumbs-down" style="color: black;"></i></button>
+        
         {% else %}
-        <button type="submit" id="like" name="product_id" value="{{ product.id }}" class="btn btn-primary">Like</button>
+        <button type="submit" id="like" name="product_id" value="{{ product.id }}" class="btnn"> <i class="fa fa-thumbs-up" style="color:red;"></i></button>
+        
         {% endif %}
+
     </form>
 {% endif %}
 {% endblock %}

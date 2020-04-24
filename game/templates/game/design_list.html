@@ -143,6 +143,27 @@
         }
     }
 
+    .bt {
+        margin-bottom: 15px;
+        background: #fa2626;
+        font-size: 12px;
+        border-radius: 4px;
+        box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+        color: #ffffff;
+        display: inline-block;
+        padding: 6px 18px 8px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+ }
+
+ .bt:hover{
+        color: white;
+        background: #f73131;
+        box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+        transform: translateY(-1px);
+        transition: all 0.25s 0s ease-out;
+ }
+
     </style>
 
 
@@ -152,7 +173,7 @@
 {% block body %}
 <div class="design-list">
 
-    <h1>Your Previous Order(s)</h1>
+    <h1>Cart View</h1>
     
     <table border="1">
         <thead>
@@ -163,6 +184,7 @@
                 <th>Size</th>
                 <th>Price</th>
                 <th>Image Logo</th>
+                <th>Payment</th>
 
             </tr>
         </thead>
@@ -180,12 +202,10 @@
                   <td>{{design.price}}</td>
 
                   <td>{% cloudinary design.image width=150 height=150 %}</td>
+
+                  <td><a href="{% url 'paytm' %}" class="bt">Pay Here!</a></td>
                   
               </tr>
-            {% empty %}
-            <tr>
-                <td colspan="4">No design in db. <a href="{% url 'design_add' %}">Add the first person</a></td>
-            </tr>
             {% endfor %}
         </tbody>
     </table>

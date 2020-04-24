@@ -15,7 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
@@ -32,20 +32,21 @@ def register(request):
     if request.POST.get('act') == 'post':
         username = request.POST.get('username')
         email = request.POST.get('email')
+        print(email)
+        print(username)
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         data = {'username':username,'email':email,'password1':password1,'password2':password2}
-        form = CreateUserForm(data=data)
+        form = UserCreationForm(data=data)
         if form.is_valid():
-            
-            user = form.save(commit=False)
-            user.is_active = True
-            user.save()
+            owner = form.save(commit=False)
+            owner.is_active = True
+            owner.save()
             return HttpResponse(json.dumps({"message":"Success"}),content_type="application/json")
         else:
             return HttpResponse(json.dumps({"message":form.errors}),content_type="application/json")
     else:
-        form=CreateUserForm()
+        form=UserCreationForm()
     return HttpResponse(json.dumps({"message":"Denied"}),content_type="application/json")
 
 
@@ -70,7 +71,7 @@ def login(request):
 @login_required(login_url='login')
 def logoutuser(request):
     logout(request)
-    return render(request,'game/index.html')
+    return redirect('home')
   
 
   
@@ -89,11 +90,17 @@ def contact(request):
     if request.method=='POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        content = request.POST.get('content')
-        contact=Contact(name=name,email=email,content=content)
-        contact.save()
-        return redirect('home')
-      
+        context = request.POST.get('content')
+        print(name)
+        print(email)
+        print(context)
+        data={'name':name,'email':email,'context':context}
+        form =ContactForm(data=data)
+        if form.is_valid():
+            own=form.save()
+            return redirect('home')
+    else:
+        form=ContactForm()
     return render(request,'game/contact.html')
 
 
@@ -148,11 +155,16 @@ def password_change(request):
 
 
 def productreview(request):
-    products=Product.objects.all()
-    product_filter=ProductFilter(request.GET,queryset=products)
-    paginator=Paginator(products,12)
-    page=request.GET.get('page')
-    products=paginator.get_page(page)
+    product_filter=ProductFilter(request.GET,queryset=Product.objects.all())
+    products=product_filter.qs
+    paginator=Paginator(products,9)
+    page=request.GET.get('page',1)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(9)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
     category=Category.objects.all()
     params={'products':products,'product_filter':product_filter,'category':category}
     return render(request,'game/productreview.html',params)
@@ -254,7 +266,8 @@ def previousorders(request):
     context={'designs':designs}
     return render(request,'game/design_list.html',context)
 
-@login_required
+
+
 def upload(request):
     try:
         user_profile=Profile.objects.get(user=request.user)
@@ -294,6 +307,9 @@ def show(request,pk):
      
     context={'designs':designs,'ICON_EFFECTS':ICON_EFFECTS,'user':user}
     return render(request,'game/show.html',context)
+
+def paytm(request):
+    return render(request,'game/paytm.html')
 
 
 
