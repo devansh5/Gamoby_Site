@@ -79,17 +79,17 @@ WSGI_APPLICATION = 'gamobysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'GAMOBY_TEST',
-        'USER':'postgres',
-        'PASSWORD':'focus@onme',
-        'HOST':'localhost',
-        'PORT':'5432',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'GAMOBY_TEST',
+#         'USER':'postgres',
+#         'PASSWORD':'focus@onme',
+#         'HOST':'localhost',
+#         'PORT':'5432',
 
-    }
-}
+#     }
+# }
 
 
 # Password validation
