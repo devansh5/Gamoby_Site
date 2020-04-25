@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -162,9 +162,11 @@ EMAIL_HOST_PASSWORD='flygamoby'
 AWS_ACCESS_KEY_ID='AKIAXCEX4UOF6Z4DCXXG'
 AWS_SECRET_ACCESS_KEY='LerQTFakezQTI7jCnjuOVLLLeYdmfG9pqh2DbEqA'
 AWS_STORAGE_BUCKET_NAME='gamoby-fly'
+AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.ap-south-1.amazonaws.com'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.ap-south-1.amazonaws.com/'
+MEDIA_ROOT='media'
+MEDIA_URL = URL + 'media/'
 
-AWS_S3_FILE_OVERWRITE=False
-AWS_DEFAULT_ACL=None
-
-DEFAULT_FILE_STORAGES = 'storages.backends.s3boto3.S3Boto3Storage'
-
+DEFAULT_FILE_STORAGE = 'gamobysite.storage_backends.MediaStorage'
