@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'cloudinary',
+    'storages',
+    'import_export',
+
 ]
 
 MIDDLEWARE = [
@@ -78,8 +81,13 @@ WSGI_APPLICATION = 'gamobysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'GAMOBY_TEST',
+        'USER':'postgres',
+        'PASSWORD':'focus@onme',
+        'HOST':'localhost',
+        'PORT':'5432',
+
     }
 }
 
@@ -148,3 +156,15 @@ EMAIL_PORT=587
 EMAIL_USE_TLS='TRUE'
 EMAIL_HOST_USER='gamobyindia@gmail.com'
 EMAIL_HOST_PASSWORD='flygamoby'
+
+#AWS S3 BUCKET CONFIG
+
+AWS_ACCESS_KEY_ID='AKIAXCEX4UOF6Z4DCXXG'
+AWS_SECRET_ACCESS_KEY='LerQTFakezQTI7jCnjuOVLLLeYdmfG9pqh2DbEqA'
+AWS_STORAGE_BUCKET_NAME='gamoby-fly'
+
+AWS_S3_FILE_OVERWRITE=False
+AWS_DEFAULT_ACL=None
+
+DEFAULT_FILE_STORAGES = 'storages.backends.s3boto3.S3Boto3Storage'
+

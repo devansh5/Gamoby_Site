@@ -1,28 +1,53 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
 
 from .models import *
 
-admin.site.register(Product)
+@admin.register(Product)
+class ProductAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Profile)
+@admin.register(Profile)
+class ProfileAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Design)
+@admin.register(Design)
+class DesignAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Color)
+@admin.register(Color)
+class ColorAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Item)
+@admin.register(Item)
+class ItemAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Size)
+@admin.register(Size)
+class SizeAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Happy)
+@admin.register(Happy)
+class HappyAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Contac)
+@admin.register(Contac)
+class ContacAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Banner)
+@admin.register(Banner)
+class BannerAdmin(ImportExportModelAdmin):
+    pass
 
-admin.site.register(Notify)
+@admin.register(Notify)
+class NotifyAdmin(ImportExportModelAdmin):
+    pass
+
+ 

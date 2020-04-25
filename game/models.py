@@ -20,7 +20,7 @@ class Product(models.Model):
     desc=models.CharField(max_length=300,default="")
     category=models.ForeignKey(Category,on_delete=models.CASCADE,default="")
     pub_date=models.DateField(auto_now_add=True)
-    image=models.ImageField(upload_to="game/images",default="")
+    image=models.ImageField(upload_to="images",default="")
     likes = models.ManyToManyField(User,related_name='likes',blank=True)
     favs =  models.ManyToManyField(User,related_name='favs',blank=True)
     feat=models.CharField(max_length=500,default="")
@@ -55,7 +55,7 @@ class Notify(models.Model):
 
 
 class Banner(models.Model):
-    image=models.ImageField(upload_to='game/images',default="")
+    image=models.ImageField(upload_to='images',default="")
 
 class Profile(models.Model):
     CHOICES=[('Male','Male'),
@@ -89,7 +89,7 @@ class Happy(models.Model):
     happy_name=models.CharField(max_length=50)
     review=models.CharField(max_length=300)
     pub_date=models.DateField()
-    image=models.ImageField(upload_to="game/images",default="")
+    image=models.ImageField(upload_to="images",default="")
     happylikes = models.ManyToManyField(User,related_name='happylikes',blank=True)
     like_count=models.IntegerField(default=0)
      
