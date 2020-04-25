@@ -2,9 +2,7 @@
 
 {% load static %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{%static '/css/reviewProduct.css' %}">
-{% endblock %}
+
 
  {% block css %}
 
@@ -80,12 +78,16 @@
    height:100%;
    font-weight: 700;
  }
+ .page-item.active .page-link{
+   background:linear-gradient(rgb(7, 7, 7),rgb(17, 17, 17),rgb(32, 32, 32));
+   border-color: red;
+ }
 
  body{
    margin: 0;
    padding: 0;
    box-sizing: border-box !important;
-   background: white;
+   background: linear-gradient(rgb(7, 7, 7),rgb(17, 17, 17),rgb(32, 32, 32));
  }
 
 .card-actions{
@@ -187,7 +189,7 @@
     background: linear-gradient(rgb(12,12,12),rgb(20,22,22),rgb(32,32,32));
     padding:20px 0;
  }
- .col-4{
+ .col-3{
    max-width: inherit;
  }
 
@@ -248,9 +250,9 @@
 
 
 <div id="cd" >
-    <div class="row row-cols-1 row-cols-md-3 ">
+    <div class="row row-cols-1 row-cols-md-4 ">
       {% for i in products %}
-      <div class="col-4"> 
+      <div class="col-3"> 
         <div class="card" id="demo{{forloop.counter}}">
           <img src='/media/{{i.image}}' class="card-img-top" alt="...">
           

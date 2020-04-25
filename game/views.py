@@ -72,7 +72,11 @@ def login(request):
 def logoutuser(request):
     logout(request)
     return redirect('home')
-  
+
+def tnc(request):
+    return render(request,'game/tnc.html')
+
+
 
   
 
@@ -164,12 +168,12 @@ def password_change(request):
 def productreview(request):
     product_filter=ProductFilter(request.GET,queryset=Product.objects.all())
     products=product_filter.qs
-    paginator=Paginator(products,9)
+    paginator=Paginator(products,12)
     page=request.GET.get('page',1)
     try:
         products = paginator.page(page)
     except PageNotAnInteger:
-        products = paginator.page(9)
+        products = paginator.page(12)
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
     category=Category.objects.all()

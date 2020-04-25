@@ -7,7 +7,7 @@
 }
 
 .canvas-wrapper h3{
-font-size: 27px;
+font-size: 26px;
 padding:10px;
 text-align: center;
 color: white;
@@ -91,11 +91,9 @@ background-color: red !important;
   }
   
   .firstpage-miniheadings{
-      font-size: 48px;
-      margin-bottom: 32px;
-      margin-top: 30px;
-      text-transform: uppercase;
-      background: linear-gradient(rgb(204, 201, 201),rgb(160, 158, 158));
+      font-size: 33px;
+      margin-bottom: 10px;
+      background: linear-gradient(rgb(252, 252, 252) , rgb(243, 243, 243));
       background-clip:border-box;
       -webkit-background-clip: text;
       -webkit-text-fill-color:  transparent;
@@ -434,9 +432,9 @@ background-color: red !important;
     }
   
     .fa-heart:hover{
-  color: red;
-  transform: scale(1.2);
-  transition: all .3s ease-out 0s;
+      color: red;
+      transform: scale(1.2);
+      transition: all .3s ease-out 0s;
     }
   
     .count-heart{
@@ -495,11 +493,11 @@ background-color: red !important;
     padding-left: 0;
     padding-right: 0;
     background: linear-gradient(rgb(7, 7, 7),rgb(15, 15, 15),rgb(25, 25, 25));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
   }
   
   
@@ -535,9 +533,9 @@ background-color: red !important;
   
   div.review-card {
     border-bottom: 0;
-   box-sizing: border-box;
+    box-sizing: border-box;
     background:whitesmoke;
-   display: inline-block;
+    display: inline-block;
     margin-left: 0;
     margin-right: 0;
     max-width: 255px;
@@ -574,6 +572,7 @@ background-color: red !important;
     font-size: 14.5px;
     font-weight: 500;
     letter-spacing: 0em;
+    text-overflow:ellipsis;
   }
   
   div.review-card div.review-card-actions {

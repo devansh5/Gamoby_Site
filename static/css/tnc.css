@@ -1,0 +1,34 @@
+body{
+    background-color: rgb(59, 59, 59) !important;
+}
+
+.tnc-container{
+    width: 60vw !important;
+}
+
+.tnc-container h5{
+    font-size: 18px;
+}
+
+p{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 15.5px;
+}
+
+span{
+    font-weight: 700;
+}
+
+@media screen and (max-width:946px){
+    .tnc-container{
+        margin: 0;
+        width: 90vw !important;
+    }
+}
+
+@media screen and (max-width:400px){
+    .tnc-container{
+        margin: 0;
+        width: 90vw !important;
+    }
+}

@@ -1,21 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paytm Merchant Paage </title>
-</head>
-<body>
+{%extends 'game/base.html' %}
+{% load static %}
 
-    <h1>Redirecting you to merchant.....</h1>
-    
-    <h2>Please Do not Refresh Your Page</h2>
-    <form action="{% url 'home' %}" method="post" name="paytm">
-       {% csrf_token %}
-    </form>
 
-</body>
-</html>
+    {% block css %}
+    <style>
+    body{
+      background: linear-gradient(rgb(7, 7, 7),rgb(15, 15, 15),rgb(25, 25, 25));
+    }
+    .corona{
+        background: rgba(255,0,0,0.85);
+        display: flex;
+        justify-content: center;
+        width:80%;
+        margin: 0px auto;
+    }
+    h3{
+        color: white;
+        font-size: 33px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    section p{
+        font-weight:600;
+        font-size:22px;
+        margin-top:30px;
+        color: rgba(255,255,255,0.875);
+    }
+
+    @media screen and (max-width:600px){
+      .corona{
+        width:100%;
+      }
+      .corona img{
+          width:auto;
+          min-width:200px;
+          max-width:400px;
+      }
+    }
+            
+    @media screen and (max-width:414px){
+      .corona img{
+          width:300px;
+      }
+     h3{
+        color: white;
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    *{
+      overflow-x: hidden;
+    }
+    }
+            
+    </style>
+    {% endblock %}
+
+    {% block title %}No orders{% endblock %}
+
+{% block body %}
+
+<section class="corona container-fluid pt-5 pb-5">
+  <div>
+    <h3 class="text-center">All orders closed!</h3>
+    <span>
+     <p class="text-center">
+      Hey Gamer, to ensure yours and ours safety from the ongoing Novel Coronavirus pandemic, currenlty all orders(including pending orders) are closed till 3 March.
+     </p>
+     <p class="text-center mt-5">
+      Follow the WHO guidelines to help curb the situation and <strong>Stay Home Stay Safe!</strong>
+     </p>
+     <form action="{% url 'home' %}" method="post" name="paytm">
+        {% csrf_token %}
+     </form>
+     <div class="corona-wrap text-center">
+      <img class="p-1" src="{%static '/images/blue-2.png' %}" width="400px" alt="..">
+      <img class="p-1" src="{%static '/images/blue-3.png' %}" width="400px" alt="..">
+     </div>
+    </span>
+  </div>
+</section>
+
+
+
+{% block js %}
 <script>
     document.paytm.submit()
 </script>
+{% endblock %}
+
+{% endblock %}
