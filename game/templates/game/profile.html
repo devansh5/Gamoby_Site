@@ -89,12 +89,10 @@
             </div>
 
             <div class="profileToggle">
-                <div class="profileNotifications"> <i class="fa fa-bell"></i> All Notifications</div>
-                <div class="profileOrders"> <i class="fa fa-shopping-bag"></i> My Orders</div>
-                <div class="profileCoupons"> <i class="fa fa-gift"></i>My Giftcards/Coupons</div>
-                <div class="profileWishlist"> <a href="#!"> <i class="fa fa-bookmark"></i> My WishList</a> </div>
-                <div class="profileReviews"> <i class="fa fa-edit"></i> My Ratings & Reviews</div>
-                <div class="profileFAQs"> <a href="#!"> <i class="fa fa-book"></i> FAQs</a> </div>
+                <div class="profileNotifications"> <a href="{% url 'notify' %}"><i class="fa fa-bell"></i> All Notifications</a></div>
+                <div class="profileOrders"> <a href="{% url 'design_changelist' %}"><i class="fa fa-shopping-bag"></i> My Orders</a></div>
+                <div class="profileWishlist"> <a href="{% url 'wishlist' %}"> <i class="fa fa-bookmark"></i> My WishList</a> </div>
+                <div class="profileFAQs"> <a href="{% url  'faq' %}"> <i class="fa fa-book"></i> FAQs</a> </div>
             </div>
 
             <div class="usage-section">

@@ -188,33 +188,54 @@ margin-left: -70px;
     height: 80%;
     width: 100%;
 }
+.pop-up .signup-box h2 span:nth-child(1){
+    color: rgb(255, 0, 0);
+}
+.signup-box input{
+    caret-color: rgba(255, 0, 0, 0.925);
+}
 .login-modal-body .signup1,
 .login-modal-body .login1{
     margin-left: -5px;
 }
+.signup-box button{
+    background-color: red;
+}
+
 
 .pop-up .close-modalBtn{
     font-size: 50px;
     margin-top: -19px;
     margin-right: -95px;
 }
+.signup-box input:focus ~ label,
+.signup-box input:valid ~ label {
+    color: red !important;
+}
+
+.signup-box a{
+    color: red;
+}
+.signup-box a:hover{
+    color: rgba(255, 0, 0, 0.906);
+}
 }
 
 
 @media screen and (max-width:630px){
     .pop-up .modal-content{
-        width: 80%;
+        width: 90%;
         bottom: 0;
         z-index: 999;
-        left: 10% ;
-        transform: translate(0,0,0,-10%);
+        left: 5% ;
+        transform: translate(0,0,0,-5%);
     }
     .login-modal-body input{
-            width: 120%;
+            width: 130%;
             margin-top: 10px;
         }
         .login-modal-body button{
-            width: 120%;
+            width: 130%;
         }
         .pop-up .close-modalBtn{
             font-size: 50px;
@@ -222,23 +243,47 @@ margin-left: -70px;
             margin-right: -80px !important;
         }
 }
-@media screen and (max-width:488px) and (min-width:0px){
+@media screen and (max-width:488px) and (min-width:358px){
     .pop-up .modal-content{
-      transform: scale(0.8) !important;
+        width: 85%;
+        left: 5% ;
+        transform: translate(0,0,0,-5%);
     }
     .login-modal-body input{
-            width: 105%;
+            width: 115%;
         }
         .login-modal-body button{
-            width: 105%;
+            width: 115%;
         }
         .login-modal-body .signup1,
 .login-modal-body .login1{
-    margin-left: 0px;
+    margin-left: -0px;
 }
 
 .login-modal-body .signup2,
 .login-modal-body .login2{
-margin-left: 0px;
+margin-left: -30px;
+}
+}
+@media screen and (max-width:357px) and (min-width:0px){
+    .pop-up .modal-content{
+        width: 85%;
+        left: 5% ;
+        transform: translate(0,0,0,-5%);
+    }
+    .login-modal-body input{
+            width: 110%;
+        }
+        .login-modal-body button{
+            width: 110%;
+        }
+        .login-modal-body .signup1,
+.login-modal-body .login1{
+    margin-left: -0px;
+}
+
+.login-modal-body .signup2,
+.login-modal-body .login2{
+margin-left: -20px;
 }
 }

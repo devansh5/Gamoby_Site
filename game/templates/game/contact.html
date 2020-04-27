@@ -64,9 +64,12 @@
 
 {% block js %}
 <script>
-    function ril(){
-        alertify.alert('Gamoby India', 'Successfully Sent To Gamoby Team', function(){ alertify.success('Ok'); });
+    var b = document.getElementById("content").value;
+    if (b){
 
+        function ril(){
+            alertify.alert('Gamoby India', 'Successfully Sent To Gamoby Team', function(){ alertify.success('Ok'); });
+        }
     }
 
 </script>

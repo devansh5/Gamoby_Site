@@ -8,7 +8,7 @@
     {% endblock %}
 
 
-    {% block title %}Gamer's Lobby{% endblock %}
+    {% block title %}Gamoby India{% endblock %}
 
 
 
@@ -49,8 +49,16 @@
             </a>
 
             <menu class="items-wrapper">
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="menu-item fa fa-user"></a>
-                <a href="javascript:void();" class="menu-item fa fa-shopping-bag"></a>
+                {% else %}
+                <a href="/" onclick="ala()" class="menu-item fa fa-user"></a>
+                {% endif %}
+                {%if request.user.is_authenticated %}
+                <a href="{% url 'wishlist' %}" class="menu-item fa fa-shopping-bag"></a>
+                {% else %}
+                <a href="/" class="menu-item fa fa-shopping-bag"></a>
+                {% endif %}
                 <a href="{% url 'notify' %}" class="menu-item fa fa-bell"></a>
                 {% if request.user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="menu-item fa fa-sign-out"></a>
@@ -245,12 +253,11 @@
             <source src="https://dl.dropbox.com/u/26141789/canvas/pingpong/Metal%20Cling%20-%20Hit.wav" />
         </audio>
         </div>
+    {% block js %}
     <script src="{% static '/js/index.js' %}"></script>
+
     <script src="{% static '/js/game.js' %}"></script>
-        
-
-
-
+    {% endblock %}
 
 {% endblock %}
  

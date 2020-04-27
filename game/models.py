@@ -128,7 +128,7 @@ class Design(models.Model):
     item=models.ForeignKey(Item,on_delete=models.SET_NULL,null=True)
     color = models.ForeignKey(Color, on_delete=models.SET_NULL,null=True)
     size = models.ForeignKey(Size, on_delete=models.SET_NULL,null=True)
-    title=models.CharField("Title",max_length=200,blank=True)
+    purpose=models.CharField("Title",max_length=200,blank=True)
 
     image=CloudinaryField('image',blank=True)
 

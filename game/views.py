@@ -123,6 +123,8 @@ def view_profile(request):
     args={'user':request.user}
     return render(request,'game/profile.html',args)
 
+    
+
 @login_required(login_url='login')
 def edit_profile(request):
     try:
@@ -303,21 +305,90 @@ def show(request,pk):
     designs=Design.objects.get(pk=pk)
     user=designs.owner
     if user==request.user:
-        ICON_EFFECTS=dict(
-        format="jpg",
-        transformation = [
-            dict(height=150,width=90,crop="scale"),
-            dict(underlay="v1b9fiv9lvktzm7w6iu1",width=350,height=250,crop='crop'),
-            dict(crop='scale',gravity="center",y=20,x=-20),
-        ]
-    )
+        if designs.item.name == "Mobile Cover": 
+            ICON_EFFECTS=dict(
+            format="jpg",
+            transformation = [
+                dict(height=150,width=150,crop="scale"),
+                dict(underlay="blackphone_zfj9vu",width=800,height=800,crop='crop'),
+                dict(crop='scale',gravity="center",y=20,x=-20),
+            ]
+        )   
+
+        
+            
+
+        elif designs.item.name == 'Mugs' :
+            if designs.color.name == 'Black':
+                ICON_EFFECTS=dict(
+                format="jpg",
+                transformation = [
+                    dict(height=129,width=189,crop="scale"),
+                    dict(underlay="blackmug_gil1rg",width=800,height=473,crop='crop'),
+                    dict(crop='scale',gravity="xy_center",y=60,x=185),
+                ]   
+            )
+            
+                
+            else:
+                ICON_EFFECTS=dict(
+                format="jpg",
+                transformation = [
+                    dict(height=140,width=189,crop="scale"),
+                    dict(underlay="whitemug_slphok",width=800,height=600,crop='crop'),
+                    dict(crop='scale',gravity="xy_center",y=60,x=185),
+                ]   
+            )
+            
+                
+        
+        elif designs.item.name == 'Tshirt':
+            if designs.color.name == 'Black':
+                ICON_EFFECTS=dict(
+                format="jpg",
+                transformation = [
+                    dict(height=150,width=190,crop="scale"),
+                    dict(underlay="blacktshirt_cs8hjg",width=1200,height=800,crop='crop'),
+                    dict(crop='scale',gravity="xy_center",y=120,x=100),
+                ]   
+            )
+            
+                
+            else:
+                ICON_EFFECTS=dict(
+                format="jpg",
+                transformation = [
+                    dict(height=160,width=200,crop="scale"),
+                    dict(underlay="whiteshirts_hqqnqk",width=800,height=800,crop='crop'),
+                    dict(crop='scale',gravity="center",y=120,x=90),
+                ]   
+            )
+            
+                
+
+        elif designs.item.name == 'Stickers':
+            ICON_EFFECTS=dict(
+                format="jpg",
+                transformation = [
+                    dict(height=800,width=760,crop="scale"),
+                ]   
+            )
+
+           
+            
+        
+
+                
         if request.method == 'POST':
             return render(request,'game/paytm.html')
+    
     else:
         return HttpResponse("You are not authorized to see this you need to login first")
-     
+    
     context={'designs':designs,'ICON_EFFECTS':ICON_EFFECTS,'user':user}
     return render(request,'game/show.html',context)
+     
+    
 
 def paytm(request):
     return render(request,'game/paytm.html')

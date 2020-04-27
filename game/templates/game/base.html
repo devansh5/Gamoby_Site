@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title %} {% endblock %}</title>
+    <link rel="icon" href="{% static '/images/logo.png' %}" type="image/icon type">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     
@@ -25,30 +26,59 @@
 </head>
 {% block css %}
 <style>
-    .alertify .ajs-header{
-        color:red;
-        text-align: center;
-        background-color: black;
-        font-size: 30px;
-        font-weight: 700;
+
+    .alertify{
+        height:100px;
     }
-    .alertify .ajs-body .ajs-content {
-        padding: 16px 24px 16px 16px;
-        text-align: center;
-        font-size: 25px;
-        color: rgb(50, 88, 12);
     
-    }   
-    .alertify-notifier{
-        display: none;
+        .alertify .ajs-header{
+            color:red;
+            padding:2px;
+            text-align: center;
+            font-size: 23px;
+            font-family: 'Rajdhani';
+            font-weight: 700;
+        }
+        .alertify .ajs-body .ajs-content {
+            text-align: center;
+            font-size: 18px;
+            font-weight:600;
+            padding:5px 0 0 0 !important;
+            color: rgb(50, 88, 12);
+        
+        }   
+        .alertify-notifier{
+            display: none;
+        }
+        .alertify .ajs-footer .ajs-buttons.ajs-primary {
+        text-align: center;
+        color:greenyellow ;
+        }
+        .alertify .ajs-close{
+        padding: 0 !important;
+        margin: 0 !important;
     }
-    .alertify .ajs-footer .ajs-buttons.ajs-primary {
-    text-align: center;
-    color:greenyellow ;
+    .alertify .ajs-footer{
+        padding: 0 !important;
+        margin:  0 !important;
+        display: none;   
     }
-
-
-</style>
+    .ajs-reset{
+        display:none;
+    }
+    div.ajs-dialog{
+        margin:auto;
+        width:350px;
+        min-height:85px !important;
+        padding:0px;
+        height:0px !important;
+    }
+    .ajs-body{
+        min-height: 15px !important;
+    }
+    
+    
+    </style>
 
 {% endblock %}
 
@@ -372,6 +402,10 @@
                             <p>
                                 <i class="fa fa-phone mr-3"></i>8178677654</p>
                         </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-phone mr-3"></i>9971453176</p>
+                        </li>
                        
                     </ul>
     
@@ -388,17 +422,17 @@
     
                     <!-- Facebook -->
                     <div class="footer-social-buttons">
-                        <a href="https://www.facebook.com/" target="_blank" type="button"
+                        <a href="https://www.facebook.com/gamoby.india" target="_blank" type="button"
                             class="btn-lg btn-floating btn-fb">
                             <i class="fa fa-facebook-f"></i>
                         </a>
                         <!-- Twitter -->
-                        <a href="https://twitter.com/explore" target="_blank" type="button"
+                        <a href="https://twitter.com/GamobyI" target="_blank" type="button"
                             class="btn-lg btn-floating btn-tw">
                             <i class="fa fa-twitter"></i>
                         </a>
                         <!-- Instagram -->
-                        <a href="https://www.instagram.com/" target="_blank" type="button"
+                        <a href="https://www.instagram.com/gamobyindia" target="_blank" type="button"
                             class=" btn-lg btn-floating btn-ins">
                             <i class="fa fa-instagram"></i>
                         </a>
@@ -456,7 +490,11 @@ crossorigin="anonymous"></script>
         alertify.alert('Gamoby India', 'You are already logged in', function(){ alertify.success('Ok'); });  
     }
 </script>
-
+<script>
+    function ala(){
+        alertify.alert('Gamoby India', 'Please Login First', function(){ alertify.success('Ok'); });
+    }
+</script>
 <script>
 
 

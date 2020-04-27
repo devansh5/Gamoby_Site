@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zx#qork17i=@z(n*6thl&1b0t(j^iy1j2hqda48fry4jcyqu^p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['gamoby.herokuapp.com']
+ALLOWED_HOSTS = ['gamoby.in','gamoby.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -129,6 +129,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -149,6 +151,13 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+
+
+#Security Configuration
+
+CSRF_COOKIE_SECURE=True
+SESSION_COOKIE_SECURE=True
+
 
 
 
