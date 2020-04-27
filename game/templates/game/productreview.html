@@ -254,7 +254,7 @@
       {% for i in products %}
       <div class="col-3"> 
         <div class="card" id="demo{{forloop.counter}}">
-          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+          <img src='{{i.image.url}}' class="card-img-top" alt="...">
           
           <div class="cardbody">
             <div class="card-title">
