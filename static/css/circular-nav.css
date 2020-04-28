@@ -18,6 +18,7 @@ overflow-x: hidden;
   transform: translate(0,-47.5%,-27px,0);
 }
 
+
 @media screen and (max-width:1000px) and (min-width:700px){
   .circular-menu {
     right: 46.2% ;

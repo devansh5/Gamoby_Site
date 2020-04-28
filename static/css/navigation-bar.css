@@ -239,7 +239,7 @@ li {
 .responsive-nav{
     z-index: 9999999;
     box-shadow: 0px 0px 3px 1px rgb(92, 91, 91);
-    position: relative;
+    position: fixed;
     color: rgb(231, 222, 206);
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -247,6 +247,7 @@ li {
     justify-content: flex-start;
     height: 8vh;
     align-items: center;
+    overflow: hidden;
 }
 
 .responsive-logo{

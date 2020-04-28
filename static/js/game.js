@@ -6,9 +6,7 @@
 window.addEventListener('resize', ()=>{
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
-	init();
-	location.reload();
-},true);
+},false);
 
 
 

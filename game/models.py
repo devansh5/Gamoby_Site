@@ -16,14 +16,15 @@ class Category(models.Model):
 
 class Product(models.Model):
     product_id=models.AutoField
-    product_name=models.CharField(max_length=50,default="")
-    desc=models.CharField(max_length=300,default="")
+    sdesc=models.CharField(max_length=1000,default="")
+    product_name=models.CharField(max_length=100,default="")
+    desc=models.CharField(max_length=10000,default="")
     category=models.ForeignKey(Category,on_delete=models.CASCADE,default="")
     pub_date=models.DateField(auto_now_add=True)
     image=models.ImageField(upload_to="images",default="")
     likes = models.ManyToManyField(User,related_name='likes',blank=True)
     favs =  models.ManyToManyField(User,related_name='favs',blank=True)
-    feat=models.CharField(max_length=500,default="")
+    feat=models.CharField(max_length=10000,default="")
     unboxing=models.URLField(max_length=250,default="")
     ecom1=models.URLField(max_length=250,default="")
     ecom1name=models.CharField(max_length=50,default="")

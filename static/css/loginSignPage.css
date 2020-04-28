@@ -31,7 +31,7 @@
 }
 
 .pop-up .close-modalBtn{
-    font-size: 55px;
+    font-size: 50px;
     color: snow;
     font-weight: 300;
     opacity: 1;
@@ -121,7 +121,7 @@ button:focus{
     width: 130%;
     margin-top:1.6em;
     margin-bottom: 0.9em;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: bold;
     text-transform: uppercase;
     color: white;
@@ -242,10 +242,13 @@ margin-left: -70px;
             margin-top: -19px;
             margin-right: -80px !important;
         }
+      .close-modalBtn span{
+          font-size: 35px !important;
+      }
 }
 @media screen and (max-width:488px) and (min-width:358px){
     .pop-up .modal-content{
-        width: 85%;
+        width: 90%;
         left: 5% ;
         transform: translate(0,0,0,-5%);
     }
@@ -263,11 +266,15 @@ margin-left: -70px;
 .login-modal-body .signup2,
 .login-modal-body .login2{
 margin-left: -30px;
+margin-top: 20px;
+}
+.close-modalBtn span{
+display: none;
 }
 }
 @media screen and (max-width:357px) and (min-width:0px){
     .pop-up .modal-content{
-        width: 85%;
+        width: 90%;
         left: 5% ;
         transform: translate(0,0,0,-5%);
     }
@@ -285,5 +292,9 @@ margin-left: -30px;
 .login-modal-body .signup2,
 .login-modal-body .login2{
 margin-left: -20px;
+margin-top: 20px;
 }
+.close-modalBtn span{
+    display: none;
+    }
 }

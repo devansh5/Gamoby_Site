@@ -15,7 +15,7 @@
         <div class="introduction">
             <div class="introduction productInfo-section">
                 <h2 class="productName">{{product.product_name}}</h2>
-                <h5 class="text-muted">{{product.category}}</h5>
+                <h5 class="text-muted">{{product.sdesc}}</h5>
                 <div id="like-section">
                     {% include 'game/like_section.html' %}
                 </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="productImg-section">
-            <img src="/media/{{product.image}}" alt="matebook" />
+            <img src="{{ i.image.url }}" alt="matebook" />
         </div>
 
     </section>

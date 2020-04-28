@@ -1,11 +1,6 @@
 *{
   font-family: 'Rajdhani', sans-serif;
 }
-
-#canvas{
-  width: 100%;
-}
-
 .canvas-wrapper h3{
 font-size: 26px;
 padding:10px;
@@ -15,12 +10,26 @@ font-weight: 600;
 margin: 15px 0 5px 0;
 background: rgb(209, 1, 1);
 }
+/* 
+#canvas{
+  width: 100%;
+}
+
 
 
 @media screen and (max-width:968px){
   #canvas{
     width: 100%;
     height: 270px !important;
+  }
+  .canvas-wrapper h3{
+    font-size: 23px;
+    }
+}
+@media screen and (max-width:766px){
+  #canvas{
+    width: 100%;
+    height: 230px !important;
   }
   .canvas-wrapper h3{
     font-size: 23px;
@@ -35,6 +44,37 @@ background: rgb(209, 1, 1);
   .canvas-wrapper h3{
     font-size: 20px;
     }
+} */
+
+@media screen and (max-width:930px){
+  #carouselExampleIndicators img{
+    height: 450px;
+  }
+}
+@media screen and (max-width:710px){
+  #carouselExampleIndicators img{
+    height: 410px;
+  }
+}
+@media screen and (max-width:540px){
+  #carouselExampleIndicators img{
+    height: 370px;
+  }
+}
+@media screen and (max-width:480px){
+  #carouselExampleIndicators img{
+    height: 320px;
+  }
+}
+@media screen and (max-width:410px){
+  #carouselExampleIndicators img{
+    height: 280px;
+  }
+}
+@media screen and (max-width:354px){
+  #carouselExampleIndicators img{
+    height: 260px;
+  }
 }
 
 body{
@@ -432,9 +472,9 @@ background-color: red !important;
     }
   
     .fa-heart:hover{
-      color: red;
-      transform: scale(1.2);
-      transition: all .3s ease-out 0s;
+  color: red;
+  transform: scale(1.2);
+  transition: all .3s ease-out 0s;
     }
   
     .count-heart{
@@ -493,11 +533,11 @@ background-color: red !important;
     padding-left: 0;
     padding-right: 0;
     background: linear-gradient(rgb(7, 7, 7),rgb(15, 15, 15),rgb(25, 25, 25));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      justify-content: center;
   }
   
   
@@ -533,9 +573,9 @@ background-color: red !important;
   
   div.review-card {
     border-bottom: 0;
-    box-sizing: border-box;
+   box-sizing: border-box;
     background:whitesmoke;
-    display: inline-block;
+   display: inline-block;
     margin-left: 0;
     margin-right: 0;
     max-width: 255px;
@@ -572,7 +612,6 @@ background-color: red !important;
     font-size: 14.5px;
     font-weight: 500;
     letter-spacing: 0em;
-    text-overflow:ellipsis;
   }
   
   div.review-card div.review-card-actions {
@@ -642,8 +681,8 @@ background-color: red !important;
   }
   @media screen and (max-width:735px) and (min-width:529px){
     .product-card {
-      max-width: 135px;
-      height: 135px;
+      max-width: 130px;
+      height: 130px;
     }
     .product-icon {
       height: 55px;
@@ -663,20 +702,20 @@ background-color: red !important;
    width: 100% !important;
   }
   }
-  @media screen and (max-width:528px) and (min-width:433px){
+  @media screen and (max-width:528px) and (min-width:0px){
     .product-card {
       margin-bottom: 10px;
-      max-width: 145px !important;
-      height: 145px !important;
+      max-width: 135px !important;
+      height: 135px !important;
     }
     .product-icon {
-      height: 60px !important;
-      max-width: 60px !important;
+      height: 70px !important;
+      max-width: 70px !important;
     }
     .product-card .product-title {
       margin-top: 5px;
       letter-spacing: 1px;
-      font-size: 13px;
+      font-size: 14px;
     }
     .product-card .product-text {
       width: 85%;
@@ -685,34 +724,19 @@ background-color: red !important;
       margin-top: 0px;
   }
   .product-card-container {
-   width: 100% !important;
-  }
-  }
-  @media screen and (max-width:432px) and (min-width:0px){
-    .product-card {
-      margin-bottom: 10px;
-      max-width: 125px !important;
-      height: 125px !important;
-    }
-    .product-icon {
-      height: 55px !important;
-      max-width: 55px !important;
-    }
-    .product-card .product-title {
-      margin-top: 5px;
-      letter-spacing: 1px;
-      font-size: 13px;
-    }
-    .product-card .product-text {
-      width: 85%;
-      display: none;
-      font-size: 13px;
-      margin-top: 0px;
-  }
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 0px !important;
+    margin-right: 0 !important;
+   }
   .product-card-container {
    width: 100% !important;
   }
+  .product-container{
+    padding: 20px 2px;
   }
+  }
+
   @media screen and (max-width:711px) and (min-width:0px){
     .product-card {
       margin-left: 6px;
