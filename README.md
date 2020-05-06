@@ -1,5 +1,5 @@
 # Gamoby Site
-
+             
           Point To be noted
 
           pip install django-widget-tweaks
@@ -21,5 +21,8 @@
           pip install django-filter
           
           Like on the happy customer is not working 
+          Deployed on Heroku ,user Amazon AWS S3 for hosting media files .
+          
+          Here is the link you can visit the site -: www.gamoby.in
           
 
