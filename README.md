@@ -23,6 +23,6 @@
           Like on the happy customer is not working 
           Deployed on Heroku ,user Amazon AWS S3 for hosting media files .
           
-          Here is the link you can visit the site -: www.gamoby.in
+   Here is the link you can visit the site -: http://www.gamoby.in
           
 
