@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'zx#qork17i=@z(n*6thl&1b0t(j^iy1j2hqda48fry4jcyqu^p'
+SECRET_KEY = '#########'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -159,9 +159,9 @@ MEDIA_URL='/media/'
 
 #Cloudinary COnfiguration
 CLOUDINARY = {
-  'cloud_name': 'gam1e4by',  
-  'api_key': '758894869515971',  
-  'api_secret': 'fqqHNbXb-ydqFGb4wONcbt2i4X4',  
+  'cloud_name':'##############',  
+  'api_key': '###########',  
+  'api_secret': '###########',  
 }
 
 #SMTP Configuration
@@ -170,14 +170,14 @@ EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS='TRUE'
-EMAIL_HOST_USER='gamobyindia@gmail.com'
-EMAIL_HOST_PASSWORD='flygamoby'
+EMAIL_HOST_USER='####################'
+EMAIL_HOST_PASSWORD='##########'
 
 #AWS S3 BUCKET CONFIG
 
-AWS_ACCESS_KEY_ID='AKIAXCEX4UOF6Z4DCXXG'
-AWS_SECRET_ACCESS_KEY='LerQTFakezQTI7jCnjuOVLLLeYdmfG9pqh2DbEqA'
-AWS_STORAGE_BUCKET_NAME='gamoby-fly'
+AWS_ACCESS_KEY_ID='#######'
+AWS_SECRET_ACCESS_KEY='####################'
+AWS_STORAGE_BUCKET_NAME='##############'
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.ap-south-1.amazonaws.com'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
