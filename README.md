@@ -34,6 +34,13 @@ We also prepare a detailed review of the gaming equipments ranging from cheap to
           Ranjit Shah(AIACTR,Delhi)
           Meghal Bisht(AIACTR,Delhi)
           
+          
+   ![Gamoby](https://res.cloudinary.com/gam1e4by/image/upload/v1602251531/Gamoby%20site/mid2_d8km4e.png)
+   
+   ![Gamoby_site](https://res.cloudinary.com/gam1e4by/image/upload/v1602251494/Gamoby%20site/designlogo_tkbmah.png)
+   
+   ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602251516/Gamoby%20site/mid_qmcyo8.png)
+          
    Here is the link you can visit the site -: http://www.gamoby.in
           
 
