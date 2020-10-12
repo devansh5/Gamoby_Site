@@ -39,7 +39,6 @@ We also prepare a detailed review of the gaming equipments ranging from cheap to
    
    ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602251516/Gamoby%20site/mid_qmcyo8.png)
    
-   ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602546583/Gamoby%20site/logoupload_tnhp0g.png)
    
    ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602546583/Gamoby%20site/logoupload_tnhp0g.png)
    ![Game Site]( https://res.cloudinary.com/gam1e4by/image/upload/v1602546607/Gamoby%20site/productreview_a1o8xe.png)
