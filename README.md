@@ -23,10 +23,10 @@ We also prepare a detailed review of the gaming equipments ranging from cheap to
           
           django filter added for filtering the product 
           
-          pip install django-filter
+          Like and Add to whishlist features for every product 
           
-          Like on the happy customer is not working 
-          Deployed on Heroku ,user Amazon AWS S3 for hosting media files .
+         
+          Deployed on Heroku ,used Amazon AWS S3 for hosting media files .
           
           Collaborators :
           Ranjit Shah(AIACTR,Delhi)
