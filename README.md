@@ -9,9 +9,7 @@ We also prepare a detailed review of the gaming equipments ranging from cheap to
              
           Point To be noted
 
-          pip install django-widget-tweaks
-
-          pip install pillow 
+          pip install requirements.txt
           
           Used Cloudinary for the image transformation and manipulation 
           
@@ -40,6 +38,13 @@ We also prepare a detailed review of the gaming equipments ranging from cheap to
    ![Gamoby_site](https://res.cloudinary.com/gam1e4by/image/upload/v1602251494/Gamoby%20site/designlogo_tkbmah.png)
    
    ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602251516/Gamoby%20site/mid_qmcyo8.png)
+   
+   ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602546583/Gamoby%20site/logoupload_tnhp0g.png)
+   
+   ![Game Site](https://res.cloudinary.com/gam1e4by/image/upload/v1602546583/Gamoby%20site/logoupload_tnhp0g.png)
+   ![Game Site]( https://res.cloudinary.com/gam1e4by/image/upload/v1602546607/Gamoby%20site/productreview_a1o8xe.png)
+   ![Game Site]( https://res.cloudinary.com/gam1e4by/image/upload/v1602546609/Gamoby%20site/profilesave_rjkkpg.png)
+    
           
    Here is the link you can visit the site -: http://www.gamoby.in
           
