@@ -3,7 +3,9 @@
 An e-commerce website started by 3 independent individuals.
 Since gaming in India is reaching new heights every day, Gamoby, coined from the word (Gamer's Lobby) aims to target the mediocre and big gamers to help them brand themselves by choosing, creating and customising their own merchandise at a pocket-friendly budget!
 We take orders customized by you and ship it all across India.
-We also prepare a detailed review of the gaming equipments ranging from cheap to expensive money range to help you choose the best product and enhance your gaming talent!
+We also prepare a detailed review of the gaming equipments ranging from cheap to expensive money range to help you choose the best product and enhance your gaming talent.
+
+TECH STACK : - Django ,HTML ,CSS ,Javascript , PostgreSQL 
              
              
              
